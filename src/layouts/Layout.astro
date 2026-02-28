@@ -1,0 +1,121 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description: string;
+    heroPreloadUrl?: string;
+}
+
+const { title, description, heroPreloadUrl } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/webp" href="/logo-valda.webp" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+        <!-- Preconnect & Fonts Async Loading -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <!-- Preload critical font stylesheet -->
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" />
+        
+        <!-- Defer font loading to eliminate render blocking -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+        
+        <!-- Fallback for users with JavaScript disabled -->
+        <noscript>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" />
+        </noscript>
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://valdaacupuntura.com.br/">
+
+        <!-- Preload Hero Image -->
+        {heroPreloadUrl && <link rel="preload" href={heroPreloadUrl} as="image" fetchpriority="high">}
+
+        <!-- JSON-LD Schema (LocalBusiness, MedicalBusiness, Service) -->
+        <script type="application/ld+json" set:html={`
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "MedicalBusiness",
+              "@id": "https://valdaacupuntura.com.br/#organization",
+              "name": "Valda Acupuntura",
+              "url": "https://valdaacupuntura.com.br/",
+              "telephone": "+5511983134656",
+              "image": "https://valdaacupuntura.com.br/logo.png",
+              "priceRange": "R$ 250 - R$ 1500",
+              "description": "Clínica de Acupuntura em São Paulo especializada no tratamento de dores crônicas, nervo ciático e ansiedade. Atendimento na Vila Guarani, próximo ao metrô Conceição.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Av. do Café, 999 - Vila Guarani",
+                "addressLocality": "São Paulo",
+                "addressRegion": "SP",
+                "postalCode": "04311-001",
+                "addressCountry": "BR"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "-23.6416",
+                "longitude": "-46.6401"
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  "opens": "08:00",
+                  "closes": "20:00"
+                }
+              ],
+              "founder": {
+                "@type": "Person",
+                "name": "Dra. Valda Fernandes",
+                "jobTitle": "Especialista em Acupuntura Clínica",
+                "description": "20 anos de experiência em Medicina Chinesa e Eletroacupuntura."
+              }
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Dor Lombar",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Tratamento especializado para alívio de dores lombares crônicas e agudas."
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Nervo Ciático",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Descompressão e alívio da inflamação do nervo ciático através de eletroacupuntura."
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Dores no Joelho",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Tratamento eficaz para tendinites e processos inflamatórios nos joelhos (artrite/artrose)."
+            }
+          ]
+        }
+        `} />
+
+        <!-- Google tag (gtag.js) via Partytown -->
+        <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-FJW7NC2BW9"></script>
+        <script type="text/partytown">
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-FJW7NC2BW9');
+        </script>
+	</head>
+	<body class="bg-white text-gray-800 font-sans antialiased">
+		<slot />
+	</body>
+</html>
