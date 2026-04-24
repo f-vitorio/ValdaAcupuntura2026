@@ -29,6 +29,40 @@ description="Clínica de acupuntura em São Paulo (Vila Guarani - Zona Sul, pró
 "description": "Clínica de acupuntura especializada no tratamento de dores crônicas, ansiedade, enxaqueca e insônia na Vila Guarani, Zona Sul de São Paulo.",
 "image": "https://valdaacupuntura.com.br/valda-real.webp",
 "telephone": "+5511983134656",
+"sameAs": [
+  "https://share.google/wuk8xDQ31yvDVkt3G"
+],
+"aggregateRating": {
+  "@type": "AggregateRating",
+  "ratingValue": "4.8",
+  "reviewCount": "132"
+},
+"review": [
+  {
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": "Giselle Florencio"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "reviewBody": "Atendimento impecável, muito atenciosa, cuidadosa e extremamente profissional. Passa segurança desde a primeira consulta e explica tudo com muita clareza. Recomendo demais!"
+  },
+  {
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": "Tayssa Silva"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "reviewBody": "Clínica excelente, atendimento impecável do começo ao fim. Profissional de mão cheia, muito cuidadosa e detalhista. Super recomendo!"
+  }
+],
 "address": {
 "@type": "PostalAddress",
 "streetAddress": "Av. do Café, 999",
@@ -299,7 +333,122 @@ Alívio da Enxaqueca <span class="text-xl">&rarr;</span>
 </div>
 </section>
 
-<!-- Authority & Location -->
+<!-- Google Reviews Section -->
+<section id="avaliacoes" class="py-16 md:py-24 bg-white">
+<div class="container mx-auto px-4 max-w-6xl">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4 font-bold">Avaliações de Clientes</h2>
+<div class="flex items-center justify-center gap-1 mb-4">
+  {[1, 2, 3, 4, 5].map(() => (
+    <svg class="w-6 h-6 text-yellow-500 fill-current" viewBox="0 0 20 20">
+      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+    </svg>
+  ))}
+  <span class="ml-2 font-bold text-gray-700">4.8/5 (132+ avaliações)</span>
+</div>
+<p class="text-lg text-gray-600 leading-relaxed font-medium">
+Atendimento com alta avaliação no Google, reconhecido por pacientes na região da Vila Guarani e zona sul de São Paulo.
+</p>
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Avaliação 1 -->
+<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center font-bold text-primary">G</div>
+    <div>
+      <h3 class="font-bold text-gray-800 leading-tight">Giselle Florencio</h3>
+      <div class="flex text-yellow-500 scale-75 origin-left">
+        {[1, 2, 3, 4, 5].map(() => <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+      </div>
+    </div>
+  </div>
+  <p class="text-gray-600 text-sm italic">"Atendimento impecável, muito atenciosa, cuidadosa e extremamente profissional. Passa segurança desde a primeira consulta. Recomendo demais!"</p>
+</div>
+
+<!-- Avaliação 2 -->
+<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center font-bold text-primary">P</div>
+    <div>
+      <h3 class="font-bold text-gray-800 leading-tight">Priscila Souza</h3>
+      <div class="flex text-yellow-500 scale-75 origin-left">
+        {[1, 2, 3, 4, 5].map(() => <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+      </div>
+    </div>
+  </div>
+  <p class="text-gray-600 text-sm italic">"Muito profissional, gentil e atenciosa. Eu tinha muito receio, mas a experiência foi excepcional. Super recomendo o atendimento! 🤩"</p>
+</div>
+
+<!-- Avaliação 3 -->
+<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center font-bold text-primary">T</div>
+    <div>
+      <h3 class="font-bold text-gray-800 leading-tight">Tayssa Silva</h3>
+      <div class="flex text-yellow-500 scale-75 origin-left">
+        {[1, 2, 3, 4, 5].map(() => <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+      </div>
+    </div>
+  </div>
+  <p class="text-gray-600 text-sm italic">"Clínica excelente, atendimento impecável do começo ao fim. Profissional de mão cheia, muito cuidadosa e detalhista. Super recomendo!"</p>
+</div>
+
+<!-- Avaliação 4 -->
+<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center font-bold text-primary">D</div>
+    <div>
+      <h3 class="font-bold text-gray-800 leading-tight">Dona Tata</h3>
+      <div class="flex text-yellow-500 scale-75 origin-left">
+        {[1, 2, 3, 4, 5].map(() => <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+      </div>
+    </div>
+  </div>
+  <p class="text-gray-600 text-sm italic">"Sem dúvidas o melhor lugar! Fui atendida com muito carinho e atenção. Atendimento nota 1000. Recomendo de olhos fechados!"</p>
+</div>
+
+<!-- Avaliação 5 -->
+<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center font-bold text-primary">L</div>
+    <div>
+      <h3 class="font-bold text-gray-800 leading-tight">Luiz Carlos</h3>
+      <div class="flex text-yellow-500 scale-75 origin-left">
+        {[1, 2, 3, 4, 5].map(() => <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+      </div>
+    </div>
+  </div>
+  <p class="text-gray-600 text-sm italic">"Ótimos profissionais, ambiente agradável e atendimento de primeira. Recomendo para todos que buscam qualidade."</p>
+</div>
+
+<!-- Avaliação 6 -->
+<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center font-bold text-primary">D</div>
+    <div>
+      <h3 class="font-bold text-gray-800 leading-tight">Danuza Loyola</h3>
+      <div class="flex text-yellow-500 scale-75 origin-left">
+        {[1, 2, 3, 4, 5].map(() => <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+      </div>
+    </div>
+  </div>
+  <p class="text-gray-600 text-sm italic">"Experiência maravilhosa, profissionais muito qualificados e atenciosos. Com certeza voltarei e indico para quem busca excelência!"</p>
+</div>
+</div>
+
+<div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-6">
+<a href="https://share.google/wuk8xDQ31yvDVkt3G" target="_blank" rel="noopener noreferrer" class="bg-primary text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-accent transition-all flex items-center gap-2">
+  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.545 11.02a.434.434 0 0 1 .434-.435h7.948a.434.434 0 0 1 .435.435v2.308a.434.434 0 0 1-.435.434H12.98a.434.434 0 0 1-.435-.434V11.02z"/><path d="M22.485 12.18c0-1.036-.098-1.84-.288-2.618H12.09v4.962h5.834c-.25 1.343-1.006 2.48-2.14 3.242v2.69h3.466c2.026-1.868 3.235-4.618 3.235-7.276z" fill="#4285F4"/><path d="M12.09 22.727c2.894 0 5.328-.96 7.103-2.59l-3.466-2.69c-.96.643-2.19 1.023-3.637 1.023-2.798 0-5.166-1.89-6.012-4.432H2.52v2.792c1.77 3.513 5.41 5.897 9.57 5.897z" fill="#34A853"/><path d="M6.078 14.038a6.42 6.42 0 0 1 0-4.076V7.17H2.52a10.662 10.662 0 0 0 0 9.66l3.558-2.792z" fill="#FBBC05"/><path d="M12.09 5.716c1.574 0 2.987.54 4.097 1.603L19.92 3.59c-2.312-2.155-5.328-3.48-8.948-3.48C6.812.11 3.102 3.1 1.332 6.613L4.89 9.405c.846-2.542 3.214-4.432 6.012-4.432z" fill="#EA4335"/></svg>
+  Ver avaliações no Google
+</a>
+<a href="https://share.google/wuk8xDQ31yvDVkt3G" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:text-accent transition-colors underline decoration-2 underline-offset-4">
+  Deixe sua avaliação no Google
+</a>
+</div>
+</div>
+</section>
+
 <section id="especialista" class="py-16 md:py-24 bg-primary text-white overflow-hidden">
 <div class="container mx-auto px-4 max-w-6xl flex flex-col md:flex-row items-center gap-12">
 <div class="flex-1 text-left">
