@@ -1,0 +1,381 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image, getImage } from 'astro:assets';
+import heroImgSource from '../assets/hero-premium.webp';
+import valdaImg from '../assets/valda-real.webp';
+import logoImg from '../assets/logo-valda.webp';
+
+// Pre-optimize hero image
+const heroImgOptimized = await getImage({
+src: heroImgSource, 
+format: 'avif',
+width: 800,
+});
+
+const pageTitle = "Tratamentos com Acupuntura em São Paulo (Zona Sul) | Ansiedade, Dor Ciática, Insônia";
+const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani - Zona Sul). Ansiedade, dor ciática, insônia, enxaqueca e dores crônicas. Agende sua consulta.";
+---
+
+<Layout 
+    title={pageTitle}
+    description={pageDescription}
+    heroPreloadUrl={heroImgOptimized.src}
+>
+
+<!-- Schema.org Avançado (MedicalBusiness, Service, Review, FAQ) -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "MedicalBusiness", "MedicalClinic"],
+      "@id": "https://valdaacupuntura.com.br/acupuntura-sao-paulo-tratamentos/#clinic",
+      "name": "Valda Acupuntura",
+      "description": "Clínica especializada em tratamentos de acupuntura em São Paulo para ansiedade, dor ciática, insônia e dores crônicas.",
+      "image": "https://valdaacupuntura.com.br/valda-real.webp",
+      "telephone": "+5511983134656",
+      "url": "https://valdaacupuntura.com.br/acupuntura-sao-paulo-tratamentos/",
+      "sameAs": [
+        "https://share.google/wuk8xDQ31yvDVkt3G"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. do Café, 999",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "04311-001",
+        "addressCountry": "BR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "132"
+      },
+      "medicalSpecialty": "Acupuncture",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Acupuntura para Ansiedade",
+      "provider": { "@id": "https://valdaacupuntura.com.br/acupuntura-sao-paulo-tratamentos/#clinic" },
+      "description": "Tratamento eficaz para controle de ansiedade e estresse em São Paulo."
+    },
+    {
+      "@type": "Service",
+      "name": "Acupuntura para Dor Ciática",
+      "provider": { "@id": "https://valdaacupuntura.com.br/acupuntura-sao-paulo-tratamentos/#clinic" },
+      "description": "Alívio imediato e tratamento da inflamação do nervo ciático na zona sul de SP."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quais tratamentos a acupuntura oferece em São Paulo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oferecemos tratamentos para ansiedade, dor ciática, insônia, enxaqueca, dores lombares e estresse crônico na Vila Guarani, zona sul de SP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Onde fica a clínica de acupuntura na zona sul?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Estamos localizados na Vila Guarani, a poucos passos do metrô Conceição em São Paulo (SP)."
+          }
+        }
+      ]
+    }
+  ]
+})} />
+
+<!-- Header (Consistent with Home) -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 py-2">
+    <div class="container mx-auto px-4 flex justify-between items-center max-w-6xl">
+        <a href="/" class="flex items-center gap-3 no-underline group">
+            <Image src={logoImg} alt="Logo Valda Acupuntura São Paulo Vila Guarani" width={48} height={48} class="rounded-full shadow-sm group-hover:scale-105 transition-transform w-10 h-10 md:w-12 md:h-12" loading="eager" />
+            <span class="font-serif font-bold text-primary text-xl tracking-tight">Valda Acupuntura</span>
+        </a>
+        <div class="flex items-center gap-6">
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="/#servicos" class="font-medium text-gray-700 hover:text-primary transition-colors text-lg">Serviços</a>
+                <a href="/acupuntura-sao-paulo-tratamentos/" class="font-medium text-gray-700 hover:text-primary transition-colors text-lg">Tratamentos</a>
+                <a href="/#precos" class="font-medium text-gray-700 hover:text-primary transition-colors text-lg">Preços</a>
+            </nav>
+            <a href="https://wa.me/5511983134656?text=Olá,%20vim%20pelo%20Google.%20Gostaria%20de%20agendar%20uma%20avaliação." class="bg-secondary text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-green-600 transition-transform hover:-translate-y-0.5 shadow-md flex items-center gap-2">
+                Agendar Avaliação
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="relative py-20 md:py-32 text-center overflow-hidden">
+        <img 
+            src={heroImgOptimized.src}
+            alt="Tratamentos com Acupuntura em São Paulo Zona Sul - Vila Guarani" 
+            class="absolute inset-0 w-full h-full object-cover object-center z-0"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+            width={1920}
+            height={1080}
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#e8f5e9]/95 to-white/90 z-0"></div>
+        
+        <div class="container mx-auto px-4 max-w-4xl relative z-10">
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-tight mb-6 font-bold">
+                Tratamentos com Acupuntura em São Paulo
+            </h1>
+            <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+                A Clínica Valda Acupuntura é referência em <strong>acupuntura em São Paulo</strong>, localizada estrategicamente na <strong>Vila Guarani</strong>, <strong>zona sul</strong>, a poucos passos do <strong>metrô Conceição</strong>. Oferecemos protocolos exclusivos para sua saúde e bem-estar.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/5511983134656?text=Olá!%20Vim%20pela%20página%20de%20tratamentos%20e%20quero%20agendar." class="bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3">
+                    Agendar Consulta Agora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anchors Section -->
+    <section id="tratamentos" class="py-16 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-8 text-center">O que a Acupuntura Trata</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <a href="#ansiedade" class="p-4 bg-bg-light rounded-xl font-bold text-primary hover:bg-primary hover:text-white transition-all shadow-sm">Ansiedade</a>
+                <a href="#dor-ciatica" class="p-4 bg-bg-light rounded-xl font-bold text-primary hover:bg-primary hover:text-white transition-all shadow-sm">Dor Ciática</a>
+                <a href="#insonia" class="p-4 bg-bg-light rounded-xl font-bold text-primary hover:bg-primary hover:text-white transition-all shadow-sm">Insônia</a>
+                <a href="#enxaqueca" class="p-4 bg-bg-light rounded-xl font-bold text-primary hover:bg-primary hover:text-white transition-all shadow-sm">Enxaqueca</a>
+                <a href="#dor-lombar" class="p-4 bg-bg-light rounded-xl font-bold text-primary hover:bg-primary hover:text-white transition-all shadow-sm">Dor Lombar</a>
+                <a href="#estresse" class="p-4 bg-bg-light rounded-xl font-bold text-primary hover:bg-primary hover:text-white transition-all shadow-sm">Estresse</a>
+                <a href="#tpm" class="p-4 bg-bg-light rounded-xl font-bold text-primary hover:bg-primary hover:text-white transition-all shadow-sm">TPM</a>
+                <a href="#digestao" class="p-4 bg-bg-light rounded-xl font-bold text-primary hover:bg-primary hover:text-white transition-all shadow-sm">Digestão</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Treatment Blocks -->
+    <section class="py-16 md:py-24 bg-bg-light">
+        <div class="container mx-auto px-4 max-w-5xl space-y-16">
+            <!-- 1. Ansiedade -->
+            <div id="ansiedade" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Ansiedade em São Paulo</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    O tratamento de ansiedade com acupuntura é um dos mais procurados em nossa clínica na zona sul. Através da estimulação de pontos neurais, regulamos o cortisol e aumentamos a produção de serotonina de forma natural.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Controle emocional e redução da tensão mental sem efeitos colaterais.</p>
+            </div>
+
+            <!-- 2. Dor Ciática -->
+            <div id="dor-ciatica" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Dor Ciática na Zona Sul</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    Especializada na Vila Guarani, nossa técnica de eletroacupuntura agride a base da inflamação do nervo ciático, eliminando as dores irradiadas para as pernas e glúteos que afetam pacientes em toda São Paulo.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Alívio imediato da dor e recuperação da mobilidade plena.</p>
+            </div>
+
+            <!-- 3. Insônia -->
+            <div id="insonia" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Insônia em São Paulo</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    Se você busca dormir melhor, a acupuntura reequilibra o ritmo circadiano. Localizada próxima ao metrô Conceição, facilitamos o acesso para quem sofre com noites em claro na capital paulista.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Sono restaurador e melhora da performance cognitiva diária.</p>
+            </div>
+
+            <!-- 4. Enxaqueca -->
+            <div id="enxaqueca" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Tratamento de Enxaqueca com Acupuntura SP</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    As crises de enxaqueca são desativadas através de pontos sistêmicos que reduzem a vasodilatação craniana. Um tratamento reconhecido na zona sul de São Paulo pela sua eficácia em casos crônicos.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Redução drástica da frequência e intensidade das dores de cabeça.</p>
+            </div>
+
+            <!-- 5. Dor Lombar -->
+            <div id="dor-lombar" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Dor Lombar na Vila Guarani</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    A região lombar sofre com o estresse do dia a dia em SP. Nossa clínica oferece protocolos de liberação miofascial e acupuntura para tratar hérnias de disco e tensões musculares agudas.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Coluna saudável e prevenção de crises por esforço ou má postura.</p>
+            </div>
+
+            <!-- 6. Estresse -->
+            <div id="estresse" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Controle de Estresse com Acupuntura em São Paulo</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    Viver em São Paulo exige resiliência. A acupuntura atua como um botão de 'reset' para o sistema nervoso simpático, permitindo um estado de calma profunda e foco renovado na Vila Guarani.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Equilíbrio mental e maior resistência física às pressões diárias.</p>
+            </div>
+
+            <!-- 7. TPM -->
+            <div id="tpm" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para TPM na Zona Sul de SP</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    Regulamos o ciclo hormonal feminino, tratando cólicas, irritabilidade e inchaço de forma 100% natural. Referência em cuidados femininos na zona sul, perto de você na Vila Guarani.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Bem-estar feminino e alívio dos sintomas pré-menstruais.</p>
+            </div>
+
+            <!-- 8. Digestão -->
+            <div id="digestao" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Problemas Digestivos em São Paulo</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    Gastrites nervosas e má digestão muitas vezes têm origem no estresse. Tratamos a conexão cérebro-intestino com eficácia comprovada por pacientes de toda a zona sul paulista.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Digestão leve e fim do desconforto abdominal constante.</p>
+            </div>
+
+            <!-- 9. Dores Crônicas -->
+            <div id="dores-cronicas" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Tratamento de Dores Crônicas em São Paulo</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    Para quem convive com dor há anos, a acupuntura oferece uma nova perspectiva. Protocolos de longo prazo na Vila Guarani para devolver qualidade de vida à comunidade de São Paulo.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Longevidade e independência física através do controle da dor.</p>
+            </div>
+
+            <!-- 10. Fibromialgia -->
+            <div id="fibromialgia" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Fibromialgia na Zona Sul</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    O manejo da fibromialgia exige sensibilidade e técnica. Atendemos com dedicação na zona sul de SP, reduzindo a sensibilidade dolorosa global e melhorando o ânimo.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Menos dor, melhor sono e mais disposição física e mental.</p>
+            </div>
+
+            <!-- 11. Tendinite -->
+            <div id="tendinite" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Tendinite em São Paulo</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    Tratamos inflamações de tendões (LER/DORT) com foco em recuperação rápida. Uma solução vital para profissionais de São Paulo que sofrem com esforços repetitivos.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Recuperação tecidual acelerada e fim das dores articulares.</p>
+            </div>
+
+            <!-- 12. Bruxismo -->
+            <div id="bruxismo" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Bruxismo na Vila Guarani</h3>
+                <p class="text-gray-700 leading-relaxed text-lg mb-4">
+                    O relaxamento da musculatura masseter e temporal através da acupuntura alivia as dores faciais e o desgaste dentário causado pelo bruxismo na zona sul de SP.
+                </p>
+                <p class="font-semibold text-primary">Benefício: Alívio da tensão mandibular e melhor qualidade do sono.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-12 text-center text-primary font-bold">Avaliações de Clientes</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Use the previously extracted real reviews -->
+                <div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex text-yellow-500 mb-4">
+                        {[1, 2, 3, 4, 5].map(() => <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"A Dra. Valda é maravilhosa! Atenciosa e muito profissional. O tratamento para ansiedade mudou minha vida."</p>
+                    <p class="font-bold text-gray-800 text-sm">Giselle Florencio - SP</p>
+                </div>
+                <div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex text-yellow-500 mb-4">
+                        {[1, 2, 3, 4, 5].map(() => <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Tinha muita dor ciática e com 2 sessões já senti alívio total. Localização excelente perto do metrô."</p>
+                    <p class="font-bold text-gray-800 text-sm">Luiz Carlos - Vila Guarani</p>
+                </div>
+                <div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex text-yellow-500 mb-4">
+                        {[1, 2, 3, 4, 5].map(() => <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"A melhor clínica de acupuntura da zona sul. Atendimento impecável e ambiente muito acolhedor."</p>
+                    <p class="font-bold text-gray-800 text-sm">Tayssa Silva - Zona Sul</p>
+                </div>
+                <div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex text-yellow-500 mb-4">
+                        {[1, 2, 3, 4, 5].map(() => <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Excelente! Profissional muito qualificada e detalhista. O tratamento para insônia superou minhas expectativas."</p>
+                    <p class="font-bold text-gray-800 text-sm">Danuza Loyola - SP</p>
+                </div>
+                <div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex text-yellow-500 mb-4">
+                        {[1, 2, 3, 4, 5].map(() => <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Sem dúvidas o melhor lugar! Fui atendida com muito carinho. Recomendo de olhos fechados!"</p>
+                    <p class="font-bold text-gray-800 text-sm">Dona Tata - Vila Guarani</p>
+                </div>
+                <div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="flex text-yellow-500 mb-4">
+                        {[1, 2, 3, 4, 5].map(() => <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
+                    </div>
+                    <p class="text-gray-600 italic mb-4">"Ótimos profissionais e ambiente muito agradável. Resolvi minha enxaqueca aqui."</p>
+                    <p class="font-bold text-gray-800 text-sm">Priscila Souza - Zona Sul</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local SEO Details -->
+    <section class="py-16 md:py-24 bg-primary text-white">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Clínica de Acupuntura em São Paulo - Zona Sul</h2>
+            <p class="text-lg text-white/90 leading-relaxed mb-8">
+                Localizada no coração da <strong>Vila Guarani</strong>, nossa clínica em <strong>São Paulo SP</strong> oferece fácil acesso para quem vem de diversos bairros da <strong>zona sul</strong>. Estamos estrategicamente posicionados ao lado do <strong>metrô Conceição</strong>, garantindo agilidade e conforto para sua jornada de cura.
+            </p>
+            <div class="inline-block p-6 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-sm">
+              <p class="text-xl font-bold">📍 Av. do Café, 999 – Vila Guarani, São Paulo</p>
+              <p class="opacity-80">Próximo à Estação Conceição - Linha 1 Azul</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 bg-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif text-3xl md:text-5xl text-primary font-bold mb-8">Recupere sua vitalidade com a melhor acupuntura de SP</h2>
+            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">Agende sua avaliação hoje e descubra o protocolo ideal para suas necessidades.</p>
+            <a href="https://wa.me/5511983134656?text=Olá!%20Vim%20pela%20página%20de%20tratamentos%20e%20quero%20agendar." class="bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:bg-primary transition-all hover:scale-105 transform">
+                Agendar Consulta de Acupuntura
+            </a>
+        </div>
+    </section>
+</main>
+
+<!-- Footer (Consistent with Home) -->
+<footer class="bg-gray-800 text-white py-12 text-center text-sm border-t border-gray-700">
+    <div class="container mx-auto px-4">
+        <p class="font-bold text-lg mb-2 font-serif tracking-wide">Clínica Valda Acupuntura</p>
+        <p class="opacity-80 mb-4 text-gray-300">Av. do Café, 999 – Vila Guarani, São Paulo – SP</p>
+        <p class="mb-6"><a href="tel:+5511983134656" class="hover:text-secondary transition-colors font-bold text-lg">(11) 98313-4656</a></p>
+        <p class="opacity-50 text-xs">&copy; 2026 Valda Acupuntura. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/5511983134656?text=Olá!%20Vim%20pela%20página%20de%20tratamentos%20e%20quero%20agendar." 
+   class="fixed bottom-6 right-6 z-50 bg-secondary text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center w-14 h-14"
+   target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-8 h-8 brightness-0 invert" width="32" height="32" loading="lazy" />
+</a>
+
+</Layout>
+
+<style>
+    .scroll-mt-24 {
+        scroll-margin-top: 6rem;
+    }
+</style>
