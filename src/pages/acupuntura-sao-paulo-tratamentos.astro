@@ -107,7 +107,22 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
         <div class="flex items-center gap-6">
             <nav class="hidden md:flex items-center gap-8">
                 <a href="/#servicos" class="font-medium text-gray-700 hover:text-primary transition-colors text-lg">Serviços</a>
-                <a href="/acupuntura-sao-paulo-tratamentos/" class="font-medium text-gray-700 hover:text-primary transition-colors text-lg">Tratamentos</a>
+                <div class="relative group">
+                    <a href="/acupuntura-sao-paulo-tratamentos/" class="font-medium text-gray-700 hover:text-primary transition-colors text-lg flex items-center gap-1 py-4">
+                        Tratamentos
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="absolute left-1/2 -translate-x-1/2 top-[90%] w-60 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform translate-y-2 group-hover:translate-y-0">
+                        <div class="py-2">
+                            <a href="/tratamentos/acupuntura-ansiedade/" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary font-medium transition-colors">Acupuntura p/ Ansiedade</a>
+                            <a href="/tratamentos/acupuntura-insonia/" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary font-medium transition-colors">Acupuntura p/ Insônia</a>
+                            <a href="/tratamentos/acupuntura-dor-ciatica/" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary font-medium transition-colors">Dor Ciática e Lombar</a>
+                            <a href="/tratamentos/acupuntura-enxaqueca/" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary font-medium transition-colors">Acupuntura p/ Enxaqueca</a>
+                            <div class="border-t border-gray-100 my-1"></div>
+                            <a href="/acupuntura-sao-paulo-tratamentos/" class="block px-4 py-2 text-xs text-gray-500 hover:text-primary font-bold uppercase tracking-wider text-center">Ver todos</a>
+                        </div>
+                    </div>
+                </div>
                 <a href="/#precos" class="font-medium text-gray-700 hover:text-primary transition-colors text-lg">Preços</a>
             </nav>
             <a href="https://wa.me/5511983134656?text=Olá,%20vim%20pelo%20Google.%20Gostaria%20de%20agendar%20uma%20avaliação." class="bg-secondary text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-green-600 transition-transform hover:-translate-y-0.5 shadow-md flex items-center gap-2">

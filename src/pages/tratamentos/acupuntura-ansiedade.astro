@@ -1,0 +1,190 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image, getImage } from 'astro:assets';
+import heroImgSource from '../../assets/hero-premium.webp';
+import valdaImg from '../../assets/valda-real.webp';
+import logoImg from '../../assets/logo-valda.webp';
+
+const heroImgOptimized = await getImage({
+  src: heroImgSource, 
+  format: 'avif',
+  width: 800,
+});
+---
+
+<Layout 
+  title="Acupuntura para ansiedade São Paulo | Clínica na Vila Guarani"
+  description="Buscando acupuntura para ansiedade São Paulo? Tratamento natural perto do metrô Conceição, Vila Guarani - Zona Sul. Agende avaliação com a Dra. Valda!"
+  heroPreloadUrl={heroImgOptimized.src}>
+
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 py-2">
+    <div class="container mx-auto px-4 flex justify-between items-center max-w-6xl">
+      <a href="/" class="flex items-center gap-3 no-underline group">
+        <Image src={logoImg} alt="Logo Valda Acupuntura São Paulo" width={48} height={48} class="rounded-full shadow-sm group-hover:scale-105 transition-transform w-10 h-10 md:w-12 md:h-12" loading="eager" />
+        <span class="font-serif font-bold text-primary text-xl tracking-tight">Valda Acupuntura</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="https://wa.me/5511983134656?text=Olá,%20vim%20pelo%20Google.%20Gostaria%20de%20agendar%20uma%20avaliação%20para%20ansiedade." class="bg-secondary text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-green-600 transition-transform hover:-translate-y-0.5 shadow-md flex items-center gap-2 animate-pulse-slow">
+          Agendar Avaliação
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="relative py-20 md:py-32 text-center overflow-hidden">
+      <img src={heroImgOptimized.src} alt="Acupuntura para ansiedade São Paulo" class="absolute inset-0 w-full h-full object-cover object-center z-0" fetchpriority="high" loading="eager" decoding="async" width={1920} height={1080} />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#e8f5e9]/95 to-white/90 z-0"></div>
+      
+      <div class="container mx-auto px-4 max-w-4xl relative z-10">
+        <span class="inline-flex items-center gap-2 bg-[#e6fffa] text-[#047857] px-5 py-2.5 rounded-full font-semibold text-sm mb-6 border border-[#b7eb8f] shadow-sm animate-fade-in mx-auto">
+          Dra. Valda Fernandes • 20 Anos de Experiência
+        </span>
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-tight mb-6 font-bold">
+          Acupuntura para ansiedade são paulo
+        </h1>
+        <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+          Sofrendo com estresse, mente acelerada e insônia leve? Buscando a melhor clínica de <strong class="text-primary">acupuntura para ansiedade são paulo</strong>? Descubra o tratamento natural que acalma sua mente sem efeitos colaterais. Atendimento humanizado na Vila Guarani, Zona Sul.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <a href="https://wa.me/5511983134656?text=Olá,%20busco%20tratamento%20para%20ansiedade.%20Gostaria%20de%20agendar%20avaliação." class="bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3 w-full sm:w-auto justify-center">
+            Agendar Avaliação
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOR DO PACIENTE -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl text-center">
+        <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">O preço oculto da mente acelerada</h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+          A ansiedade constante suga sua energia, prejudica seu sono e afeta seus relacionamentos. O uso contínuo de medicamentos muitas vezes traz letargia, gastos absurdos com remédios e não trata a raiz do problema. A frustração de não conseguir desligar a mente tem um impacto direto e destrutivo na sua qualidade de vida e rotina.
+        </p>
+      </div>
+    </section>
+
+    <!-- SOLUÇÃO (ACUPUNTURA) -->
+    <section class="py-16 bg-bg-light">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">A verdadeira eficácia da acupuntura para ansiedade são paulo</h2>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            Nossa abordagem atua exatamente na causa do problema. Utilizamos técnicas avançadas da medicina chinesa, incluindo a eletroacupuntura, para regular os neurotransmissores do bem-estar e promover um alívio real e duradouro das crises de ansiedade.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Alívio Real</h3>
+            <p class="text-gray-600">Redução significativa do estresse diário, controlando a respiração e os batimentos cardíacos acelerados.</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Alternativa a Remédios</h3>
+            <p class="text-gray-600">Um tratamento natural altamente eficaz. É a melhor alternativa a remédios, sem efeitos colaterais indesejados.</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Qualidade de Vida</h3>
+            <p class="text-gray-600">Recupere o foco, a disposição e consiga melhorar sua rotina, lidando melhor com os desafios diários.</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Fim da Insônia Leve</h3>
+            <p class="text-gray-600">Ao acalmar a mente, você poderá dormir melhor, reduzindo consideravelmente a insônia leve.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROVA SOCIAL & AUTORIDADE -->
+    <section class="py-16 bg-primary text-white">
+      <div class="container mx-auto px-4 max-w-6xl flex flex-col md:flex-row items-center gap-12">
+        <div class="flex-1 text-left">
+          <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Dra. Valda Fernandes</h2>
+          <p class="text-lg mb-4 text-white/90 font-medium">
+            Atendimento Personalizado e Humanizado
+          </p>
+          <p class="text-lg mb-4 text-white/90">
+            Com 20 anos de experiência clínica, a Dra. Valda é especialista em Eletroacupuntura. O cuidado dedicado a cada paciente garante resultados surpreendentes contra a ansiedade.
+          </p>
+          <div class="mb-8 p-6 bg-white/5 rounded-xl border border-white/10">
+            <p class="text-lg text-white/90 italic">
+              "Fui diagnosticada com ansiedade severa. A acupuntura foi o tratamento natural que me devolveu a paz. A Dra. Valda é uma profissional incrível com um atendimento totalmente personalizado." – Ana C.
+            </p>
+          </div>
+          <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
+            <h3 class="font-bold text-xl mb-2 text-green-300">Localização Privilegiada</h3>
+            <p>Vila Guarani</p>
+            <p>Zona Sul de São Paulo (SP)</p>
+            <p>Próximo ao metrô Conceição</p>
+          </div>
+        </div>
+        <div class="flex-1 max-w-md mx-auto">
+          <Image src={valdaImg} alt="Dra. Valda Fernandes" width={500} height={500} class="rounded-2xl shadow-xl border-4 border-white/10" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PREÇOS -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-5xl text-center">
+        <h2 class="font-serif text-3xl text-primary font-bold mb-10">Valores dos Tratamentos</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-8 bg-gray-50 rounded-2xl border border-gray-200">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Primeira Consulta</h3>
+            <div class="text-3xl font-bold text-primary my-4">R$ 250</div>
+            <a href="https://wa.me/5511983134656?text=Olá,%20quero%20agendar%20minha%20primeira%20consulta%20para%20ansiedade." class="block w-full bg-white text-primary border-2 border-primary px-4 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">Agendar</a>
+          </div>
+          <div class="p-8 bg-primary rounded-2xl border border-primary text-white transform md:-translate-y-4 shadow-xl relative">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-secondary text-white px-4 py-1 rounded-full text-sm font-bold">Recomendado</div>
+            <h3 class="font-bold text-xl mb-2 mt-2">Pacote 4 Sessões</h3>
+            <div class="text-3xl font-bold my-4">R$ 700</div>
+            <a href="https://wa.me/5511983134656?text=Olá,%20quero%20agendar%204%20sessões%20para%20ansiedade." class="block w-full bg-secondary text-white px-4 py-3 rounded-full font-bold hover:bg-white hover:text-secondary transition-colors">Agendar</a>
+          </div>
+          <div class="p-8 bg-gray-50 rounded-2xl border border-gray-200">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Pacote 10 Sessões</h3>
+            <div class="text-3xl font-bold text-primary my-4">R$ 1500</div>
+            <a href="https://wa.me/5511983134656?text=Olá,%20quero%20agendar%2010%20sessões%20para%20ansiedade." class="block w-full bg-white text-primary border-2 border-primary px-4 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">Agendar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-bg-light">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="font-serif text-3xl text-primary font-bold mb-8 text-center">Perguntas Frequentes</h2>
+        <div class="space-y-4">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Acupuntura dói?</h3>
+            <p class="text-gray-600">Não. As agulhas são extremamente finas. O máximo que você pode sentir é um leve formigamento, proporcionando um relaxamento imediato para a mente acelerada.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Funciona para ansiedade?</h3>
+            <p class="text-gray-600">Sim, a acupuntura para ansiedade são paulo é um método comprovado que atua no sistema nervoso, liberando endorfinas que promovem calma imediata de forma natural.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Quantas sessões são necessárias?</h3>
+            <p class="text-gray-600">Para sentir o alívio real da ansiedade, geralmente recomendamos os pacotes de 4 ou 10 sessões, variando de acordo com a resposta do corpo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-20 bg-white text-center">
+      <div class="container mx-auto px-4">
+        <h2 class="font-serif text-4xl text-primary font-bold mb-6">Dê o primeiro passo para uma mente tranquila e sem estresse</h2>
+        <a href="https://wa.me/5511983134656?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação%20para%20ansiedade." class="bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-xl transition-all inline-block animate-pulse-slow mt-4">
+          👉 Agendar Minha Avaliação Agora
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
