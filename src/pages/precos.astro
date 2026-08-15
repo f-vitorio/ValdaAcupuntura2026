@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 import { Image, getImage } from 'astro:assets';
 import heroImgSource from '../assets/hero-premium.webp';
 import valdaImg from '../assets/valda-real.webp';
-import logoImg from '../assets/logo-valda.webp';
 
 // Pre-optimize hero image to strictly serve a sized avif
 const heroImgOptimized = await getImage({
@@ -13,10 +13,11 @@ const heroImgOptimized = await getImage({
 });
 ---
 
-<Layout 
-	title="Acupuntura Preço: Qual o valor da sessão em SP? | Dra. Valda"
-	description="Acupuntura Preço: Antes de procurar pelo mais barato, descubra o valor de um tratamento para dor no nervo ciático e joelho que resolve a raiz do problema em São Paulo (Vila Guarani)."
-    heroPreloadUrl={heroImgOptimized.src}>
+<Layout
+	title="Acupuntura Preço em SP | Valor da Sessão | Vila da Saúde"
+	description="Valores de acupuntura em São Paulo (Vila da Saúde, próximo ao Metrô Praça da Árvore). Sessões avulsas e pacotes com transparência de preço. Agende sua avaliação inicial."
+    heroPreloadUrl={heroImgOptimized.src}
+	canonicalUrl="https://valdaacupuntura.com.br/precos/">
 
 	<!-- FAQ JSON-LD Schema para SEO (Rich Snippets) -->
 	<script type="application/ld+json" set:html={JSON.stringify({
@@ -28,23 +29,23 @@ const heroImgOptimized = await getImage({
 				"name": "Qual o preço da sessão de acupuntura?",
 				"acceptedAnswer": {
 					"@type": "Answer",
-					"text": "O valor varia conforme o seu diagnóstico, mas na Valda Acupuntura priorizamos a transparência. Nossos tratamentos avulsos iniciam em R$ 250, com opções de pacotes de 10 sessões por R$ 150/cada. O verdadeiro custo-benefício é parar de gastar com analgésicos que só aliviam a dor por poucas horas."
+					"text": "Oferecemos sessão avulsa a partir de R$ 250, pacote de 4 sessões por R$ 700, e pacote de 10 sessões por R$ 1.500. Cada protocolo é personalizado conforme a avaliação inicial."
 				}
 			},
 			{
 				"@type": "Question",
-				"name": "O tratamento com eletroacupuntura dói?",
+				"name": "A acupuntura dói durante o atendimento?",
 				"acceptedAnswer": {
 					"@type": "Answer",
-					"text": "Não. Ao contrário da dor do nervo ciático ou do joelho travado que você sente agora, as agulhas são mais finas que um fio de cabelo e a sensação é de alívio e relaxamento muscular profundo."
+					"text": "As agulhas utilizadas são muito finas. A sensação relatada pelos pacientes é de leve formigamento e relaxamento profundo durante a sessão."
 				}
 			},
 			{
 				"@type": "Question",
-				"name": "Em quantas sessões a dor no nervo ciático (ou joelho) passa?",
+				"name": "Quantas sessões são recomendadas?",
 				"acceptedAnswer": {
 					"@type": "Answer",
-					"text": "Cada corpo reage de forma única, mas muitos pacientes com inflamação aguda relatam alívio significativo já na 1ª ou 2ª sessão de descompressão nervosa."
+					"text": "Cada pessoa responde de forma única ao tratamento. A avaliação inicial ajuda a definir um protocolo apropriado, que pode variar de algumas sessões para casos agudos até pacotes maiores para acompanhamento contínuo."
 				}
 			},
 			{
@@ -52,32 +53,14 @@ const heroImgOptimized = await getImage({
 				"name": "A clínica atende convênio médico?",
 				"acceptedAnswer": {
 					"@type": "Answer",
-					"text": "Atendemos pacientes via sistema de reembolso médico e fornecemos toda a documentação (Nota Fiscal) necessária. Invista em você hoje e solicite o resgate depois."
+					"text": "Atendemos pacientes via sistema de reembolso médico e fornecemos toda a documentação (Nota Fiscal) necessária. Consulte-nos para mais informações."
 				}
 			}
 		]
 	})} />
-	
-	<!-- Header -->
-	<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 py-2">
-		<div class="container mx-auto px-4 flex justify-between items-center max-w-6xl">
-			<a href="#" class="flex items-center gap-3 no-underline group">
-				<Image src={logoImg} alt="Logo Valda Acupuntura" width={48} height={48} class="rounded-full shadow-sm group-hover:scale-105 transition-transform w-10 h-10 md:w-12 md:h-12" loading="eager" />
-				<span class="font-serif font-bold text-primary text-xl tracking-tight">Valda Acupuntura</span>
-			</a>
-			<div class="flex items-center gap-6">
-				<a href="tel:+5511983134656" class="hidden md:flex items-center gap-2 font-bold text-primary hover:text-accent transition-colors text-lg" aria-label="Ligar para (11) 98313-4656">
-					<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.49-5.15-3.8-6.64-6.64l1.97-1.57c.23-.23.33-.55.24-1.01a11.36 11.36 0 0 0-.56-3.53.974.974 0 0 0-1-.75H3.03c-.55 0-1 .45-1 1C2.03 15.35 12.65 25.96 24 24.96c.55 0 1-.45 1-1v-4.89c0-.55-.45-1-1-1zM11 7V5c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2v2h-6z" /></svg>
-					(11) 98313-4656
-				</a>
-				<a href="https://wa.me/5511983134656" class="bg-secondary text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-green-600 transition-transform hover:-translate-y-0.5 shadow-md flex items-center gap-2 animate-pulse-slow">
-					Agendar
-				</a>
-			</div>
-		</div>
-	</header>
 
 	<main>
+	<Header />
 		<!-- Hero Section -->
 		<section class="relative py-20 md:py-32 text-center overflow-hidden">
 			<!-- Background Image (Otimizada Nativa) -->
@@ -110,7 +93,7 @@ const heroImgOptimized = await getImage({
 					   class="group relative bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3 overflow-hidden">
 						<span class="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500 origin-center"></span>
 						<svg class="w-6 h-6 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-						<span class="relative z-10">Ver Tabela de Preços e Pacotes</span>
+						<span class="relative z-10">💰 Ver Valores e Agendar</span>
 						<span class="absolute inset-0 rounded-full ring-4 ring-green-400/30 animate-pulse"></span>
 					</a>
 					<p class="text-sm text-gray-500 font-medium">Resposta rápida • Atendimento humanizado</p>
@@ -141,7 +124,7 @@ const heroImgOptimized = await getImage({
 					<div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all text-center group">
 						<div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🏥</div>
 						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Risco Cirúrgico</h3>
-						<p class="text-gray-600">Ignorar dores tensionais custa a sua independência total e pavimenta o caminho perigoso para a mesa de cirurgia.</p>
+						<p class="text-gray-600">Acompanhamento contínuo ajuda a potencializar o bem-estar e a independência.</p>
 					</div>
 				</div>
 			</div>
@@ -319,7 +302,7 @@ const heroImgOptimized = await getImage({
 					</li>
 					<li class="flex gap-3 text-lg text-gray-700 items-start">
 						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
-						<span><strong>Localização Estratégica:</strong> Fácil acesso na Vila Guarani, Metrô Conceição.</span>
+						<span><strong>Localização Estratégica:</strong> Fácil acesso na Vila da Saúde, próximo ao Metrô Praça da Árvore.</span>
 					</li>
 					<li class="flex gap-3 text-lg text-gray-700 items-start">
 						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
@@ -382,10 +365,10 @@ const heroImgOptimized = await getImage({
 		<section class="py-16 bg-white">
 			<div class="container mx-auto px-4 max-w-4xl text-center">
 				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Localização Privilegiada em São Paulo</h2>
-				<p class="text-lg text-gray-600 mb-8">R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP<br>(Próximo ao Metrô Conceição)</p>
+				<p class="text-lg text-gray-600 mb-8">R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP<br>(Próximo ao Metrô Praça da Árvore)</p>
 
 				<div class="w-full h-[350px] bg-gray-100 rounded-2xl overflow-hidden shadow-lg mb-12 relative flex items-center justify-center group">
-					<a href="https://maps.google.com/?q=Av.+do+Café,+999+-+Vila+Guarani,+São+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative cursor-pointer" aria-label="Ver no Google Maps">
+					<a href="https://maps.google.com/?q=R.+Maquerobi,+156+-+Vila+da+Saúde,+São+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative cursor-pointer" aria-label="Ver no Google Maps">
                         <!-- Simulated Map Background Pattern -->
 						<div class="w-full h-full bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=-23.6384214,-46.6366649&zoom=15&size=800x350&sensor=false&key=YOUR_API_KEY_OR_PLACEHOLDER')] bg-cover bg-center grayscale opacity-80 group-hover:grayscale-0 transition-all duration-500">
                              <!-- Fallback pattern if no static map -->

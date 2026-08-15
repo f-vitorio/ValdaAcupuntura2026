@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 import { Image, getImage } from 'astro:assets';
 import heroImgSource from '../assets/hero-premium.webp';
 import valdaImg from '../assets/valda-real.webp';
-import logoImg from '../assets/logo-valda.webp';
 
 // Pre-optimize hero image
 const heroImgOptimized = await getImage({
@@ -13,7 +13,7 @@ width: 800,
 });
 
 const pageTitle = "Tratamentos com Acupuntura em São Paulo (Zona Sul) | Ansiedade, Dor Ciática, Insônia";
-const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani - Zona Sul). Ansiedade, dor ciática, insônia, enxaqueca e dores crônicas. Agende sua consulta.";
+const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila da Saúde - Zona Sul). Ansiedade, dor ciática, insônia, enxaqueca e dores crônicas. Agende sua consulta.";
 ---
 
 <Layout 
@@ -39,7 +39,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
       ],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Av. do Café, 999",
+        "streetAddress": "R. Maquerobi, 156",
         "addressLocality": "São Paulo",
         "addressRegion": "SP",
         "postalCode": "04311-001",
@@ -81,7 +81,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
           "name": "Quais tratamentos a acupuntura oferece em São Paulo?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oferecemos tratamentos para ansiedade, dor ciática, insônia, enxaqueca, dores lombares e estresse crônico na Vila Guarani, zona sul de SP."
+            "text": "Oferecemos tratamentos para ansiedade, dor ciática, insônia, enxaqueca, dores lombares e estresse crônico na Vila da Saúde, zona sul de SP."
           }
         },
         {
@@ -89,7 +89,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
           "name": "Onde fica a clínica de acupuntura na zona sul?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Estamos localizados na Vila Guarani, a poucos passos do metrô Conceição em São Paulo (SP)."
+            "text": "Estamos localizados na Vila da Saúde, a poucos passos do Metrô Praça da Árvore em São Paulo (SP)."
           }
         }
       ]
@@ -97,47 +97,13 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
   ]
 })} />
 
-<!-- Header (Consistent with Home) -->
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 py-2">
-    <div class="container mx-auto px-4 flex justify-between items-center max-w-6xl">
-        <a href="/" class="flex items-center gap-3 no-underline group">
-            <Image src={logoImg} alt="Logo Valda Acupuntura São Paulo Vila Guarani" width={48} height={48} class="rounded-full shadow-sm group-hover:scale-105 transition-transform w-10 h-10 md:w-12 md:h-12" loading="eager" />
-            <span class="font-serif font-bold text-primary text-xl tracking-tight">Valda Acupuntura</span>
-        </a>
-        <div class="flex items-center gap-6">
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="/#servicos" class="font-medium text-gray-700 hover:text-primary transition-colors text-lg">Serviços</a>
-                <div class="relative group">
-                    <a href="/acupuntura-sao-paulo-tratamentos/" class="font-medium text-gray-700 hover:text-primary transition-colors text-lg flex items-center gap-1 py-4">
-                        Tratamentos
-                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </a>
-                    <div class="absolute left-1/2 -translate-x-1/2 top-[90%] w-60 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform translate-y-2 group-hover:translate-y-0">
-                        <div class="py-2">
-                            <a href="/tratamentos/acupuntura-ansiedade/" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary font-medium transition-colors">Acupuntura p/ Ansiedade</a>
-                            <a href="/tratamentos/acupuntura-insonia/" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary font-medium transition-colors">Acupuntura p/ Insônia</a>
-                            <a href="/tratamentos/acupuntura-dor-ciatica/" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary font-medium transition-colors">Dor Ciática e Lombar</a>
-                            <a href="/tratamentos/acupuntura-enxaqueca/" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary font-medium transition-colors">Acupuntura p/ Enxaqueca</a>
-                            <div class="border-t border-gray-100 my-1"></div>
-                            <a href="/acupuntura-sao-paulo-tratamentos/" class="block px-4 py-2 text-xs text-gray-500 hover:text-primary font-bold uppercase tracking-wider text-center">Ver todos</a>
-                        </div>
-                    </div>
-                </div>
-                <a href="/#precos" class="font-medium text-gray-700 hover:text-primary transition-colors text-lg">Preços</a>
-            </nav>
-            <a href="https://wa.me/5511983134656?text=Olá,%20vim%20pelo%20Google.%20Gostaria%20de%20agendar%20uma%20avaliação." class="bg-secondary text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-green-600 transition-transform hover:-translate-y-0.5 shadow-md flex items-center gap-2">
-                Agendar Avaliação
-            </a>
-        </div>
-    </div>
-</header>
-
 <main>
+<Header />
     <!-- Hero Section -->
     <section class="relative py-20 md:py-32 text-center overflow-hidden">
-        <img 
+        <img
             src={heroImgOptimized.src}
-            alt="Tratamentos com Acupuntura em São Paulo Zona Sul - Vila Guarani" 
+            alt="Tratamentos com Acupuntura em São Paulo Zona Sul - Vila da Saúde" 
             class="absolute inset-0 w-full h-full object-cover object-center z-0"
             fetchpriority="high"
             loading="eager"
@@ -152,11 +118,11 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
                 Tratamentos com Acupuntura em São Paulo
             </h1>
             <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                A Clínica Valda Acupuntura é referência em <strong>acupuntura em São Paulo</strong>, localizada estrategicamente na <strong>Vila Guarani</strong>, <strong>zona sul</strong>, a poucos passos do <strong>metrô Conceição</strong>. Oferecemos protocolos exclusivos para sua saúde e bem-estar.
+                A Clínica Valda Acupuntura é referência em <strong>acupuntura em São Paulo</strong>, localizada estrategicamente na <strong>Vila da Saúde</strong>, <strong>zona sul</strong>, a poucos passos do <strong>Metrô Praça da Árvore</strong>. Oferecemos protocolos exclusivos para sua saúde e bem-estar.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="https://wa.me/5511983134656?text=Olá!%20Vim%20pela%20página%20de%20tratamentos%20e%20quero%20agendar." class="bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3">
-                    Agendar Consulta Agora
+                    💬 Agendar com a Dra. Valda
                 </a>
             </div>
         </div>
@@ -195,7 +161,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
             <div id="dor-ciatica" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
                 <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Dor Ciática na Zona Sul</h3>
                 <p class="text-gray-700 leading-relaxed text-lg mb-4">
-                    Especializada na Vila Guarani, nossa técnica de eletroacupuntura agride a base da inflamação do nervo ciático, eliminando as dores irradiadas para as pernas e glúteos que afetam pacientes em toda São Paulo.
+                    Especializada na Vila da Saúde, nossa técnica de eletroacupuntura agride a base da inflamação do nervo ciático, eliminando as dores irradiadas para as pernas e glúteos que afetam pacientes em toda São Paulo.
                 </p>
                 <p class="font-semibold text-primary">Benefício: Alívio imediato da dor e recuperação da mobilidade plena.</p>
             </div>
@@ -204,7 +170,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
             <div id="insonia" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
                 <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Insônia em São Paulo</h3>
                 <p class="text-gray-700 leading-relaxed text-lg mb-4">
-                    Se você busca dormir melhor, a acupuntura reequilibra o ritmo circadiano. Localizada próxima ao metrô Conceição, facilitamos o acesso para quem sofre com noites em claro na capital paulista.
+                    Se você busca dormir melhor, a acupuntura reequilibra o ritmo circadiano. Localizada próxima ao Metrô Praça da Árvore, facilitamos o acesso para quem sofre com noites em claro na capital paulista.
                 </p>
                 <p class="font-semibold text-primary">Benefício: Sono restaurador e melhora da performance cognitiva diária.</p>
             </div>
@@ -220,7 +186,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
 
             <!-- 5. Dor Lombar -->
             <div id="dor-lombar" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
-                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Dor Lombar na Vila Guarani</h3>
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Dor Lombar na Vila da Saúde</h3>
                 <p class="text-gray-700 leading-relaxed text-lg mb-4">
                     A região lombar sofre com o estresse do dia a dia em SP. Nossa clínica oferece protocolos de liberação miofascial e acupuntura para tratar hérnias de disco e tensões musculares agudas.
                 </p>
@@ -231,7 +197,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
             <div id="estresse" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
                 <h3 class="font-serif text-2xl font-bold text-primary mb-4">Controle de Estresse com Acupuntura em São Paulo</h3>
                 <p class="text-gray-700 leading-relaxed text-lg mb-4">
-                    Viver em São Paulo exige resiliência. A acupuntura atua como um botão de 'reset' para o sistema nervoso simpático, permitindo um estado de calma profunda e foco renovado na Vila Guarani.
+                    Viver em São Paulo exige resiliência. A acupuntura atua como um botão de 'reset' para o sistema nervoso simpático, permitindo um estado de calma profunda e foco renovado na Vila da Saúde.
                 </p>
                 <p class="font-semibold text-primary">Benefício: Equilíbrio mental e maior resistência física às pressões diárias.</p>
             </div>
@@ -240,7 +206,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
             <div id="tpm" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
                 <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para TPM na Zona Sul de SP</h3>
                 <p class="text-gray-700 leading-relaxed text-lg mb-4">
-                    Regulamos o ciclo hormonal feminino, tratando cólicas, irritabilidade e inchaço de forma 100% natural. Referência em cuidados femininos na zona sul, perto de você na Vila Guarani.
+                    Regulamos o ciclo hormonal feminino, tratando cólicas, irritabilidade e inchaço de forma 100% natural. Referência em cuidados femininos na zona sul, perto de você na Vila da Saúde.
                 </p>
                 <p class="font-semibold text-primary">Benefício: Bem-estar feminino e alívio dos sintomas pré-menstruais.</p>
             </div>
@@ -258,7 +224,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
             <div id="dores-cronicas" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
                 <h3 class="font-serif text-2xl font-bold text-primary mb-4">Tratamento de Dores Crônicas em São Paulo</h3>
                 <p class="text-gray-700 leading-relaxed text-lg mb-4">
-                    Para quem convive com dor há anos, a acupuntura oferece uma nova perspectiva. Protocolos de longo prazo na Vila Guarani para devolver qualidade de vida à comunidade de São Paulo.
+                    Para quem convive com dor há anos, a acupuntura oferece uma nova perspectiva. Protocolos de longo prazo na Vila da Saúde para devolver qualidade de vida à comunidade de São Paulo.
                 </p>
                 <p class="font-semibold text-primary">Benefício: Longevidade e independência física através do controle da dor.</p>
             </div>
@@ -283,7 +249,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
 
             <!-- 12. Bruxismo -->
             <div id="bruxismo" class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 scroll-mt-24 transition-all hover:border-primary/50">
-                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Bruxismo na Vila Guarani</h3>
+                <h3 class="font-serif text-2xl font-bold text-primary mb-4">Acupuntura para Bruxismo na Vila da Saúde</h3>
                 <p class="text-gray-700 leading-relaxed text-lg mb-4">
                     O relaxamento da musculatura masseter e temporal através da acupuntura alivia as dores faciais e o desgaste dentário causado pelo bruxismo na zona sul de SP.
                 </p>
@@ -310,7 +276,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
                         {[1, 2, 3, 4, 5].map(() => <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
                     </div>
                     <p class="text-gray-600 italic mb-4">"Tinha muita dor ciática e com 2 sessões já senti alívio total. Localização excelente perto do metrô."</p>
-                    <p class="font-bold text-gray-800 text-sm">Luiz Carlos - Vila Guarani</p>
+                    <p class="font-bold text-gray-800 text-sm">Luiz Carlos - Vila da Saúde</p>
                 </div>
                 <div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm">
                     <div class="flex text-yellow-500 mb-4">
@@ -331,7 +297,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
                         {[1, 2, 3, 4, 5].map(() => <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
                     </div>
                     <p class="text-gray-600 italic mb-4">"Sem dúvidas o melhor lugar! Fui atendida com muito carinho. Recomendo de olhos fechados!"</p>
-                    <p class="font-bold text-gray-800 text-sm">Dona Tata - Vila Guarani</p>
+                    <p class="font-bold text-gray-800 text-sm">Dona Tata - Vila da Saúde</p>
                 </div>
                 <div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm">
                     <div class="flex text-yellow-500 mb-4">
@@ -349,11 +315,11 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
         <div class="container mx-auto px-4 max-w-4xl text-center">
             <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Clínica de Acupuntura em São Paulo - Zona Sul</h2>
             <p class="text-lg text-white/90 leading-relaxed mb-8">
-                Localizada no coração da <strong>Vila Guarani</strong>, nossa clínica em <strong>São Paulo SP</strong> oferece fácil acesso para quem vem de diversos bairros da <strong>zona sul</strong>. Estamos estrategicamente posicionados ao lado do <strong>metrô Conceição</strong>, garantindo agilidade e conforto para sua jornada de cura.
+                Localizada no coração da <strong>Vila da Saúde</strong>, nossa clínica em <strong>São Paulo SP</strong> oferece fácil acesso para quem vem de diversos bairros da <strong>zona sul</strong>. Estamos estrategicamente posicionados ao lado do <strong>Metrô Praça da Árvore</strong>, garantindo agilidade e conforto para sua jornada de cura.
             </p>
             <div class="inline-block p-6 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-sm">
-              <p class="text-xl font-bold">📍 Av. do Café, 999 – Vila Guarani, São Paulo</p>
-              <p class="opacity-80">Próximo à Estação Conceição - Linha 1 Azul</p>
+              <p class="text-xl font-bold">📍 R. Maquerobi, 156 - Vila da Saúde, São Paulo</p>
+              <p class="opacity-80">Próximo ao Metrô Praça da Árvore - Linha 1 Azul</p>
             </div>
         </div>
     </section>
@@ -364,7 +330,7 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila Guarani 
             <h2 class="font-serif text-3xl md:text-5xl text-primary font-bold mb-8">Recupere sua vitalidade com a melhor acupuntura de SP</h2>
             <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">Agende sua avaliação hoje e descubra o protocolo ideal para suas necessidades.</p>
             <a href="https://wa.me/5511983134656?text=Olá!%20Vim%20pela%20página%20de%20tratamentos%20e%20quero%20agendar." class="bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:bg-primary transition-all hover:scale-105 transform">
-                Agendar Consulta de Acupuntura
+                💬 Agendar com a Dra. Valda
             </a>
         </div>
     </section>

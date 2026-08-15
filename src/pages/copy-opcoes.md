@@ -5,13 +5,13 @@ A primeira coisa que o usuário vê ao clicar no anúncio. Nosso objetivo é val
 
 ### Opção 1 (Foco Direto na Dor e Solução Imediata - Recomendada)
 * **Tag Superior:** Dra. Valda Fernandes • 20 Anos de Experiência em Eletroacupuntura
-* **Headline (H1):** Clínica de Acupuntura Especializada na Vila Guarani, SP
+* **Headline (H1):** Clínica de Acupuntura Especializada na Vila da Saúde, SP
 * **Subheadline:** Você já gastou tempo e dinheiro demais com remédios que só escondem a dor. Descubra o tratamento natural focado na causa raiz para Dores de Coluna, Ciático, Ansiedade e Enxaqueca.
-* **CTA Principal:** Agendar Avaliação Perto do Metrô Conceição
+* **CTA Principal:** Agendar Avaliação Perto do Metrô Praça da Árvore
 
 ### Opção 2 (Foco na Quebra de Padrão - Mais Agressiva contra remédios)
 * **Tag Superior:** Pare de remediar. Comece a tratar.
-* **Headline (H1):** Clínica de Acupuntura em São Paulo (Metrô Conceição)
+* **Headline (H1):** Clínica de Acupuntura em São Paulo (Metrô Praça da Árvore)
 * **Subheadline:** Anos de fisioterapia convencional e caixas de anti-inflamatórios não resolveram o seu problema? Nossa acupuntura age direto na raiz da inflamação e do estresse.
 * **CTA Principal:** Quero Viver Sem Dor Naturalmente
 
@@ -43,6 +43,6 @@ A primeira coisa que o usuário vê ao clicar no anúncio. Nosso objetivo é val
 
 ## SEÇÃO 4 (Credibilidade e Agendamento Final)
 * **Header:** Dra. Valda Fernandes: Cuidando de você perto de casa
-* **Body:** 20 anos integrando a precisão da Eletroacupuntura com a sabedoria da Medicina Chinesa. Na nossa Clínica na Vila Guarani (São Paulo), você não é apenas ""uma dor"". Você recebe um protocolo individualizado para voltar a viver com excelência.
-* **Caixa Destaque Localização:** Fácil Acesso: Av. do Café, 999. A poucos passos da Estação Conceição.
+* **Body:** 20 anos integrando a precisão da Eletroacupuntura com a sabedoria da Medicina Chinesa. Na nossa Clínica na Vila da Saúde (São Paulo), você não é apenas ""uma dor"". Você recebe um protocolo individualizado para voltar a viver com excelência.
+* **Caixa Destaque Localização:** Fácil Acesso: R. Maquerobi, 156. A poucos passos da Metrô Praça da Árvore.
 * **Final CTA:** Pare de sentir dor hoje mesmo. [Agendar Minha Consulta via WhatsApp]
