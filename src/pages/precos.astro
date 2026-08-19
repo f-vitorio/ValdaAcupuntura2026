@@ -19,22 +19,27 @@ const faqItems = [
 	{
 		question: 'Quanto custa uma sessão de acupuntura?',
 		answer:
-			'A avaliação inicial custa R$ 250. Para continuidade, existem opções de 4 sessões por R$ 700 (R$ 175 por sessão) e 10 sessões por R$ 1.500 (R$ 150 por sessão).'
+			'A avaliação inicial de acupuntura custa R$ 250. Para continuidade do acompanhamento, há opções de 4 sessões por R$ 700 ou 10 sessões por R$ 1.500.'
 	},
 	{
 		question: 'Quanto custa acupuntura em São Paulo?',
 		answer:
-			'Na Valda Acupuntura, em São Paulo (Vila da Saúde, Zona Sul), a avaliação inicial custa R$ 250. Para a continuidade do acompanhamento, há o pacote de 4 sessões por R$ 700 (R$ 175 por sessão) e o pacote de 10 sessões por R$ 1.500 (R$ 150 por sessão).'
+			'Na Valda Acupuntura, em São Paulo (Vila da Saúde, Zona Sul), a avaliação inicial custa R$ 250 e a continuidade pode ser feita em opções de 4 sessões por R$ 700 ou 10 sessões por R$ 1.500.'
 	},
 	{
-		question: 'Qual o valor da sessão de acupuntura?',
+		question: 'Qual o valor de uma sessão de acupuntura?',
 		answer:
-			'O valor varia conforme a modalidade de atendimento escolhida após a avaliação. A avaliação inicial custa R$ 250. Na continuidade, o valor por sessão é de R$ 175 no pacote de 4 sessões (R$ 700) ou R$ 150 no pacote de 10 sessões (R$ 1.500).'
+			'O valor depende da modalidade de atendimento. A avaliação inicial custa R$ 250. Na continuidade, o valor por sessão é de R$ 175 no pacote de 4 sessões (R$ 700) ou R$ 150 no pacote de 10 sessões (R$ 1.500).'
 	},
 	{
-		question: 'Preciso fazer a avaliação antes das sessões?',
+		question: 'A avaliação inicial tem valor diferente da sessão?',
 		answer:
-			'Sim. A avaliação inicial (R$ 250) é o primeiro passo. É nela que a acupunturista entende o seu caso e define, junto com você, a melhor forma de acompanhamento.'
+			'Sim. A avaliação inicial custa R$ 250 e é o primeiro passo para entender o caso e definir a modalidade de acompanhamento. As opções de continuidade são de 4 sessões por R$ 700 ou 10 sessões por R$ 1.500.'
+	},
+	{
+		question: 'Vocês trabalham com pacote de sessões?',
+		answer:
+			'Sim. Trabalhamos com pacotes de 4 sessões por R$ 700 e de 10 sessões por R$ 1.500 para a continuidade do acompanhamento.'
 	},
 	{
 		question: 'Onde fica a clínica de acupuntura?',
@@ -42,21 +47,16 @@ const faqItems = [
 			'A clínica fica na R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP, na Zona Sul, a poucos minutos de caminhada do Metrô Praça da Árvore.'
 	},
 	{
-		question: 'Como agendar uma avaliação?',
+		question: 'Como faço para agendar?',
 		answer:
 			'O agendamento é feito pelo WhatsApp: (11) 98313-4656. Basta enviar uma mensagem informando sua principal necessidade para reservar sua avaliação inicial.'
-	},
-	{
-		question: 'Vocês trabalham com pacotes de sessões?',
-		answer:
-			'Sim. Trabalhamos com pacote de 4 sessões por R$ 700 (R$ 175 por sessão) e pacote de 10 sessões por R$ 1.500 (R$ 150 por sessão), indicados para a continuidade do acompanhamento.'
 	}
 ];
 ---
 
 <Layout
 	title="Acupuntura: Preço da Sessão em São Paulo | Valda Acupuntura"
-	description="Quanto custa uma sessão de acupuntura em São Paulo? Veja os valores da avaliação, pacotes de sessões e como funciona o atendimento na Valda Acupuntura."
+	description="Quanto custa uma sessão de acupuntura em São Paulo? Veja os valores da avaliação e das opções de acompanhamento na Valda Acupuntura."
 	canonicalUrl="https://valdaacupuntura.com.br/precos/"
 	heroPreloadUrl={heroImgOptimized.src}>
 
@@ -99,7 +99,7 @@ const faqItems = [
 					Quanto custa uma sessão de acupuntura em São Paulo?
 				</h1>
 				<p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-					Veja os valores da avaliação inicial e das opções de acompanhamento em acupuntura. Trabalhamos com uma avaliação individual para entender cada caso e definir a melhor forma de atendimento.
+					Confira os valores da avaliação inicial e das opções de acompanhamento em acupuntura. Na Valda Acupuntura, o atendimento começa com uma avaliação individual para compreender cada caso.
 				</p>
 				<a
 					href={waAvaliacaoInicial}
@@ -111,14 +111,13 @@ const faqItems = [
 			</div>
 		</section>
 
-		<!-- PREÇOS -->
+		<!-- RESPOSTA IMEDIATA + PREÇOS -->
 		<section id="precos" class="py-16 md:py-24 bg-white scroll-mt-24">
 			<div class="container mx-auto px-4 max-w-6xl">
 				<div class="text-center max-w-3xl mx-auto mb-12">
-					<span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Valores transparentes</span>
-					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Preços da acupuntura</h2>
-					<p class="text-lg text-gray-600 leading-relaxed">
-						Os valores são apresentados de forma transparente para que você saiba quanto custa o atendimento antes de agendar. A avaliação inicial é o primeiro passo para entender suas necessidades e definir o acompanhamento mais adequado.
+					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Preço da acupuntura</h2>
+					<p class="text-xl text-gray-700 leading-relaxed font-medium">
+						A avaliação inicial de acupuntura custa <strong class="text-primary">R$ 250</strong>. Para continuidade do acompanhamento, há opções de <strong class="text-primary">4 sessões por R$ 700</strong> ou <strong class="text-primary">10 sessões por R$ 1.500</strong>.
 					</p>
 				</div>
 
@@ -127,7 +126,7 @@ const faqItems = [
 					<div class="bg-primary p-8 rounded-2xl shadow-xl border border-primary relative flex flex-col text-center transform md:-translate-y-4">
 						<div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-secondary text-white px-5 py-1.5 rounded-full text-sm font-bold shadow-sm whitespace-nowrap">Passo Inicial</div>
 						<h3 class="font-serif text-2xl font-bold text-white mb-2 mt-2">Avaliação Inicial</h3>
-						<p class="text-white/80 mb-6 font-medium">Passo inicial para entender seu caso</p>
+						<p class="text-white/80 mb-6 font-medium">Entendimento do seu caso</p>
 						<div class="text-4xl font-bold text-white mb-6">R$ 250</div>
 						<a
 							href={waAvaliacaoInicial}
@@ -142,8 +141,8 @@ const faqItems = [
 					<div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col text-center hover:border-gray-200 transition-colors">
 						<h3 class="font-serif text-2xl font-bold text-gray-800 mb-2">4 sessões</h3>
 						<p class="text-gray-500 mb-2 font-medium">Opção de continuidade</p>
-						<div class="text-4xl font-bold text-primary mb-2">R$ 700</div>
-						<p class="text-gray-400 text-sm mb-6">R$ 175 por sessão</p>
+						<p class="text-gray-400 text-sm mb-2">R$ 175 por sessão</p>
+						<div class="text-4xl font-bold text-primary mb-6">R$ 700</div>
 						<a
 							href={waAcompanhamento}
 							target="_blank"
@@ -157,8 +156,8 @@ const faqItems = [
 					<div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col text-center hover:border-gray-200 transition-colors">
 						<h3 class="font-serif text-2xl font-bold text-gray-800 mb-2">10 sessões</h3>
 						<p class="text-gray-500 mb-2 font-medium">Melhor valor em continuidade</p>
-						<div class="text-4xl font-bold text-primary mb-2">R$ 1.500</div>
-						<p class="text-gray-400 text-sm mb-6">R$ 150 por sessão</p>
+						<p class="text-gray-400 text-sm mb-2">R$ 150 por sessão</p>
+						<div class="text-4xl font-bold text-primary mb-6">R$ 1.500</div>
 						<a
 							href={waAcompanhamento}
 							target="_blank"
@@ -171,14 +170,26 @@ const faqItems = [
 			</div>
 		</section>
 
+		<!-- QUANTO CUSTA UMA SESSÃO -->
+		<section class="py-16 md:py-20 bg-bg-light">
+			<div class="container mx-auto px-4 max-w-3xl text-center">
+				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Quanto custa uma sessão de acupuntura?</h2>
+				<p class="text-xl text-gray-700 leading-relaxed mb-4">
+					O valor da acupuntura depende da modalidade de atendimento. Na Valda Acupuntura, a avaliação inicial custa <strong class="text-primary">R$ 250</strong>. Para continuidade, existem opções de <strong class="text-primary">4 sessões por R$ 700</strong> e <strong class="text-primary">10 sessões por R$ 1.500</strong>.
+				</p>
+				<p class="text-lg text-gray-600 leading-relaxed">
+					Assim, você conhece o preço da sessão de acupuntura antes de agendar, com valores transparentes e sem surpresas. O primeiro passo é sempre a avaliação, para que a melhor opção de acompanhamento seja definida para o seu caso.
+				</p>
+			</div>
+		</section>
+
 		<!-- COMO FUNCIONA O ATENDIMENTO -->
-		<section class="py-16 md:py-24 bg-bg-light">
+		<section class="py-16 md:py-24 bg-white">
 			<div class="container mx-auto px-4 max-w-4xl">
 				<div class="text-center mb-12">
-					<span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Como funciona</span>
-					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Como funciona o atendimento?</h2>
+					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Como funciona o atendimento de acupuntura?</h2>
 					<p class="text-lg text-gray-600 leading-relaxed">
-						Do primeiro contato ao acompanhamento, cada etapa é pensada para entender o seu caso e conduzir o tratamento de acupuntura da forma mais adequada para você.
+						Do primeiro contato ao acompanhamento, cada etapa é pensada para compreender o seu caso e conduzir o tratamento de acupuntura da forma mais adequada.
 					</p>
 				</div>
 
@@ -187,12 +198,12 @@ const faqItems = [
 					<div class="relative">
 						<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10 shadow-lg border-4 border-white">1</div>
 						<h3 class="font-bold text-xl text-gray-800 mb-2">Avaliação inicial</h3>
-						<p class="text-gray-600 text-sm">O primeiro passo para entender o seu caso.</p>
+						<p class="text-gray-600 text-sm">O primeiro passo para compreender o seu caso.</p>
 					</div>
 					<div class="relative">
 						<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10 shadow-lg border-4 border-white">2</div>
 						<h3 class="font-bold text-xl text-gray-800 mb-2">Entendimento individual</h3>
-						<p class="text-gray-600 text-sm">A acupunturista ouve seu relato e histórico.</p>
+						<p class="text-gray-600 text-sm">A acupunturista escuta seu relato e seu histórico.</p>
 					</div>
 					<div class="relative">
 						<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10 shadow-lg border-4 border-white">3</div>
@@ -201,35 +212,15 @@ const faqItems = [
 					</div>
 					<div class="relative">
 						<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10 shadow-lg border-4 border-white">4</div>
-						<h3 class="font-bold text-xl text-gray-800 mb-2">Início das sessões</h3>
-						<p class="text-gray-600 text-sm">Sessões individuais, em ambiente tranquilo.</p>
+						<h3 class="font-bold text-xl text-gray-800 mb-2">Sessões de acompanhamento</h3>
+						<p class="text-gray-600 text-sm">Sessões individuais, conforme a abordagem definida.</p>
 					</div>
 					<div class="relative">
 						<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10 shadow-lg border-4 border-white">5</div>
-						<h3 class="font-bold text-xl text-gray-800 mb-2">Acompanhamento</h3>
+						<h3 class="font-bold text-xl text-gray-800 mb-2">Acompanhamento da evolução</h3>
 						<p class="text-gray-600 text-sm">A evolução é acompanhada a cada sessão.</p>
 					</div>
 				</div>
-			</div>
-		</section>
-
-		<!-- QUANTO CUSTA ACUPUNTURA? -->
-		<section class="py-16 md:py-20 bg-white">
-			<div class="container mx-auto px-4 max-w-3xl text-center">
-				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Quanto custa acupuntura?</h2>
-				<p class="text-xl text-gray-700 leading-relaxed mb-4">
-					A avaliação inicial custa <strong class="text-primary font-bold">R$ 250</strong>. Para quem deseja continuar o acompanhamento, há opções de <strong class="text-primary font-bold">4 sessões por R$ 700</strong> (R$ 175 por sessão) ou <strong class="text-primary font-bold">10 sessões por R$ 1.500</strong> (R$ 150 por sessão).
-				</p>
-				<p class="text-lg text-gray-600 leading-relaxed mb-8">
-					O primeiro passo é sempre a avaliação, para que a melhor opção de acompanhamento seja definida de acordo com o seu caso.
-				</p>
-				<a
-					href={waAvaliacaoInicial}
-					target="_blank"
-					rel="noopener"
-					class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
-					Agendar avaliação
-				</a>
 			</div>
 		</section>
 
@@ -238,7 +229,7 @@ const faqItems = [
 			<div class="container mx-auto px-4 max-w-4xl text-center">
 				<h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Acupuntura em São Paulo</h2>
 				<p class="text-lg text-white/90 leading-relaxed mb-6">
-					A clínica de acupuntura fica na <strong class="text-white font-bold">R. Maquerobi, 156 - Vila da Saúde</strong>, na <strong class="text-white font-bold">Zona Sul de São Paulo</strong>, a poucos minutos de caminhada do <strong class="text-white font-bold">Metrô Praça da Árvore</strong> (Linha 1 - Azul). O atendimento é presencial, em sessões individuais, e a localização facilita o acesso para quem mora na região ou vem de outros bairros da Zona Sul.
+					A clínica de acupuntura Valda Acupuntura realiza atendimento presencial na <strong class="text-white font-bold">R. Maquerobi, 156 - Vila da Saúde</strong>, na <strong class="text-white font-bold">Zona Sul de São Paulo</strong>, a poucos minutos de caminhada do <strong class="text-white font-bold">Metrô Praça da Árvore</strong> (Linha 1 - Azul). As sessões são individuais, em ambiente tranquilo, com facilidade de acesso para quem mora na região ou vem de outros bairros da Zona Sul.
 				</p>
 				<div class="inline-block p-6 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-sm mb-8">
 					<p class="text-xl font-bold">📍 R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP</p>
@@ -259,43 +250,42 @@ const faqItems = [
 			</div>
 		</section>
 
-		<!-- O QUE ESTÁ INCLUÍDO -->
+		<!-- POR QUE COMEÇAR PELA AVALIAÇÃO? -->
 		<section class="py-16 md:py-24 bg-white">
 			<div class="container mx-auto px-4 max-w-4xl">
 				<div class="text-center max-w-3xl mx-auto mb-12">
-					<span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Primeiro atendimento</span>
-					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">O que está incluído no primeiro atendimento?</h2>
+					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Por que começar pela avaliação?</h2>
 					<p class="text-lg text-gray-600 leading-relaxed">
-						Antes de qualquer sessão, o primeiro atendimento é dedicado a conhecer você. É nesse momento que entendemos o que você busca e definimos a melhor forma de conduzir o acompanhamento.
+						Antes de definir qualquer modalidade de acompanhamento, o primeiro passo é compreender o seu caso. Na avaliação inicial, a acupunturista escuta o seu relato, entende seu histórico e orienta a melhor forma de conduzir o seu atendimento.
 					</p>
 				</div>
 				<div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto text-left">
 					<div class="flex gap-4 items-start bg-bg-light p-6 rounded-xl border border-gray-100">
 						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
 						<div>
-							<h3 class="font-bold text-gray-800 mb-1">Entendimento do seu caso</h3>
-							<p class="text-gray-600">Conhecemos seu histórico e suas necessidades antes de definir qualquer abordagem.</p>
+							<h3 class="font-bold text-gray-800 mb-1">Valor transparente desde o início</h3>
+							<p class="text-gray-600">Você sabe o preço da avaliação e das opções de acompanhamento antes de agendar.</p>
 						</div>
 					</div>
 					<div class="flex gap-4 items-start bg-bg-light p-6 rounded-xl border border-gray-100">
 						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
 						<div>
-							<h3 class="font-bold text-gray-800 mb-1">Conversa individual</h3>
-							<p class="text-gray-600">Atendimento 1 a 1, sem pressa, com atenção às necessidades de cada pessoa.</p>
+							<h3 class="font-bold text-gray-800 mb-1">Atendimento individual</h3>
+							<p class="text-gray-600">Sessões 1 a 1, sem pressa, com atenção às necessidades de cada pessoa.</p>
 						</div>
 					</div>
 					<div class="flex gap-4 items-start bg-bg-light p-6 rounded-xl border border-gray-100">
 						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
 						<div>
-							<h3 class="font-bold text-gray-800 mb-1">Definição da abordagem</h3>
-							<p class="text-gray-600">A forma de atendimento é definida em conjunto, conforme o que for mais adequado ao seu caso.</p>
+							<h3 class="font-bold text-gray-800 mb-1">Orientação personalizada</h3>
+							<p class="text-gray-600">A melhor forma de acompanhamento é definida conforme o seu caso.</p>
 						</div>
 					</div>
 					<div class="flex gap-4 items-start bg-bg-light p-6 rounded-xl border border-gray-100">
 						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
 						<div>
-							<h3 class="font-bold text-gray-800 mb-1">Orientação sobre a continuidade</h3>
-							<p class="text-gray-600">Você não precisa escolher um pacote antes de agendar: a opção de acompanhamento é definida após a avaliação.</p>
+							<h3 class="font-bold text-gray-800 mb-1">Sem compromisso de pacote</h3>
+							<p class="text-gray-600">Você não precisa escolher um pacote antes da avaliação: a opção de continuidade é definida em conjunto.</p>
 						</div>
 					</div>
 				</div>
@@ -305,9 +295,9 @@ const faqItems = [
 		<!-- CTA INTERMEDIÁRIO -->
 		<section class="py-16 md:py-20 bg-bg-light">
 			<div class="container mx-auto px-4 max-w-3xl text-center">
-				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Quer saber qual opção faz mais sentido para você?</h2>
+				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Quer começar seu atendimento?</h2>
 				<p class="text-xl text-gray-700 leading-relaxed mb-8">
-					O primeiro passo é entender o seu caso. Entre em contato pelo WhatsApp para agendar sua avaliação inicial.
+					Agende sua avaliação inicial e converse com a equipe da Valda Acupuntura.
 				</p>
 				<a
 					href={waAvaliacaoInicial}
@@ -319,37 +309,8 @@ const faqItems = [
 			</div>
 		</section>
 
-		<!-- ATENDIMENTO PENSADO PARA O SEU CASO -->
-		<section class="py-16 md:py-24 bg-white">
-			<div class="container mx-auto px-4 max-w-5xl">
-				<div class="text-center max-w-3xl mx-auto mb-12">
-					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Um atendimento pensado para o seu caso</h2>
-					<p class="text-lg text-gray-600 leading-relaxed">
-						Cada pessoa chega com uma história diferente. Por isso, o atendimento é conduzido de forma individual, com acompanhamento próximo e atenção às suas necessidades.
-					</p>
-				</div>
-				<div class="grid md:grid-cols-3 gap-6">
-					<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 text-center">
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Avaliação individual</h3>
-						<p class="text-gray-600">Todo acompanhamento começa por uma avaliação dedicada ao seu caso.</p>
-					</div>
-					<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 text-center">
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Abordagem personalizada</h3>
-						<p class="text-gray-600">A forma de atendimento é definida conforme a sua necessidade.</p>
-					</div>
-					<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 text-center">
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Acompanhamento contínuo</h3>
-						<p class="text-gray-600">A evolução é acompanhada a cada nova sessão, com ajustes quando necessário.</p>
-					</div>
-				</div>
-				<p class="text-center text-gray-500 mt-10 max-w-3xl mx-auto">
-					A clínica fica na <a href="/#localizacao" class="text-primary font-bold hover:text-secondary underline decoration-2 underline-offset-4 transition-colors">Vila da Saúde, Zona Sul de São Paulo</a>, e o atendimento é realizado por uma acupunturista com 20 anos de experiência clínica. Conheça também os <a href="/acupuntura-sao-paulo-tratamentos/" class="text-primary font-bold hover:text-secondary underline decoration-2 underline-offset-4 transition-colors">tratamentos de acupuntura</a> disponíveis na clínica.
-				</p>
-			</div>
-		</section>
-
 		<!-- FAQ -->
-		<section class="py-16 md:py-24 bg-bg-light">
+		<section class="py-16 md:py-24 bg-white">
 			<div class="container mx-auto px-4 max-w-4xl">
 				<div class="text-center mb-12">
 					<span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Perguntas frequentes</span>
@@ -359,12 +320,12 @@ const faqItems = [
 
 				<div class="space-y-4">
 					{faqItems.map((item) => (
-						<details class="group bg-white rounded-lg shadow-sm open:shadow-md transition-shadow">
+						<details class="group bg-white rounded-lg shadow-sm open:shadow-md transition-shadow border border-gray-100">
 							<summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
 								<span>{item.question}</span>
 								<span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
 							</summary>
-							<div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
+							<div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4">
 								<p>{item.answer}</p>
 							</div>
 						</details>
@@ -378,7 +339,7 @@ const faqItems = [
 			<div class="container mx-auto px-4 max-w-3xl">
 				<h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Agende sua avaliação inicial</h2>
 				<p class="text-xl text-white/90 mb-8">
-					Dê o primeiro passo e descubra, com a avaliação individual, qual a melhor forma de acompanhamento para o seu caso na clínica de acupuntura na Vila da Saúde, Zona Sul de São Paulo.
+					Conheça na prática como funciona o atendimento de acupuntura na Vila da Saúde, Zona Sul de São Paulo. O primeiro passo é agendar sua avaliação individual pelo WhatsApp.
 				</p>
 				<a
 					href={waAvaliacaoInicial}
