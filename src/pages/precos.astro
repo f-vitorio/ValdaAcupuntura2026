@@ -1,473 +1,392 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import { Image, getImage } from 'astro:assets';
+import { getImage } from 'astro:assets';
 import heroImgSource from '../assets/hero-premium.webp';
-import valdaImg from '../assets/valda-real.webp';
 
-// Pre-optimize hero image to strictly serve a sized avif
 const heroImgOptimized = await getImage({
-	src: heroImgSource, 
+	src: heroImgSource,
 	format: 'avif',
-	width: 800, // Reduced base width to serve mobile first
+	width: 800,
 });
+
+const waAvaliacaoInicial =
+	'https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20minha%20avalia%C3%A7%C3%A3o%20inicial.';
+const waAcompanhamento =
+	'https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20iniciar%20acompanhamento.';
+
+const faqItems = [
+	{
+		question: 'Quanto custa uma sessão de acupuntura?',
+		answer:
+			'A avaliação inicial custa R$ 250. Para continuidade, existem opções de 4 sessões por R$ 700 (R$ 175 por sessão) e 10 sessões por R$ 1.500 (R$ 150 por sessão).'
+	},
+	{
+		question: 'Quanto custa acupuntura em São Paulo?',
+		answer:
+			'Na Valda Acupuntura, em São Paulo (Vila da Saúde, Zona Sul), a avaliação inicial custa R$ 250. Para a continuidade do acompanhamento, há o pacote de 4 sessões por R$ 700 (R$ 175 por sessão) e o pacote de 10 sessões por R$ 1.500 (R$ 150 por sessão).'
+	},
+	{
+		question: 'Qual o valor da sessão de acupuntura?',
+		answer:
+			'O valor varia conforme a modalidade de atendimento escolhida após a avaliação. A avaliação inicial custa R$ 250. Na continuidade, o valor por sessão é de R$ 175 no pacote de 4 sessões (R$ 700) ou R$ 150 no pacote de 10 sessões (R$ 1.500).'
+	},
+	{
+		question: 'Preciso fazer a avaliação antes das sessões?',
+		answer:
+			'Sim. A avaliação inicial (R$ 250) é o primeiro passo. É nela que a acupunturista entende o seu caso e define, junto com você, a melhor forma de acompanhamento.'
+	},
+	{
+		question: 'Onde fica a clínica de acupuntura?',
+		answer:
+			'A clínica fica na R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP, na Zona Sul, a poucos minutos de caminhada do Metrô Praça da Árvore.'
+	},
+	{
+		question: 'Como agendar uma avaliação?',
+		answer:
+			'O agendamento é feito pelo WhatsApp: (11) 98313-4656. Basta enviar uma mensagem informando sua principal necessidade para reservar sua avaliação inicial.'
+	},
+	{
+		question: 'Vocês trabalham com pacotes de sessões?',
+		answer:
+			'Sim. Trabalhamos com pacote de 4 sessões por R$ 700 (R$ 175 por sessão) e pacote de 10 sessões por R$ 1.500 (R$ 150 por sessão), indicados para a continuidade do acompanhamento.'
+	}
+];
 ---
 
 <Layout
-	title="Acupuntura Preço em SP | Valor da Sessão | Vila da Saúde"
-	description="Valores de acupuntura em São Paulo (Vila da Saúde, próximo ao Metrô Praça da Árvore). Sessões avulsas e pacotes com transparência de preço. Agende sua avaliação inicial."
-    heroPreloadUrl={heroImgOptimized.src}
-	canonicalUrl="https://valdaacupuntura.com.br/precos/">
+	title="Acupuntura: Preço da Sessão em São Paulo | Valda Acupuntura"
+	description="Quanto custa uma sessão de acupuntura em São Paulo? Veja os valores da avaliação, pacotes de sessões e como funciona o atendimento na Valda Acupuntura."
+	canonicalUrl="https://valdaacupuntura.com.br/precos/"
+	heroPreloadUrl={heroImgOptimized.src}>
 
-	<!-- FAQ JSON-LD Schema para SEO (Rich Snippets) -->
+	<!-- FAQ JSON-LD Schema (perguntas visíveis na página) -->
 	<script type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
 		"@type": "FAQPage",
-		"mainEntity": [
-			{
-				"@type": "Question",
-				"name": "Qual o preço da sessão de acupuntura?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "Oferecemos sessão avulsa a partir de R$ 250, pacote de 4 sessões por R$ 700, e pacote de 10 sessões por R$ 1.500. Cada protocolo é personalizado conforme a avaliação inicial."
-				}
-			},
-			{
-				"@type": "Question",
-				"name": "A acupuntura dói durante o atendimento?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "As agulhas utilizadas são muito finas. A sensação relatada pelos pacientes é de leve formigamento e relaxamento profundo durante a sessão."
-				}
-			},
-			{
-				"@type": "Question",
-				"name": "Quantas sessões são recomendadas?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "Cada pessoa responde de forma única ao tratamento. A avaliação inicial ajuda a definir um protocolo apropriado, que pode variar de algumas sessões para casos agudos até pacotes maiores para acompanhamento contínuo."
-				}
-			},
-			{
-				"@type": "Question",
-				"name": "A clínica atende convênio médico?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "Atendemos pacientes via sistema de reembolso médico e fornecemos toda a documentação (Nota Fiscal) necessária. Consulte-nos para mais informações."
-				}
+		"mainEntity": faqItems.map(item => ({
+			"@type": "Question",
+			"name": item.question,
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": item.answer
 			}
-		]
+		}))
 	})} />
 
 	<main>
-	<Header />
-		<!-- Hero Section -->
+		<Header />
+
+		<!-- HERO -->
 		<section class="relative py-20 md:py-32 text-center overflow-hidden">
-			<!-- Background Image (Otimizada Nativa) -->
-			<img 
+			<img
 				src={heroImgOptimized.src}
-				alt="Valda Acupuntura Clínica" 
+				alt="Clínica de acupuntura em São Paulo, na Vila da Saúde"
 				class="absolute inset-0 w-full h-full object-cover object-center z-0"
 				fetchpriority="high"
 				loading="eager"
 				decoding="async"
-				width={heroImgOptimized.attributes.width}
-				height={heroImgOptimized.attributes.height}
+				width={1920}
+				height={1080}
 			/>
-			<!-- Gradient Overlay -->
 			<div class="absolute inset-0 bg-gradient-to-b from-[#e8f5e9]/95 to-white/90 z-0"></div>
-			
+
 			<div class="container mx-auto px-4 max-w-4xl relative z-10">
-				<span class="inline-block bg-[#e6fffa] text-[#047857] px-4 py-2 rounded-full font-semibold text-sm mb-6 border border-[#b7eb8f] shadow-sm animate-fade-in">
-					Dra. Valda Fernandes • 20 Anos de Experiência
+				<span class="inline-block bg-[#e6fffa] text-[#047857] px-4 py-2 rounded-full font-semibold text-sm mb-6 border border-[#b7eb8f] shadow-sm">
+					Valda Acupuntura • Vila da Saúde, São Paulo
 				</span>
 				<h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-tight mb-6 font-bold">
-					Qual o Preço de uma Sessão de Acupuntura?
+					Quanto custa uma sessão de acupuntura em São Paulo?
 				</h1>
 				<p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-					Antes de procurar pelo "mais barato", entenda: quanto tem custado conviver com essa <strong class="text-primary font-bold">dor no corpo todos os dias?</strong> Descubra o valor de um tratamento que devolve a sua mobilidade sem remédios.
+					Veja os valores da avaliação inicial e das opções de acompanhamento em acupuntura. Trabalhamos com uma avaliação individual para entender cada caso e definir a melhor forma de atendimento.
 				</p>
-				
-				<div class="flex flex-col items-center gap-4">
-					<a href="#preco" 
-					   class="group relative bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3 overflow-hidden">
-						<span class="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500 origin-center"></span>
-						<svg class="w-6 h-6 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-						<span class="relative z-10">💰 Ver Valores e Agendar</span>
-						<span class="absolute inset-0 rounded-full ring-4 ring-green-400/30 animate-pulse"></span>
-					</a>
-					<p class="text-sm text-gray-500 font-medium">Resposta rápida • Atendimento humanizado</p>
-				</div>
+				<a
+					href={waAvaliacaoInicial}
+					target="_blank"
+					rel="noopener"
+					class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all w-full sm:w-auto">
+					AGENDAR AVALIAÇÃO
+				</a>
 			</div>
 		</section>
 
-		<!-- Pain Points -->
-		<section class="py-16 md:py-24 bg-white">
+		<!-- PREÇOS -->
+		<section id="precos" class="py-16 md:py-24 bg-white scroll-mt-24">
 			<div class="container mx-auto px-4 max-w-6xl">
 				<div class="text-center max-w-3xl mx-auto mb-12">
-					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">O verdadeiro preço não é pago em dinheiro. É pago com a sua qualidade de vida.</h2>
+					<span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Valores transparentes</span>
+					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Preços da acupuntura</h2>
 					<p class="text-lg text-gray-600 leading-relaxed">
-						Para quem tem dores crônicas, procurar o tratamento mais barato costuma sair caro a longo prazo.
+						Os valores são apresentados de forma transparente para que você saiba quanto custa o atendimento antes de agendar. A avaliação inicial é o primeiro passo para entender suas necessidades e definir o acompanhamento mais adequado.
 					</p>
 				</div>
-				<div class="grid md:grid-cols-3 gap-8">
-					<div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all text-center group">
-						<div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">💊</div>
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Remédios Frequentes</h3>
-						<p class="text-gray-600">Quanto você já gastou esse ano com anti-inflamatórios que destroem seu estômago e só aliviam a dor por poucas horas?</p>
+
+				<div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+					<!-- Avaliação Inicial -->
+					<div class="bg-primary p-8 rounded-2xl shadow-xl border border-primary relative flex flex-col text-center transform md:-translate-y-4">
+						<div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-secondary text-white px-5 py-1.5 rounded-full text-sm font-bold shadow-sm whitespace-nowrap">Passo Inicial</div>
+						<h3 class="font-serif text-2xl font-bold text-white mb-2 mt-2">Avaliação Inicial</h3>
+						<p class="text-white/80 mb-6 font-medium">Passo inicial para entender seu caso</p>
+						<div class="text-4xl font-bold text-white mb-6">R$ 250</div>
+						<a
+							href={waAvaliacaoInicial}
+							target="_blank"
+							rel="noopener"
+							class="mt-auto block w-full bg-secondary text-white px-6 py-4 rounded-full font-bold hover:bg-white hover:text-secondary transition-colors shadow-md text-lg">
+							Agendar avaliação
+						</a>
 					</div>
-					<div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all text-center group">
-						<div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">⏳</div>
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Perda de Tempo</h3>
-						<p class="text-gray-600">Dezenas de idas a sessões de fisioterapia baseadas em choquinho que nunca agem na raiz da lesão do nervo ciático ou joelho.</p>
+
+					<!-- 4 sessões -->
+					<div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col text-center hover:border-gray-200 transition-colors">
+						<h3 class="font-serif text-2xl font-bold text-gray-800 mb-2">4 sessões</h3>
+						<p class="text-gray-500 mb-2 font-medium">Opção de continuidade</p>
+						<div class="text-4xl font-bold text-primary mb-2">R$ 700</div>
+						<p class="text-gray-400 text-sm mb-6">R$ 175 por sessão</p>
+						<a
+							href={waAcompanhamento}
+							target="_blank"
+							rel="noopener"
+							class="mt-auto block w-full bg-white text-primary border-2 border-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
+							Agendar avaliação
+						</a>
 					</div>
-					<div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all text-center group">
-						<div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🏥</div>
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Risco Cirúrgico</h3>
-						<p class="text-gray-600">Acompanhamento contínuo ajuda a potencializar o bem-estar e a independência.</p>
+
+					<!-- 10 sessões -->
+					<div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col text-center hover:border-gray-200 transition-colors">
+						<h3 class="font-serif text-2xl font-bold text-gray-800 mb-2">10 sessões</h3>
+						<p class="text-gray-500 mb-2 font-medium">Melhor valor em continuidade</p>
+						<div class="text-4xl font-bold text-primary mb-2">R$ 1.500</div>
+						<p class="text-gray-400 text-sm mb-6">R$ 150 por sessão</p>
+						<a
+							href={waAcompanhamento}
+							target="_blank"
+							rel="noopener"
+							class="mt-auto block w-full bg-white text-primary border-2 border-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
+							Agendar avaliação
+						</a>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Solution -->
+		<!-- COMO FUNCIONA O ATENDIMENTO -->
 		<section class="py-16 md:py-24 bg-bg-light">
 			<div class="container mx-auto px-4 max-w-4xl">
 				<div class="text-center mb-12">
-					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-2">A Solução Natural e Definitiva</h2>
-					<p class="text-lg text-gray-600">Métodos comprovados cientificamente para tratar a causa raiz.</p>
-				</div>
-				<div class="space-y-6 max-w-2xl mx-auto">
-					<!-- Item 1 -->
-					<div class="flex gap-6 items-start bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-primary transition-colors">
-						<div class="text-primary flex-shrink-0 mt-1">
-							<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-						</div>
-						<div>
-							<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Analgesia Sem Remédios</h3>
-							<p class="text-gray-600 leading-relaxed">Liberação de endorfinas que bloqueiam a dor naturalmente.</p>
-						</div>
-					</div>
-					<!-- Item 2 -->
-					<div class="flex gap-6 items-start bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-primary transition-colors">
-						<div class="text-primary flex-shrink-0 mt-1">
-							<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-						</div>
-						<div>
-							<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Ação Anti-inflamatória</h3>
-							<p class="text-gray-600 leading-relaxed">Reduz o inchaço e a inflamação nas articulações e nervos.</p>
-						</div>
-					</div>
-					<!-- Item 3 -->
-					<div class="flex gap-6 items-start bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-primary transition-colors">
-						<div class="text-primary flex-shrink-0 mt-1">
-							<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-						</div>
-						<div>
-							<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Equilíbrio Emocional</h3>
-							<p class="text-gray-600 leading-relaxed">Trata ansiedade e insônia regulando o sistema nervoso.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Social Proof (Relatos) -->
-		<section class="py-16 bg-white overflow-hidden">
-			<div class="container mx-auto px-4 max-w-6xl">
-				<div class="text-center mb-12">
-					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-2">Voltando a Viver Sem Dor</h2>
-					<p class="text-lg text-gray-600">Histórias reais de quem recuperou a liberdade de movimento na Valda Acupuntura.</p>
-				</div>
-				<div class="grid md:grid-cols-3 gap-6">
-					<!-- Depoimento 1 -->
-					<div class="bg-bg-light p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col relative">
-						<div class="text-4xl text-secondary opacity-50 absolute top-4 right-6 font-serif">"</div>
-						<div class="flex text-yellow-400 mb-4 text-xl">
-							<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-						</div>
-						<p class="text-gray-700 italic mb-6 relative z-10 leading-relaxed">
-							"Eu cheguei mancando e já saí andando na primeira sessão. Achei que estava condenado a tomar anti-inflamatório pro resto da vida. A Dra. Valda tem mãos de fada."
-						</p>
-						<p class="font-bold text-gray-800 mt-auto">— Paciente (Nervo Ciático)</p>
-					</div>
-					
-					<!-- Depoimento 2 -->
-					<div class="bg-bg-light p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col relative mt-0 md:mt-8">
-						<div class="text-4xl text-secondary opacity-50 absolute top-4 right-6 font-serif">"</div>
-						<div class="flex text-yellow-400 mb-4 text-xl">
-							<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-						</div>
-						<p class="text-gray-700 italic mb-6 relative z-10 leading-relaxed">
-							"O ortopedista disse que talvez fosse cirurgia no joelho. Fui na Dra. Valda e em poucas sessões o inchaço e a fisgada sumiram. Voltei a deitar no chão com meu neto."
-						</p>
-						<p class="font-bold text-gray-800 mt-auto">— Paciente (Dores no Joelho)</p>
-					</div>
-
-					<!-- Depoimento 3 -->
-					<div class="bg-bg-light p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col relative">
-						<div class="text-4xl text-secondary opacity-50 absolute top-4 right-6 font-serif">"</div>
-						<div class="flex text-yellow-400 mb-4 text-xl">
-							<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-						</div>
-						<p class="text-gray-700 italic mb-6 relative z-10 leading-relaxed">
-							"Travava as costas quase todo mês e vivia no Pronto Socorro tomando injeção. Com o tratamento contínuo, não sinto mais as pontadas na lombar."
-						</p>
-						<p class="font-bold text-gray-800 mt-auto">— Paciente (Dor Lombar)</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Authority -->
-		<section class="py-16 md:py-24 bg-white overflow-hidden">
-			<div class="container mx-auto px-4 max-w-6xl flex flex-col md:flex-row items-center gap-12">
-				<div class="flex-1 w-full max-w-md relative">
-					<!-- Decorative shadow element -->
-					<div class="absolute bottom-[-20px] right-[-20px] w-full h-full bg-verde-claro rounded-xl -z-10"></div>
-					<Image 
-						src={valdaImg} 
-						alt="Dra Valda Fernandes Acupunturista SP" 
-						width={600} 
-						height={600} 
-						class="rounded-xl shadow-xl w-full h-auto object-cover aspect-square border border-gray-100"
-						loading="lazy"
-						decoding="async"
-					/>
-				</div>
-				<div class="flex-1 text-left">
-					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-2">Dra. Valda Fernandes</h2>
-					<h3 class="text-xl text-gray-500 font-medium mb-6">Especialista em Acupuntura Clínica</h3>
-					<p class="text-gray-600 text-lg mb-6 leading-relaxed">
-						Com <strong class="text-gray-800">20 anos de experiência clínica</strong>, a Dra. Valda oferece uma visão 360º da saúde, integrando a sabedoria milenar da Medicina Chinesa com técnicas modernas como a Eletroacupuntura.
+					<span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Como funciona</span>
+					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Como funciona o atendimento?</h2>
+					<p class="text-lg text-gray-600 leading-relaxed">
+						Do primeiro contato ao acompanhamento, cada etapa é pensada para entender o seu caso e conduzir o tratamento de acupuntura da forma mais adequada para você.
 					</p>
-					<ul class="space-y-4 mb-8 max-w-md">
-						<li class="flex items-center gap-3 text-gray-700 text-lg border-b border-gray-50 pb-2">
-							<span class="text-primary font-bold">✓</span> Pós-graduada em Eletroacupuntura
-						</li>
-						<li class="flex items-center gap-3 text-gray-700 text-lg border-b border-gray-50 pb-2">
-							<span class="text-primary font-bold">✓</span> Especialista em dor crônica e saúde mental
-						</li>
-						<li class="flex items-center gap-3 text-gray-700 text-lg border-b border-gray-50 pb-2">
-							<span class="text-primary font-bold">✓</span> Atendimento personalizado e humanizado
-						</li>
-					</ul>
-					<a href="https://wa.me/5511983134656" class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-bold hover:bg-green-600 transition-colors shadow-md text-lg transform hover:-translate-y-0.5">
-						Falar com a Dra. Valda
+				</div>
+
+				<div class="grid md:grid-cols-5 gap-8 text-center relative">
+					<div class="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gray-200 z-0"></div>
+					<div class="relative">
+						<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10 shadow-lg border-4 border-white">1</div>
+						<h3 class="font-bold text-xl text-gray-800 mb-2">Avaliação inicial</h3>
+						<p class="text-gray-600 text-sm">O primeiro passo para entender o seu caso.</p>
+					</div>
+					<div class="relative">
+						<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10 shadow-lg border-4 border-white">2</div>
+						<h3 class="font-bold text-xl text-gray-800 mb-2">Entendimento individual</h3>
+						<p class="text-gray-600 text-sm">A acupunturista ouve seu relato e histórico.</p>
+					</div>
+					<div class="relative">
+						<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10 shadow-lg border-4 border-white">3</div>
+						<h3 class="font-bold text-xl text-gray-800 mb-2">Definição da abordagem</h3>
+						<p class="text-gray-600 text-sm">A forma de atendimento mais adequada ao seu caso.</p>
+					</div>
+					<div class="relative">
+						<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10 shadow-lg border-4 border-white">4</div>
+						<h3 class="font-bold text-xl text-gray-800 mb-2">Início das sessões</h3>
+						<p class="text-gray-600 text-sm">Sessões individuais, em ambiente tranquilo.</p>
+					</div>
+					<div class="relative">
+						<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10 shadow-lg border-4 border-white">5</div>
+						<h3 class="font-bold text-xl text-gray-800 mb-2">Acompanhamento</h3>
+						<p class="text-gray-600 text-sm">A evolução é acompanhada a cada sessão.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- QUANTO CUSTA ACUPUNTURA? -->
+		<section class="py-16 md:py-20 bg-white">
+			<div class="container mx-auto px-4 max-w-3xl text-center">
+				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Quanto custa acupuntura?</h2>
+				<p class="text-xl text-gray-700 leading-relaxed mb-4">
+					A avaliação inicial custa <strong class="text-primary font-bold">R$ 250</strong>. Para quem deseja continuar o acompanhamento, há opções de <strong class="text-primary font-bold">4 sessões por R$ 700</strong> (R$ 175 por sessão) ou <strong class="text-primary font-bold">10 sessões por R$ 1.500</strong> (R$ 150 por sessão).
+				</p>
+				<p class="text-lg text-gray-600 leading-relaxed mb-8">
+					O primeiro passo é sempre a avaliação, para que a melhor opção de acompanhamento seja definida de acordo com o seu caso.
+				</p>
+				<a
+					href={waAvaliacaoInicial}
+					target="_blank"
+					rel="noopener"
+					class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+					Agendar avaliação
+				</a>
+			</div>
+		</section>
+
+		<!-- ACUPUNTURA EM SÃO PAULO -->
+		<section class="py-16 md:py-24 bg-primary text-white">
+			<div class="container mx-auto px-4 max-w-4xl text-center">
+				<h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Acupuntura em São Paulo</h2>
+				<p class="text-lg text-white/90 leading-relaxed mb-6">
+					A clínica de acupuntura fica na <strong class="text-white font-bold">R. Maquerobi, 156 - Vila da Saúde</strong>, na <strong class="text-white font-bold">Zona Sul de São Paulo</strong>, a poucos minutos de caminhada do <strong class="text-white font-bold">Metrô Praça da Árvore</strong> (Linha 1 - Azul). O atendimento é presencial, em sessões individuais, e a localização facilita o acesso para quem mora na região ou vem de outros bairros da Zona Sul.
+				</p>
+				<div class="inline-block p-6 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-sm mb-8">
+					<p class="text-xl font-bold">📍 R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP</p>
+					<p class="opacity-80">Zona Sul • Próximo ao Metrô Praça da Árvore</p>
+				</div>
+				<div class="flex flex-wrap items-center justify-center gap-4">
+					<a
+						href="/#localizacao"
+						class="inline-flex items-center justify-center gap-2 bg-white text-primary px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors shadow-md">
+						Veja onde fica a clínica
+					</a>
+					<a
+						href="/acupuntura-sao-paulo-tratamentos/"
+						class="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/30 px-6 py-3 rounded-full font-bold hover:bg-white/20 transition-colors">
+						Conheça os tratamentos de acupuntura
 					</a>
 				</div>
 			</div>
 		</section>
 
-		<!-- Treatments (SEO Blocks) -->
-		<section class="py-16 md:py-24 bg-primary text-white">
-			<div class="container mx-auto px-4 max-w-6xl">
-				<div class="text-center mb-12">
-					<h2 class="font-serif text-3xl md:text-4xl font-bold mb-2 text-white">Tratamentos Especializados em São Paulo</h2>
-					<p class="text-white/90 text-lg">Protocolos exclusivos para suas necessidades.</p>
+		<!-- O QUE ESTÁ INCLUÍDO -->
+		<section class="py-16 md:py-24 bg-white">
+			<div class="container mx-auto px-4 max-w-4xl">
+				<div class="text-center max-w-3xl mx-auto mb-12">
+					<span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Primeiro atendimento</span>
+					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">O que está incluído no primeiro atendimento?</h2>
+					<p class="text-lg text-gray-600 leading-relaxed">
+						Antes de qualquer sessão, o primeiro atendimento é dedicado a conhecer você. É nesse momento que entendemos o que você busca e definimos a melhor forma de conduzir o acompanhamento.
+					</p>
 				</div>
-				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-					<div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:bg-white/20 transition-colors cursor-default hover:scale-105 duration-300">
-						<h3 class="font-serif text-xl font-bold mb-3 text-white">Acupuntura para Dor Lombar</h3>
-						<p class="text-sm opacity-90 leading-relaxed font-light">Alívio para hérnia de disco e bico de papagaio. Recupere a mobilidade sem dor.</p>
+				<div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto text-left">
+					<div class="flex gap-4 items-start bg-bg-light p-6 rounded-xl border border-gray-100">
+						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
+						<div>
+							<h3 class="font-bold text-gray-800 mb-1">Entendimento do seu caso</h3>
+							<p class="text-gray-600">Conhecemos seu histórico e suas necessidades antes de definir qualquer abordagem.</p>
+						</div>
 					</div>
-					<div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:bg-white/20 transition-colors cursor-default hover:scale-105 duration-300">
-						<h3 class="font-serif text-xl font-bold mb-3 text-white">Acupuntura para Nervo Ciático</h3>
-						<p class="text-sm opacity-90 leading-relaxed font-light">Desinflamação rápida do nervo ciático (ciatalgia) com eletroacupuntura.</p>
+					<div class="flex gap-4 items-start bg-bg-light p-6 rounded-xl border border-gray-100">
+						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
+						<div>
+							<h3 class="font-bold text-gray-800 mb-1">Conversa individual</h3>
+							<p class="text-gray-600">Atendimento 1 a 1, sem pressa, com atenção às necessidades de cada pessoa.</p>
+						</div>
 					</div>
-					<div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:bg-white/20 transition-colors cursor-default hover:scale-105 duration-300">
-						<h3 class="font-serif text-xl font-bold mb-3 text-white">Acupuntura para Dores no Joelho</h3>
-						<p class="text-sm opacity-90 leading-relaxed font-light">Tratamento eficaz para tendinites e processos inflamatórios (artrite/artrose). Redução de inchaços e sensibilidade local.</p>
+					<div class="flex gap-4 items-start bg-bg-light p-6 rounded-xl border border-gray-100">
+						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
+						<div>
+							<h3 class="font-bold text-gray-800 mb-1">Definição da abordagem</h3>
+							<p class="text-gray-600">A forma de atendimento é definida em conjunto, conforme o que for mais adequado ao seu caso.</p>
+						</div>
 					</div>
-					<div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:bg-white/20 transition-colors cursor-default hover:scale-105 duration-300">
-						<h3 class="font-serif text-xl font-bold mb-3 text-white">Ansiedade e Depressão</h3>
-						<p class="text-sm opacity-90 leading-relaxed font-light">Tratamento complementar eficaz para saúde mental e redução do estresse.</p>
+					<div class="flex gap-4 items-start bg-bg-light p-6 rounded-xl border border-gray-100">
+						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
+						<div>
+							<h3 class="font-bold text-gray-800 mb-1">Orientação sobre a continuidade</h3>
+							<p class="text-gray-600">Você não precisa escolher um pacote antes de agendar: a opção de acompanhamento é definida após a avaliação.</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Diferenciais -->
-		<section class="py-16 md:py-24 bg-white">
+		<!-- CTA INTERMEDIÁRIO -->
+		<section class="py-16 md:py-20 bg-bg-light">
 			<div class="container mx-auto px-4 max-w-3xl text-center">
-				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-8">Por que escolher a Valda Acupuntura?</h2>
-				<ul class="text-left inline-block space-y-4 max-w-xl mx-auto">
-					<li class="flex gap-3 text-lg text-gray-700 items-start">
-						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
-						<span><strong>Eletroacupuntura:</strong> Potencializa em 3x o efeito analgésico.</span>
-					</li>
-					<li class="flex gap-3 text-lg text-gray-700 items-start">
-						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
-						<span><strong>Abordagem Integrativa:</strong> Olhamos o paciente, não só a doença.</span>
-					</li>
-					<li class="flex gap-3 text-lg text-gray-700 items-start">
-						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
-						<span><strong>Localização Estratégica:</strong> Fácil acesso na Vila da Saúde, próximo ao Metrô Praça da Árvore.</span>
-					</li>
-					<li class="flex gap-3 text-lg text-gray-700 items-start">
-						<span class="text-primary font-bold text-xl mt-0.5">✓</span>
-						<span><strong>Ambiente Acolhedor:</strong> Sala preparada para seu relaxamento total.</span>
-					</li>
-				</ul>
+				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Quer saber qual opção faz mais sentido para você?</h2>
+				<p class="text-xl text-gray-700 leading-relaxed mb-8">
+					O primeiro passo é entender o seu caso. Entre em contato pelo WhatsApp para agendar sua avaliação inicial.
+				</p>
+				<a
+					href={waAvaliacaoInicial}
+					target="_blank"
+					rel="noopener"
+					class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all w-full sm:w-auto">
+					AGENDAR MINHA AVALIAÇÃO
+				</a>
+			</div>
+		</section>
+
+		<!-- ATENDIMENTO PENSADO PARA O SEU CASO -->
+		<section class="py-16 md:py-24 bg-white">
+			<div class="container mx-auto px-4 max-w-5xl">
+				<div class="text-center max-w-3xl mx-auto mb-12">
+					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Um atendimento pensado para o seu caso</h2>
+					<p class="text-lg text-gray-600 leading-relaxed">
+						Cada pessoa chega com uma história diferente. Por isso, o atendimento é conduzido de forma individual, com acompanhamento próximo e atenção às suas necessidades.
+					</p>
+				</div>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 text-center">
+						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Avaliação individual</h3>
+						<p class="text-gray-600">Todo acompanhamento começa por uma avaliação dedicada ao seu caso.</p>
+					</div>
+					<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 text-center">
+						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Abordagem personalizada</h3>
+						<p class="text-gray-600">A forma de atendimento é definida conforme a sua necessidade.</p>
+					</div>
+					<div class="bg-bg-light p-6 rounded-2xl border border-gray-100 text-center">
+						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Acompanhamento contínuo</h3>
+						<p class="text-gray-600">A evolução é acompanhada a cada nova sessão, com ajustes quando necessário.</p>
+					</div>
+				</div>
+				<p class="text-center text-gray-500 mt-10 max-w-3xl mx-auto">
+					A clínica fica na <a href="/#localizacao" class="text-primary font-bold hover:text-secondary underline decoration-2 underline-offset-4 transition-colors">Vila da Saúde, Zona Sul de São Paulo</a>, e o atendimento é realizado por uma acupunturista com 20 anos de experiência clínica. Conheça também os <a href="/acupuntura-sao-paulo-tratamentos/" class="text-primary font-bold hover:text-secondary underline decoration-2 underline-offset-4 transition-colors">tratamentos de acupuntura</a> disponíveis na clínica.
+				</p>
 			</div>
 		</section>
 
 		<!-- FAQ -->
 		<section class="py-16 md:py-24 bg-bg-light">
-			<div class="container mx-auto px-4 max-w-3xl">
-				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold text-center mb-10">Perguntas Frequentes (FAQ)</h2>
-				
-				<div class="space-y-4">
-					<details class="group bg-white rounded-lg shadow-sm open:shadow-md transition-shadow">
-						<summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
-							<span>Qual o preço da sessão de acupuntura?</span>
-							<span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
-						</summary>
-						<div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
-							<p>O valor varia conforme o seu diagnóstico, mas na Valda Acupuntura priorizamos a transparência. Nossos tratamentos avulsos iniciam em R$ 250, com opções de pacotes de 10 sessões por R$ 150/cada. O verdadeiro custo-benefício é parar de gastar com analgésicos que só aliviam a dor por poucas horas.</p>
-						</div>
-					</details>
-
-					<details class="group bg-white rounded-lg shadow-sm open:shadow-md transition-shadow">
-						<summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
-							<span>O tratamento com eletroacupuntura dói?</span>
-							<span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
-						</summary>
-						<div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
-							<p>Não. Ao contrário da dor do nervo ciático ou do joelho travado que você sente agora, as agulhas são mais finas que um fio de cabelo e a sensação é de alívio e relaxamento muscular profundo.</p>
-						</div>
-					</details>
-
-					<details class="group bg-white rounded-lg shadow-sm open:shadow-md transition-shadow">
-						<summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
-							<span>Em quantas sessões a dor no nervo ciático (ou joelho) passa?</span>
-							<span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
-						</summary>
-						<div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
-							<p>Cada corpo reage de forma única, mas muitos pacientes com inflamação aguda relatam alívio significativo já na 1ª ou 2ª sessão de descompressão nervosa.</p>
-						</div>
-					</details>
-
-					<details class="group bg-white rounded-lg shadow-sm open:shadow-md transition-shadow">
-						<summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
-							<span>A clínica atende convênio médico?</span>
-							<span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
-						</summary>
-						<div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
-							<p>Atendemos pacientes via sistema de reembolso médico e fornecemos toda a documentação (Nota Fiscal) necessária. Invista em você hoje e solicite o resgate depois.</p>
-						</div>
-					</details>
-				</div>
-			</div>
-		</section>
-
-		<!-- Location & Final CTA -->
-		<section class="py-16 bg-white">
-			<div class="container mx-auto px-4 max-w-4xl text-center">
-				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Localização Privilegiada em São Paulo</h2>
-				<p class="text-lg text-gray-600 mb-8">R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP<br>(Próximo ao Metrô Praça da Árvore)</p>
-
-				<div class="w-full h-[350px] bg-gray-100 rounded-2xl overflow-hidden shadow-lg mb-12 relative flex items-center justify-center group">
-					<a href="https://maps.google.com/?q=R.+Maquerobi,+156+-+Vila+da+Saúde,+São+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative cursor-pointer" aria-label="Ver no Google Maps">
-                        <!-- Simulated Map Background Pattern -->
-						<div class="w-full h-full bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=-23.6384214,-46.6366649&zoom=15&size=800x350&sensor=false&key=YOUR_API_KEY_OR_PLACEHOLDER')] bg-cover bg-center grayscale opacity-80 group-hover:grayscale-0 transition-all duration-500">
-                             <!-- Fallback pattern if no static map -->
-                             <div class="absolute inset-0 bg-gray-200/50 flex items-center justify-center">
-                             </div>
-                        </div>
-						<div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-							<span class="bg-white/95 px-6 py-3 rounded-full shadow-lg font-bold text-primary flex items-center gap-2 group-hover:scale-105 transition-transform border border-gray-200">
-								<svg class="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-								Ver localização no Google Maps
-							</span>
-						</div>
-					</a>
-				</div>
-
-				<div class="bg-primary rounded-3xl p-8 md:p-12 text-center text-white shadow-xl relative overflow-hidden">
-					<div class="absolute top-0 left-0 w-full h-full bg-white/5 opacity-50 pointer-events-none pattern-grid-lg"></div>
-					<h2 class="relative z-10 font-serif text-3xl md:text-3xl font-bold mb-4">Pare de sentir dor hoje mesmo.</h2>
-					<p class="relative z-10 text-xl opacity-90 mb-8">Clique no botão abaixo para agendar sua avaliação com a Dra. Valda.</p>
-					<a href="https://wa.me/5511983134656?text=Quero%20agendar%20minha%20consulta." class="relative z-10 inline-flex items-center justify-center gap-3 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 w-full md:w-auto">
-						<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.297z" /></svg>
-						Agendar pelo WhatsApp
-					</a>
-				</div>
-			</div>
-		</section>
-
-		<!-- Pricing Section -->
-		<section id="preco" class="py-16 md:py-24 bg-bg-light">
-			<div class="container mx-auto px-4 max-w-6xl">
+			<div class="container mx-auto px-4 max-w-4xl">
 				<div class="text-center mb-12">
-					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-2">Investimento em sua Saúde</h2>
-					<p class="text-lg text-gray-600">Valores e pacotes pensados para o seu bem-estar contínuo.</p>
+					<span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Perguntas frequentes</span>
+					<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Perguntas frequentes sobre preço da acupuntura</h2>
+					<p class="text-lg text-gray-600">Principais dúvidas sobre valores, sessões e agendamento na Valda Acupuntura.</p>
 				</div>
-				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-					<!-- Primeira Consulta -->
-					<div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden">
-						<div class="absolute top-0 right-0 bg-accent text-white px-3 py-1 text-xs font-bold rounded-bl-lg">DESCONTO</div>
-						<div>
-							<h3 class="font-serif text-xl font-bold text-gray-800 mb-4">Primeira Consulta</h3>
-							<div class="mb-6">
-								<div class="flex items-baseline gap-1">
-									<span class="text-2xl font-bold text-primary">R$</span>
-									<span class="text-4xl font-bold text-primary">250</span>
-								</div>
-							</div>
-							<p class="text-gray-600 text-sm mb-6">Avaliação completa + primeira sessão de acupuntura.</p>
-						</div>
-						<a href="https://wa.me/5511983134656?text=Olá,%20gostaria%20de%20agendar%20minha%20primeira%20consulta." class="block text-center border-2 border-primary text-primary font-bold py-2 rounded-full hover:bg-primary hover:text-white transition-colors">Agendar Agora</a>
-					</div>
 
-					<!-- Preço por Sessão -->
-					<div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all flex flex-col justify-between">
-						<div>
-							<h3 class="font-serif text-xl font-bold text-gray-800 mb-4">Sessão Avulsa</h3>
-							<div class="mb-6">
-								<div class="flex items-baseline gap-1">
-									<span class="text-2xl font-bold text-primary">R$</span>
-									<span class="text-4xl font-bold text-primary">250</span>
-								</div>
+				<div class="space-y-4">
+					{faqItems.map((item) => (
+						<details class="group bg-white rounded-lg shadow-sm open:shadow-md transition-shadow">
+							<summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
+								<span>{item.question}</span>
+								<span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
+							</summary>
+							<div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
+								<p>{item.answer}</p>
 							</div>
-							<p class="text-gray-600 text-sm mb-6">Sessão de manutenção ou acompanhamento pontual.</p>
-						</div>
-						<a href="https://wa.me/5511983134656?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20avulsa." class="block text-center border-2 border-primary text-primary font-bold py-2 rounded-full hover:bg-primary hover:text-white transition-colors">Agendar Sessão</a>
-					</div>
-
-					<!-- Pacote 4 Sessões -->
-					<div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all flex flex-col justify-between">
-						<div>
-							<h3 class="font-serif text-xl font-bold text-gray-800 mb-4">Pacote 4 Sessões</h3>
-							<div class="mb-6">
-								<div class="flex items-baseline gap-1">
-									<span class="text-2xl font-bold text-primary">R$</span>
-									<span class="text-4xl font-bold text-primary">700</span>
-								</div>
-								<span class="text-gray-500 text-sm">(R$ 175 por sessão)</span>
-							</div>
-							<p class="text-gray-600 text-sm mb-6">Ideal para tratamentos de curto prazo e alívio de dores agudas.</p>
-						</div>
-						<a href="https://wa.me/5511983134656?text=Olá,%20tenho%20interesse%20no%20pacote%20de%204%20sessões." class="block text-center border-2 border-primary text-primary font-bold py-2 rounded-full hover:bg-primary hover:text-white transition-colors">Quero este Pacote</a>
-					</div>
-
-					<!-- Pacote 10 Sessões -->
-					<div class="bg-primary p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all flex flex-col justify-between relative scale-105 z-10">
-						<div class="absolute top-0 right-0 bg-secondary text-white px-3 py-1 text-xs font-bold rounded-bl-lg">MELHOR VALOR</div>
-						<div>
-							<h3 class="font-serif text-xl font-bold text-white mb-4">Pacote 10 Sessões</h3>
-							<div class="mb-6">
-								<div class="flex items-baseline gap-1 text-white">
-									<span class="text-2xl font-bold">R$</span>
-									<span class="text-4xl font-bold">1500</span>
-								</div>
-								<span class="text-white/80 text-sm">(R$ 150 por sessão)</span>
-							</div>
-							<p class="text-white/90 text-sm mb-6">Tratamento completo para dores crônicas e equilíbrio sistêmico.</p>
-						</div>
-						<a href="https://wa.me/5511983134656?text=Olá,%20tenho%20interesse%20no%20pacote%20de%2010%20sessões." class="block text-center bg-white text-primary font-bold py-2 rounded-full hover:bg-gray-100 transition-colors">Garantir Pacote</a>
-					</div>
+						</details>
+					))}
 				</div>
+			</div>
+		</section>
+
+		<!-- CTA FINAL -->
+		<section class="py-16 md:py-20 bg-primary text-white text-center">
+			<div class="container mx-auto px-4 max-w-3xl">
+				<h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Agende sua avaliação inicial</h2>
+				<p class="text-xl text-white/90 mb-8">
+					Dê o primeiro passo e descubra, com a avaliação individual, qual a melhor forma de acompanhamento para o seu caso na clínica de acupuntura na Vila da Saúde, Zona Sul de São Paulo.
+				</p>
+				<a
+					href={waAvaliacaoInicial}
+					target="_blank"
+					rel="noopener"
+					class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:bg-white hover:text-primary transition-all w-full sm:w-auto">
+					Agendar minha avaliação
+				</a>
 			</div>
 		</section>
 
@@ -477,15 +396,15 @@ const heroImgOptimized = await getImage({
 				<p class="font-bold text-lg mb-2 font-serif tracking-wide">Valda Acupuntura</p>
 				<p class="opacity-80 mb-4 text-gray-300">R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP</p>
 				<p class="mb-6"><a href="tel:+5511983134656" class="hover:text-secondary transition-colors font-bold text-lg">(11) 98313-4656</a></p>
+				<div class="flex flex-wrap items-center justify-center gap-4 mb-6 text-gray-300">
+					<a href="/" class="hover:text-secondary transition-colors">Página inicial</a>
+					<span class="opacity-40">•</span>
+					<a href="/acupuntura-sao-paulo-tratamentos/" class="hover:text-secondary transition-colors">Tratamentos</a>
+					<span class="opacity-40">•</span>
+					<a href="/precos/" class="hover:text-secondary transition-colors">Preços</a>
+				</div>
 				<p class="opacity-50 text-xs">&copy; 2026 Valda Acupuntura. Todos os direitos reservados.</p>
 			</div>
 		</footer>
-
-		<!-- Floating WhatsApp -->
-		<a href="https://wa.me/5511983134656?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." 
-		   class="fixed bottom-6 right-6 z-50 bg-secondary text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center w-14 h-14"
-		   target="_blank" rel="noopener" aria-label="Fale conosco">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-8 h-8 brightness-0 invert" width="32" height="32" loading="lazy" />
-		</a>
 	</main>
 </Layout>
