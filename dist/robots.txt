@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://valdaacupuntura.com.br/sitemap-index.xml
+Sitemap: https://valdaacupuntura.com.br/sitemap.xml
