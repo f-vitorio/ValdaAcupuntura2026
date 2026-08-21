@@ -60,6 +60,30 @@ const faqItems = [
 	canonicalUrl="https://valdaacupuntura.com.br/precos/"
 	heroPreloadUrl={heroImgOptimized.src}>
 
+	<!-- Service Schema com preço -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Service",
+		"name": "Avaliação Inicial de Acupuntura",
+		"description": "Avaliação individual de acupuntura para compreender o caso e definir a melhor modalidade de acompanhamento.",
+		"provider": {
+			"@type": "MedicalBusiness",
+			"@id": "https://valdaacupuntura.com.br/#organization",
+			"name": "Valda Acupuntura"
+		},
+		"areaServed": {
+			"@type": "City",
+			"name": "São Paulo"
+		},
+		"offers": {
+			"@type": "Offer",
+			"price": "250",
+			"priceCurrency": "BRL",
+			"availability": "https://schema.org/InStock",
+			"url": "https://valdaacupuntura.com.br/precos/"
+		}
+	})} />
+
 	<!-- FAQ JSON-LD Schema (perguntas visíveis na página) -->
 	<script type="application/ld+json" set:html={JSON.stringify({
 		"@context": "https://schema.org",
@@ -95,18 +119,44 @@ const faqItems = [
 				<span class="inline-block bg-[#e6fffa] text-[#047857] px-4 py-2 rounded-full font-semibold text-sm mb-6 border border-[#b7eb8f] shadow-sm">
 					Valda Acupuntura • Vila da Saúde, São Paulo
 				</span>
+				
+				<!-- Prova Social - Acima da Dobra -->
+				<div class="flex flex-wrap items-center justify-center gap-3 mb-6 text-sm text-gray-600">
+					<span class="inline-flex items-center gap-1.5 bg-white/80 px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+						<span class="text-yellow-500">⭐</span>
+						<span class="font-bold text-gray-800">4,9</span>
+						<span>no Google</span>
+					</span>
+					<span class="inline-flex items-center gap-1.5 bg-white/80 px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+						<span class="text-primary">✓</span>
+						<span class="font-bold text-gray-800">20 anos</span>
+						<span>de experiência</span>
+					</span>
+					<span class="inline-flex items-center gap-1.5 bg-white/80 px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+						<span class="text-primary">✓</span>
+						<span>Atendimento individual</span>
+					</span>
+				</div>
+
 				<h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-tight mb-6 font-bold">
 					Quanto custa uma sessão de acupuntura em São Paulo?
 				</h1>
-				<p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+				<p class="text-xl text-gray-700 mb-4 max-w-3xl mx-auto leading-relaxed">
 					Confira os valores da avaliação inicial e das opções de acompanhamento em acupuntura. Na Valda Acupuntura, o atendimento começa com uma avaliação individual para compreender cada caso.
 				</p>
+				
+				<!-- Urgência acima do CTA -->
+				<p class="text-base text-secondary font-semibold mb-6">
+					📍 Vagas limitadas por semana — agende sua avaliação
+				</p>
+				
 				<a
 					href={waAvaliacaoInicial}
 					target="_blank"
 					rel="noopener"
-					class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all w-full sm:w-auto">
-					AGENDAR AVALIAÇÃO
+					data-cta-position="hero"
+					class="wa-cta inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all w-full sm:w-auto">
+					AGENDAR MINHA AVALIAÇÃO · R$ 250
 				</a>
 			</div>
 		</section>
@@ -132,8 +182,9 @@ const faqItems = [
 							href={waAvaliacaoInicial}
 							target="_blank"
 							rel="noopener"
-							class="mt-auto block w-full bg-secondary text-white px-6 py-4 rounded-full font-bold hover:bg-white hover:text-secondary transition-colors shadow-md text-lg">
-							Agendar avaliação
+							data-cta-position="precos-avaliacao"
+							class="wa-cta mt-auto block w-full bg-secondary text-white px-6 py-4 rounded-full font-bold hover:bg-white hover:text-secondary transition-colors shadow-md text-lg">
+							AGENDAR AGORA · Vagas limitadas
 						</a>
 					</div>
 
@@ -147,8 +198,9 @@ const faqItems = [
 							href={waAcompanhamento}
 							target="_blank"
 							rel="noopener"
-							class="mt-auto block w-full bg-white text-primary border-2 border-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
-							Agendar avaliação
+							data-cta-position="precos-4sessoes"
+							class="wa-cta mt-auto block w-full bg-white text-primary border-2 border-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
+							Agendar pelo WhatsApp
 						</a>
 					</div>
 
@@ -162,8 +214,9 @@ const faqItems = [
 							href={waAcompanhamento}
 							target="_blank"
 							rel="noopener"
-							class="mt-auto block w-full bg-white text-primary border-2 border-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
-							Agendar avaliação
+							data-cta-position="precos-10sessoes"
+							class="wa-cta mt-auto block w-full bg-white text-primary border-2 border-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
+							Agendar pelo WhatsApp
 						</a>
 					</div>
 				</div>
@@ -288,6 +341,13 @@ const faqItems = [
 							<p class="text-gray-600">Você não precisa escolher um pacote antes da avaliação: a opção de continuidade é definida em conjunto.</p>
 						</div>
 					</div>
+					<div class="flex gap-4 items-start bg-secondary/10 p-6 rounded-xl border border-secondary/20 md:col-span-2">
+						<span class="text-secondary font-bold text-xl mt-0.5">🎁</span>
+						<div>
+							<h3 class="font-bold text-gray-800 mb-1">Avaliação com bônus</h3>
+							<p class="text-gray-600">Na primeira consulta, você recebe um mapa personalizado de pontos de acupuntura para o seu caso.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -296,15 +356,19 @@ const faqItems = [
 		<section class="py-16 md:py-20 bg-bg-light">
 			<div class="container mx-auto px-4 max-w-3xl text-center">
 				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Quer começar seu atendimento?</h2>
-				<p class="text-xl text-gray-700 leading-relaxed mb-8">
+				<p class="text-xl text-gray-700 leading-relaxed mb-4">
 					Agende sua avaliação inicial e converse com a equipe da Valda Acupuntura.
+				</p>
+				<p class="text-base text-secondary font-semibold mb-8">
+					Resposta em até 5 minutos pelo WhatsApp
 				</p>
 				<a
 					href={waAvaliacaoInicial}
 					target="_blank"
 					rel="noopener"
-					class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all w-full sm:w-auto">
-					AGENDAR MINHA AVALIAÇÃO
+					data-cta-position="meio-pagina"
+					class="wa-cta inline-flex items-center justify-center gap-3 bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all w-full sm:w-auto">
+					AGENDAR PELO WHATSAPP · Resposta em 5 min
 				</a>
 			</div>
 		</section>
@@ -338,15 +402,19 @@ const faqItems = [
 		<section class="py-16 md:py-20 bg-primary text-white text-center">
 			<div class="container mx-auto px-4 max-w-3xl">
 				<h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Agende sua avaliação inicial</h2>
-				<p class="text-xl text-white/90 mb-8">
-					Conheça na prática como funciona o atendimento de acupuntura na Vila da Saúde, Zona Sul de São Paulo. O primeiro passo é agendar sua avaliação individual pelo WhatsApp.
+				<p class="text-xl text-white/90 mb-4">
+					Conheça na prática como funciona o atendimento de acupuntura na Vila da Saúde, Zona Sul de São Paulo.
+				</p>
+				<p class="text-base text-white/80 mb-8">
+					✓ Na avaliação: mapa personalizado de pontos para o seu caso
 				</p>
 				<a
 					href={waAvaliacaoInicial}
 					target="_blank"
 					rel="noopener"
-					class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:bg-white hover:text-primary transition-all w-full sm:w-auto">
-					Agendar minha avaliação
+					data-cta-position="final"
+					class="wa-cta inline-flex items-center justify-center gap-3 bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:bg-white hover:text-primary transition-all w-full sm:w-auto">
+					COMEÇAR MINHA AVALIAÇÃO · 20 anos de experiência
 				</a>
 			</div>
 		</section>
@@ -368,4 +436,46 @@ const faqItems = [
 			</div>
 		</footer>
 	</main>
+
+	<!-- Rastreamento de cliques no WhatsApp -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// Rastrear cliques nos CTAs principais
+			document.querySelectorAll('.wa-cta').forEach(function(cta) {
+				cta.addEventListener('click', function() {
+					var position = this.getAttribute('data-cta-position') || 'unknown';
+					if (typeof gtag === 'function') {
+						gtag('event', 'whatsapp_click', {
+							page_location: window.location.href,
+							cta_position: position
+						});
+					}
+				});
+			});
+
+			// Rastrear clique no botão flutuante do WhatsApp
+			var floatingBtn = document.querySelector('a[href*="wa.me"][class*="fixed"]');
+			if (floatingBtn) {
+				floatingBtn.addEventListener('click', function() {
+					if (typeof gtag === 'function') {
+						gtag('event', 'whatsapp_float_click', {
+							page_location: window.location.href
+						});
+					}
+				});
+			}
+
+			// Rastrear clique no link telefônico
+			var phoneLink = document.querySelector('a[href^="tel:"]');
+			if (phoneLink) {
+				phoneLink.addEventListener('click', function() {
+					if (typeof gtag === 'function') {
+						gtag('event', 'phone_click', {
+							page_location: window.location.href
+						});
+					}
+				});
+			}
+		});
+	</script>
 </Layout>
