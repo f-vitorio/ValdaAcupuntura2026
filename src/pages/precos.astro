@@ -11,9 +11,9 @@ const heroImgOptimized = await getImage({
 });
 
 const waAvaliacaoInicial =
-	'https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20minha%20avalia%C3%A7%C3%A3o%20inicial.';
+	'https://wa.me/5511983134656?text=Ol%C3%A1!%20Vi%20os%20pre%C3%A7os%20no%20site%20e%20gostaria%20de%20agendar%20minha%20avalia%C3%A7%C3%A3o%20inicial%20de%20R%24%20250.';
 const waAcompanhamento =
-	'https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20iniciar%20acompanhamento.';
+	'https://wa.me/5511983134656?text=Ol%C3%A1!%20Vi%20os%20pre%C3%A7os%20no%20site%20e%20gostaria%20de%20agendar%20sess%C3%B5es%20de%20acompanhamento.';
 
 const faqItems = [
 	{
@@ -145,11 +145,12 @@ const faqItems = [
 					Confira os valores da avaliação inicial e das opções de acompanhamento em acupuntura. Na Valda Acupuntura, o atendimento começa com uma avaliação individual para compreender cada caso.
 				</p>
 				
-				<!-- Urgência acima do CTA -->
-				<p class="text-base text-secondary font-semibold mb-6">
-					📍 Vagas limitadas por semana — agende sua avaliação
-				</p>
+			<!-- Urgência acima do CTA -->
+			<p class="text-base text-secondary font-semibold mb-6">
+				📍 Restam poucas vagas esta semana — agende sua avaliação
+			</p>
 				
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
 				<a
 					href={waAvaliacaoInicial}
 					target="_blank"
@@ -158,6 +159,13 @@ const faqItems = [
 					class="wa-cta inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all w-full sm:w-auto">
 					AGENDAR MINHA AVALIAÇÃO · R$ 250
 				</a>
+				<a
+					href="tel:+5511983134656"
+					data-cta-position="hero-phone"
+					class="phone-cta inline-flex items-center justify-center gap-3 bg-white text-primary border-2 border-primary px-8 py-4 rounded-full font-bold text-lg shadow-md hover:bg-primary hover:text-white transition-all w-full sm:w-auto">
+					📞 Ligar Agora · (11) 98313-4656
+				</a>
+			</div>
 			</div>
 		</section>
 
@@ -178,14 +186,14 @@ const faqItems = [
 						<h3 class="font-serif text-2xl font-bold text-white mb-2 mt-2">Avaliação Inicial</h3>
 						<p class="text-white/80 mb-6 font-medium">Entendimento do seu caso</p>
 						<div class="text-4xl font-bold text-white mb-6">R$ 250</div>
-						<a
-							href={waAvaliacaoInicial}
-							target="_blank"
-							rel="noopener"
-							data-cta-position="precos-avaliacao"
-							class="wa-cta mt-auto block w-full bg-secondary text-white px-6 py-4 rounded-full font-bold hover:bg-white hover:text-secondary transition-colors shadow-md text-lg">
-							AGENDAR AGORA · Vagas limitadas
-						</a>
+					<a
+						href={waAvaliacaoInicial}
+						target="_blank"
+						rel="noopener"
+						data-cta-position="precos-avaliacao"
+						class="wa-cta mt-auto inline-block text-secondary font-bold hover:underline transition-colors">
+						Agendar pelo WhatsApp →
+					</a>
 					</div>
 
 					<!-- 4 sessões -->
@@ -194,14 +202,14 @@ const faqItems = [
 						<p class="text-gray-500 mb-2 font-medium">Opção de continuidade</p>
 						<p class="text-gray-400 text-sm mb-2">R$ 175 por sessão</p>
 						<div class="text-4xl font-bold text-primary mb-6">R$ 700</div>
-						<a
-							href={waAcompanhamento}
-							target="_blank"
-							rel="noopener"
-							data-cta-position="precos-4sessoes"
-							class="wa-cta mt-auto block w-full bg-white text-primary border-2 border-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
-							Agendar pelo WhatsApp
-						</a>
+					<a
+						href={waAcompanhamento}
+						target="_blank"
+						rel="noopener"
+						data-cta-position="precos-4sessoes"
+						class="wa-cta mt-auto inline-block text-secondary font-bold hover:underline transition-colors">
+						Agendar pelo WhatsApp →
+					</a>
 					</div>
 
 					<!-- 10 sessões -->
@@ -210,14 +218,51 @@ const faqItems = [
 						<p class="text-gray-500 mb-2 font-medium">Melhor valor em continuidade</p>
 						<p class="text-gray-400 text-sm mb-2">R$ 150 por sessão</p>
 						<div class="text-4xl font-bold text-primary mb-6">R$ 1.500</div>
-						<a
-							href={waAcompanhamento}
-							target="_blank"
-							rel="noopener"
-							data-cta-position="precos-10sessoes"
-							class="wa-cta mt-auto block w-full bg-white text-primary border-2 border-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
-							Agendar pelo WhatsApp
-						</a>
+					<a
+						href={waAcompanhamento}
+						target="_blank"
+						rel="noopener"
+						data-cta-position="precos-10sessoes"
+						class="wa-cta mt-auto inline-block text-secondary font-bold hover:underline transition-colors">
+						Agendar pelo WhatsApp →
+					</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Garantia de satisfação -->
+			<div class="max-w-3xl mx-auto mt-10 text-center">
+				<div class="inline-flex items-center gap-3 bg-green-50 text-green-800 px-6 py-4 rounded-xl border border-green-200 shadow-sm">
+					<span class="text-green-600 text-xl">✓</span>
+					<p class="text-sm md:text-base font-medium">
+						<strong>Avaliação transparente:</strong> você sai da sessão sabendo exatamente o que esperar do tratamento, sem surpresas.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- DEPOIMENTOS -->
+		<section class="py-16 md:py-20 bg-bg-light">
+			<div class="container mx-auto px-4 max-w-4xl">
+				<div class="text-center mb-10">
+					<h2 class="font-serif text-2xl md:text-3xl text-primary font-bold mb-2">O que dizem nossas pacientes</h2>
+					<p class="text-gray-600">Depoimentos reais de quem já passou pela avaliação</p>
+				</div>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
+						<div class="text-yellow-500 text-lg mb-3">⭐⭐⭐⭐⭐</div>
+						<p class="text-gray-700 italic mb-4">"Avaliação completa e muito atenciosa. Já agendei meu pacote de 4 sessões."</p>
+						<p class="font-bold text-primary text-sm">Priscila Souza</p>
+					</div>
+					<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
+						<div class="text-yellow-500 text-lg mb-3">⭐⭐⭐⭐⭐</div>
+						<p class="text-gray-700 italic mb-4">"Profissional nota 10. Preço justo e resultado desde a primeira sessão."</p>
+						<p class="font-bold text-primary text-sm">Giselle Florencio</p>
+					</div>
+					<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
+						<div class="text-yellow-500 text-lg mb-3">⭐⭐⭐⭐⭐</div>
+						<p class="text-gray-700 italic mb-4">"Atendimento impecável. Recomendo para quem busca qualidade e seriedade."</p>
+						<p class="font-bold text-primary text-sm">Tayssa Silva</p>
 					</div>
 				</div>
 			</div>
@@ -341,35 +386,8 @@ const faqItems = [
 							<p class="text-gray-600">Você não precisa escolher um pacote antes da avaliação: a opção de continuidade é definida em conjunto.</p>
 						</div>
 					</div>
-					<div class="flex gap-4 items-start bg-secondary/10 p-6 rounded-xl border border-secondary/20 md:col-span-2">
-						<span class="text-secondary font-bold text-xl mt-0.5">🎁</span>
-						<div>
-							<h3 class="font-bold text-gray-800 mb-1">Avaliação com bônus</h3>
-							<p class="text-gray-600">Na primeira consulta, você recebe um mapa personalizado de pontos de acupuntura para o seu caso.</p>
-						</div>
-					</div>
+	
 				</div>
-			</div>
-		</section>
-
-		<!-- CTA INTERMEDIÁRIO -->
-		<section class="py-16 md:py-20 bg-bg-light">
-			<div class="container mx-auto px-4 max-w-3xl text-center">
-				<h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Quer começar seu atendimento?</h2>
-				<p class="text-xl text-gray-700 leading-relaxed mb-4">
-					Agende sua avaliação inicial e converse com a equipe da Valda Acupuntura.
-				</p>
-				<p class="text-base text-secondary font-semibold mb-8">
-					Resposta em até 5 minutos pelo WhatsApp
-				</p>
-				<a
-					href={waAvaliacaoInicial}
-					target="_blank"
-					rel="noopener"
-					data-cta-position="meio-pagina"
-					class="wa-cta inline-flex items-center justify-center gap-3 bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all w-full sm:w-auto">
-					AGENDAR PELO WHATSAPP · Resposta em 5 min
-				</a>
 			</div>
 		</section>
 
@@ -406,8 +424,9 @@ const faqItems = [
 					Conheça na prática como funciona o atendimento de acupuntura na Vila da Saúde, Zona Sul de São Paulo.
 				</p>
 				<p class="text-base text-white/80 mb-8">
-					✓ Na avaliação: mapa personalizado de pontos para o seu caso
+					✓ Avaliação individual e personalizada
 				</p>
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
 				<a
 					href={waAvaliacaoInicial}
 					target="_blank"
@@ -416,6 +435,13 @@ const faqItems = [
 					class="wa-cta inline-flex items-center justify-center gap-3 bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:bg-white hover:text-primary transition-all w-full sm:w-auto">
 					COMEÇAR MINHA AVALIAÇÃO · 20 anos de experiência
 				</a>
+				<a
+					href="tel:+5511983134656"
+					data-cta-position="final-phone"
+					class="phone-cta inline-flex items-center justify-center gap-3 bg-white/10 text-white border-2 border-white/40 px-10 py-5 rounded-full font-bold text-xl shadow-md hover:bg-white hover:text-primary transition-all w-full sm:w-auto">
+					📞 Ligar Agora · (11) 98313-4656
+				</a>
+			</div>
 			</div>
 		</section>
 
@@ -465,17 +491,18 @@ const faqItems = [
 				});
 			}
 
-			// Rastrear clique no link telefônico
-			var phoneLink = document.querySelector('a[href^="tel:"]');
-			if (phoneLink) {
-				phoneLink.addEventListener('click', function() {
+			// Rastrear clique nos botões de ligação
+			document.querySelectorAll('.phone-cta').forEach(function(phoneBtn) {
+				phoneBtn.addEventListener('click', function() {
+					var position = this.getAttribute('data-cta-position') || 'phone-unknown';
 					if (typeof gtag === 'function') {
 						gtag('event', 'phone_click', {
-							page_location: window.location.href
+							page_location: window.location.href,
+							cta_position: position
 						});
 					}
 				});
-			}
+			});
 		});
 	</script>
 </Layout>
