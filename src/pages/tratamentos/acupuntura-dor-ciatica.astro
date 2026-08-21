@@ -20,6 +20,39 @@ const heroImgOptimized = await getImage({
 
   <main>
   <Header />
+
+  <!-- FAQ JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Acupuntura dói mais em áreas inflamadas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não dói. A aplicação é segura e utilizamos pontos no corpo para relaxar a dor lombar, gerando conforto no paciente sem causar dor adicional."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Funciona para a dor ciática crônica?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A acupuntura pode fazer parte de uma abordagem complementar para dor ciática crônica. A resposta varia de pessoa para pessoa, e um atendimento personalizado permite avaliar melhor a sua situação."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quantas sessões são necessárias para voltar a andar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Normalmente o alívio das dores intensas surge nas primeiras sessões, sendo recomendado os pacotes de 4 a 10 sessões para garantir a estabilidade do quadro sem recidivas."
+        }
+      }
+    ]
+  })} />
+
     <!-- HERO -->
     <section class="relative py-20 md:py-32 text-center overflow-hidden">
       <img src={heroImgOptimized.src} alt="Acupuntura para dor ciática São Paulo" class="absolute inset-0 w-full h-full object-cover object-center z-0" fetchpriority="high" loading="eager" decoding="async" width={1920} height={1080} />

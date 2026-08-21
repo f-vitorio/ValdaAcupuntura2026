@@ -20,6 +20,39 @@ const heroImgOptimized = await getImage({
 
   <main>
   <Header />
+
+  <!-- FAQ JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Acupuntura dói na cabeça?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não. As agulhas ultrafinas são indolores e geram alívio quase imediato, minimizando as tensões vasculares e musculares no rosto e pescoço."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Funciona para enxaqueca crônica?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A acupuntura pode fazer parte de uma abordagem complementar para enxaqueca crônica, atuando no equilíbrio do sistema nervoso. A resposta varia de pessoa para pessoa, e um atendimento personalizado permite avaliar melhor a sua situação."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quantas sessões são necessárias?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Geralmente, um pacote de 4 a 10 sessões é necessário para tratar a frequência das crises e proporcionar o restabelecimento contínuo."
+        }
+      }
+    ]
+  })} />
+
     <!-- HERO -->
     <section class="relative py-20 md:py-32 text-center overflow-hidden">
       <img src={heroImgOptimized.src} alt="Acupuntura para enxaqueca São Paulo" class="absolute inset-0 w-full h-full object-cover object-center z-0" fetchpriority="high" loading="eager" decoding="async" width={1920} height={1080} />

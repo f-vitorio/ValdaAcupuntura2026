@@ -20,6 +20,39 @@ const heroImgOptimized = await getImage({
 
   <main>
   <Header />
+
+  <!-- FAQ JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Acupuntura dói?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "De forma alguma. O uso de agulhas ultrafinas torna a aplicação indolor. Pacientes relaxam tanto que é comum dormirem na maca."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Funciona para insônia severa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A acupuntura pode fazer parte de uma abordagem complementar para insônia severa, atuando no sistema endócrino e nervoso. A resposta varia de pessoa para pessoa, e um atendimento personalizado permite avaliar melhor a sua situação."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quantas sessões são necessárias?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Recomendamos geralmente um ciclo inicial de 4 sessões para perceber os primeiros resultados expressivos na qualidade do seu sono, e até 10 para quadros crônicos."
+        }
+      }
+    ]
+  })} />
+
     <!-- HERO -->
     <section class="relative py-20 md:py-32 text-center overflow-hidden">
       <img src={heroImgOptimized.src} alt="Acupuntura para insônia São Paulo" class="absolute inset-0 w-full h-full object-cover object-center z-0" fetchpriority="high" loading="eager" decoding="async" width={1920} height={1080} />

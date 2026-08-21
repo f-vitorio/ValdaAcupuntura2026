@@ -20,6 +20,39 @@ const heroImgOptimized = await getImage({
 
   <main>
   <Header />
+
+  <!-- FAQ JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Acupuntura dói?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não. As agulhas são extremamente finas. O máximo que você pode sentir é um leve formigamento, proporcionando um relaxamento imediato para a mente acelerada."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Funciona para ansiedade?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A acupuntura pode fazer parte de uma abordagem complementar para ansiedade, atuando no sistema nervoso. A resposta varia de pessoa para pessoa, e um atendimento personalizado permite avaliar melhor a sua situação."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quantas sessões são necessárias?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Para sentir o alívio real da ansiedade, geralmente recomendamos os pacotes de 4 ou 10 sessões, variando de acordo com a resposta do corpo."
+        }
+      }
+    ]
+  })} />
+
     <!-- HERO -->
     <section class="relative py-20 md:py-32 text-center overflow-hidden">
       <img src={heroImgOptimized.src} alt="Acupuntura para ansiedade São Paulo" class="absolute inset-0 w-full h-full object-cover object-center z-0" fetchpriority="high" loading="eager" decoding="async" width={1920} height={1080} />
