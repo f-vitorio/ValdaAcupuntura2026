@@ -19,92 +19,10 @@ const heroImgOptimized = await getImage({
   heroPreloadUrl={heroImgOptimized.src}
   canonicalUrl="https://valdaacupuntura.com.br/">
 
-<!-- Schema.org Avançado (LocalBusiness, MedicalBusiness, FAQ) -->
+<!-- Schema.org Avançado (FAQ + AggregateRating — Business schema está no Layout) -->
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": ["LocalBusiness", "MedicalBusiness", "MedicalClinic"],
-      "@id": "https://valdaacupuntura.com.br/#clinic",
-      "name": "Valda Acupuntura",
-      "description": "Clínica de acupuntura em São Paulo, na Vila da Saúde (Zona Sul). Sessões e tratamentos de acupuntura com atendimento individual com a Dra. Valda Fernandes e 20 anos de experiência.",
-      "image": "https://valdaacupuntura.com.br/logo-valda.webp",
-      "telephone": "+5511983134656",
-      "sameAs": [
-        "https://share.google/wuk8xDQ31yvDVkt3G"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "132"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Giselle Florencio"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5"
-          },
-          "reviewBody": "Atendimento impecável, muito atenciosa, cuidadosa e extremamente profissional. Passa segurança desde a primeira consulta e explica tudo com muita clareza. Recomendo demais!"
-        },
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Tayssa Silva"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5"
-          },
-          "reviewBody": "Clínica excelente, atendimento impecável do começo ao fim. Profissional de mão cheia, muito cuidadosa e detalhista. Super recomendo!"
-        }
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "R. Maquerobi, 156",
-        "addressLocality": "São Paulo",
-        "addressRegion": "SP",
-        "addressCountry": "BR"
-      },
-      "medicalSpecialty": "Acupuncture",
-      "priceRange": "R$ 250 - R$ 1500",
-      "areaServed": "São Paulo",
-      "availableService": [
-        {
-          "@type": "MedicalTherapy",
-          "name": "Acupuntura para Ansiedade",
-          "description": "Tratamento natural para controle de estresse e ansiedade."
-        },
-        {
-          "@type": "MedicalTherapy",
-          "name": "Acupuntura para Enxaqueca",
-          "description": "Alívio de dores de cabeça tensionais e enxaquecas."
-        },
-        {
-          "@type": "MedicalTherapy",
-          "name": "Acupuntura para Dor nas Costas",
-          "description": "Tratamento para dores na coluna, lombar e nervo ciático."
-        },
-        {
-          "@type": "MedicalTherapy",
-          "name": "Acupuntura para Insônia",
-          "description": "Reequilíbrio do sistema nervoso para melhora da qualidade do sono."
-        }
-      ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
-          "closes": "20:00"
-        }
-      ]
-    },
     {
       "@type": "FAQPage",
       "mainEntity": [
@@ -209,9 +127,25 @@ const heroImgOptimized = await getImage({
     
     <div class="container mx-auto px-4 max-w-4xl relative z-10">
       <!-- Prova Social Imediata -->
-      <div class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-5 py-2.5 rounded-full font-bold text-sm mb-6 border border-yellow-200 shadow-sm mx-auto animate-fade-in">
+      <div class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-5 py-2.5 rounded-full font-bold text-sm mb-4 border border-yellow-200 shadow-sm mx-auto animate-fade-in">
         <svg class="w-4 h-4 text-yellow-500 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
         4,8/5 no Google • 132+ avaliações
+      </div>
+
+      <!-- Counter-objeções -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mb-6 text-sm">
+        <span class="inline-flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-full border border-gray-200 shadow-sm">
+          <span class="text-primary">✓</span>
+          <span>Agulhas ultrafinas</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-full border border-gray-200 shadow-sm">
+          <span class="text-primary">✓</span>
+          <span>Atendimento 100% individual</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-full border border-gray-200 shadow-sm">
+          <span class="text-primary">✓</span>
+          <span>20 anos de experiência</span>
+        </span>
       </div>
 
       <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-tight mb-6 font-bold">
@@ -227,7 +161,7 @@ const heroImgOptimized = await getImage({
            class="group relative bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3 w-full sm:w-auto justify-center overflow-hidden">
           <span class="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500 origin-center"></span>
           <svg class="w-6 h-6 relative z-10" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.297z" /></svg>
-          <span class="relative z-10">Agendar avaliação pelo WhatsApp</span>
+          <span class="relative z-10">Falar com a Dra. Valda agora</span>
         </a>
         <a href="#localizacao"
            class="group relative bg-white text-gray-700 border-2 border-gray-200 px-8 py-4 rounded-full font-bold text-lg shadow-sm hover:border-primary hover:text-primary transition-all inline-flex items-center gap-3 w-full sm:w-auto justify-center">
@@ -287,8 +221,11 @@ const heroImgOptimized = await getImage({
       <p class="text-lg text-gray-600 leading-relaxed mb-6 max-w-3xl mx-auto">
         A acupuntura é uma técnica da Medicina Tradicional Chinesa que utiliza agulhas finas aplicadas em pontos específicos do corpo para estimular o equilíbrio do organismo. Na nossa clínica de acupuntura em São Paulo, cada atendimento começa por uma <strong class="text-primary">avaliação individual</strong>: a acupunturista ouve sua história, entende suas necessidades e define o tratamento de acupuntura mais adequado para o seu caso.
       </p>
+      <p class="text-lg text-gray-600 leading-relaxed mb-6 max-w-3xl mx-auto">
+        Estudos publicados em revistas como o <em>Journal of Acupuncture and Meridian Studies</em> e diretrizes da OMS (Organização Mundial da Saúde) apontam a acupuntura como abordagem eficaz no manejo de dores crônicas, transtornos de ansiedade, distúrbios do sono e enxaquecas. Os mecanismos incluem a liberação de endorfinas, regulação do sistema nervoso autônomo e redução de marcadores inflamatórios.
+      </p>
       <p class="text-lg text-gray-600 leading-relaxed mb-12 max-w-3xl mx-auto">
-        Todo atendimento é realizado em <strong class="text-primary">sessões individuais</strong>, com abordagem personalizada e acompanhamento próximo a cada etapa do tratamento. Mais do que uma técnica, a acupuntura aqui é conduzida como um cuidado contínuo e dedicado.
+        Todo atendimento é realizado em <strong class="text-primary">sessões individuais</strong>, com abordagem personalizada e acompanhamento próximo a cada etapa do tratamento. Mais do que uma técnica, a acupuntura aqui é conduzida como um cuidado contínuo e dedicado. Com 20 anos de experiência, a Dra. Valda combina a precisão da Eletroacupuntura com a sabedoria da Medicina Tradicional Chinesa, oferecendo um tratamento seguro e baseado em evidências na Vila da Saúde, zona sul de São Paulo.
       </p>
       
       <div class="grid md:grid-cols-3 gap-8 text-left" id="servicos">
@@ -414,10 +351,10 @@ const heroImgOptimized = await getImage({
       </div>
 
       <div class="text-center mt-12">
-        <p class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">Quer entender qual tratamento de acupuntura se encaixa no seu caso? Agende uma avaliação individual pelo WhatsApp.</p>
+        <p class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">Quer entender qual tratamento de acupuntura se encaixa no seu caso? Fale direto com a Dra. Valda pelo WhatsApp.</p>
         <a href="https://wa.me/5511983134656?text=Olá,%20quero%20entender%20qual%20tratamento%20de%20acupuntura%20se%20encaixa%20no%20meu%20caso." class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.297z" /></svg>
-          Agendar avaliação pelo WhatsApp
+          Falar com a Dra. Valda agora
         </a>
       </div>
     </div>
@@ -463,6 +400,9 @@ const heroImgOptimized = await getImage({
         <p class="text-white/95 text-xl mb-6 leading-relaxed font-light">
           A profissional responsável pelos atendimentos é a acupunturista Dra. Valda Fernandes. Com <strong>20 anos de experiência clínica</strong>, ela une a precisão da Eletroacupuntura à sabedoria da Medicina Tradicional Chinesa, garantindo um acompanhamento seguro, dedicado e verdadeiramente profissional.
         </p>
+        <p class="text-white/85 text-lg mb-6 leading-relaxed">
+          Especialista em Acupuntura Clínica, a Dra. Valda é formada pela UNIP e possui pós-graduação em Medicina Tradicional Chinesa. Ao longo de duas décadas de prática, atendeu milhares de pacientes com quadros de dor crônica, ansiedade, insônia e enxaqueca, sempre com foco em protocolos individualizados e baseados em evidências.
+        </p>
         
         <ul class="space-y-4 mb-8">
           <li class="flex items-center gap-3 text-lg">
@@ -481,7 +421,7 @@ const heroImgOptimized = await getImage({
 
         <a href="https://wa.me/5511983134656?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20com%20a%20Dra.%20Valda." class="inline-flex justify-center items-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-primary transition-all shadow-xl text-lg w-full md:w-auto">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.297z" /></svg>
-          Agendar avaliação pelo WhatsApp
+          Começar meu tratamento agora
         </a>
       </div>
     </div>
@@ -627,7 +567,7 @@ const heroImgOptimized = await getImage({
           <div class="mt-8">
             <a href="https://wa.me/5511983134656?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20na%20clínica%20de%20acupuntura%20da%20Vila%20da%20Saúde." class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-green-600 transition-all">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.297z" /></svg>
-              Agendar avaliação pelo WhatsApp
+              Agendar minha avaliação
             </a>
           </div>
         </div>

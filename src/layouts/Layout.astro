@@ -10,6 +10,37 @@ interface Props {
 
 const { title, description, heroPreloadUrl, canonicalUrl } = Astro.props;
 const currentCanonical = canonicalUrl || 'https://valdaacupuntura.com.br/';
+
+// Generate BreadcrumbList based on URL
+const urlPath = Astro.url.pathname;
+const breadcrumbs = [
+  { name: 'Início', url: 'https://valdaacupuntura.com.br/' }
+];
+
+if (urlPath.includes('/tratamentos/')) {
+  breadcrumbs.push({ name: 'Tratamentos', url: 'https://valdaacupuntura.com.br/acupuntura-sao-paulo-tratamentos/' });
+  const treatmentName = urlPath.split('/tratamentos/')[1]?.replace(/\/$/, '')?.replace(/-/g, ' ');
+  if (treatmentName) {
+    breadcrumbs.push({ name: treatmentName.charAt(0).toUpperCase() + treatmentName.slice(1), url: currentCanonical });
+  }
+} else if (urlPath.includes('/precos')) {
+  breadcrumbs.push({ name: 'Preços', url: currentCanonical });
+} else if (urlPath.includes('/sobre-dra-valda')) {
+  breadcrumbs.push({ name: 'Sobre Dra. Valda', url: currentCanonical });
+} else if (urlPath.includes('/acupuntura-sao-paulo-tratamentos')) {
+  breadcrumbs.push({ name: 'Tratamentos', url: currentCanonical });
+}
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": item.url
+  }))
+};
 ---
 
 <!doctype html>
@@ -43,6 +74,9 @@ const currentCanonical = canonicalUrl || 'https://valdaacupuntura.com.br/';
         <!-- Canonical URL (dinâmico por página) -->
         <link rel="canonical" href={currentCanonical}>
 
+        <!-- BreadcrumbList Schema -->
+        <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
         <!-- Preload Hero Image -->
         {heroPreloadUrl && <link rel="preload" href={heroPreloadUrl} as="image" fetchpriority="high">}
 
@@ -52,7 +86,7 @@ const currentCanonical = canonicalUrl || 'https://valdaacupuntura.com.br/';
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "MedicalBusiness",
+              "@type": ["LocalBusiness", "MedicalBusiness", "MedicalClinic"],
               "@id": "https://valdaacupuntura.com.br/#organization",
               "name": "Valda Acupuntura",
               "url": "https://valdaacupuntura.com.br/",
@@ -86,25 +120,101 @@ const currentCanonical = canonicalUrl || 'https://valdaacupuntura.com.br/';
                 "name": "Dra. Valda Fernandes",
                 "jobTitle": "Especialista em Acupuntura Clínica",
                 "description": "20 anos de experiência em Medicina Chinesa e Eletroacupuntura."
-              }
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "132"
+              },
+              "review": [
+                {
+                  "@type": "Review",
+                  "author": { "@type": "Person", "name": "Giselle Florencio" },
+                  "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+                  "reviewBody": "Atendimento impecável, muito atenciosa, cuidadosa e extremamente profissional. Passa segurança desde a primeira consulta e explica tudo com muita clareza. Recomendo demais!"
+                },
+                {
+                  "@type": "Review",
+                  "author": { "@type": "Person", "name": "Tayssa Silva" },
+                  "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+                  "reviewBody": "Clínica excelente, atendimento impecável do começo ao fim. Profissional de mão cheia, muito cuidadosa e detalhista. Super recomendo!"
+                }
+              ],
+              "sameAs": [
+                "https://share.google/wuk8xDQ31yvDVkt3G"
+              ]
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Ansiedade",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Tratamento natural para ansiedade e estresse, regulando neurotransmissores do bem-estar."
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Insônia",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Reequilíbrio do ritmo circadiano para sono restaurador e qualidade de vida."
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Dor Ciática",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Alívio imediato e tratamento da inflamação do nervo ciático com eletroacupuntura."
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Enxaqueca",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Redução da frequência e intensidade de crises de enxaqueca e dor de cabeça."
             },
             {
               "@type": "Service",
               "serviceType": "Acupuntura para Dor Lombar",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
-              "description": "Tratamento especializado para alívio de dores lombares crônicas e agudas."
+              "description": "Tratamento para hérnias de disco, tensões musculares e dores lombares crônicas."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Nervo Ciático",
+              "serviceType": "Acupuntura para TPM",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
-              "description": "Descompressão e alívio da inflamação do nervo ciático através de eletroacupuntura."
+              "description": "Regulação do ciclo hormonal feminino, tratando cólicas, irritabilidade e inchaço."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Dores no Joelho",
+              "serviceType": "Acupuntura para Estresse",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
-              "description": "Tratamento eficaz para tendinites e processos inflamatórios nos joelhos (artrite/artrose)."
+              "description": "Controle do estresse e equilíbrio do sistema nervoso simpático."
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Problemas Digestivos",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Tratamento de gastrites nervosas e má digestão através da conexão cérebro-intestino."
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Dores Crônicas",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Protocolos de longo prazo para controle de dores crônicas e melhora da qualidade de vida."
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Fibromialgia",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Manejo da fibromialgia com redução da sensibilidade dolorosa global."
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Tendinite",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Tratamento de inflamações de tendões (LER/DORT) com recuperação acelerada."
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Acupuntura para Bruxismo",
+              "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "description": "Relaxamento da musculatura masseter e alívio de dores faciais por bruxismo."
             }
           ]
         }

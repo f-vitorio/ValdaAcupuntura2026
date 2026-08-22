@@ -12,7 +12,7 @@ format: 'avif',
 width: 800,
 });
 
-const pageTitle = "Tratamentos com Acupuntura em São Paulo (Zona Sul) | Ansiedade, Dor Ciática, Insônia";
+const pageTitle = "Tratamentos com Acupuntura em São Paulo | Vila da Saúde";
 const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila da Saúde - Zona Sul). Ansiedade, dor ciática, insônia, enxaqueca e dores crônicas. Agende sua consulta.";
 ---
 
@@ -23,55 +23,20 @@ const pageDescription = "Tratamentos com acupuntura em São Paulo (Vila da Saúd
     heroPreloadUrl={heroImgOptimized.src}
 >
 
-<!-- Schema.org Avançado (MedicalBusiness, Service, Review, FAQ) -->
+<!-- Schema.org (Service + FAQPage — Business schema está no Layout) -->
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "MedicalBusiness", "MedicalClinic"],
-      "@id": "https://valdaacupuntura.com.br/acupuntura-sao-paulo-tratamentos/#clinic",
-      "name": "Valda Acupuntura",
-      "description": "Clínica especializada em tratamentos de acupuntura em São Paulo para ansiedade, dor ciática, insônia e dores crônicas.",
-      "image": "https://valdaacupuntura.com.br/valda-real.webp",
-      "telephone": "+5511983134656",
-      "url": "https://valdaacupuntura.com.br/acupuntura-sao-paulo-tratamentos/",
-      "sameAs": [
-        "https://share.google/wuk8xDQ31yvDVkt3G"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "R. Maquerobi, 156",
-        "addressLocality": "São Paulo",
-        "addressRegion": "SP",
-        "postalCode": "04311-001",
-        "addressCountry": "BR"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "132"
-      },
-      "medicalSpecialty": "Acupuncture",
-      "priceRange": "$$",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
-          "closes": "20:00"
-        }
-      ]
-    },
-    {
       "@type": "Service",
       "name": "Acupuntura para Ansiedade",
-      "provider": { "@id": "https://valdaacupuntura.com.br/acupuntura-sao-paulo-tratamentos/#clinic" },
+      "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
       "description": "Tratamento eficaz para controle de ansiedade e estresse em São Paulo."
     },
     {
       "@type": "Service",
       "name": "Acupuntura para Dor Ciática",
-      "provider": { "@id": "https://valdaacupuntura.com.br/acupuntura-sao-paulo-tratamentos/#clinic" },
+      "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
       "description": "Alívio imediato e tratamento da inflamação do nervo ciático na zona sul de SP."
     },
     {
