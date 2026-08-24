@@ -88,12 +88,13 @@ const breadcrumbSchema = {
             {
               "@type": ["LocalBusiness", "MedicalBusiness", "MedicalClinic"],
               "@id": "https://valdaacupuntura.com.br/#organization",
-              "name": "Valda Acupuntura",
+              "name": "Acupuntura E Fitoterapia - Valda Fernandes",
+              "alternateName": "Valda Acupuntura",
               "url": "https://valdaacupuntura.com.br/",
               "telephone": "+5511983134656",
               "image": "https://valdaacupuntura.com.br/logo-valda.webp",
               "priceRange": "R$ 250 - R$ 1500",
-              "description": "Clínica de acupuntura em São Paulo (Vila da Saúde, Zona Sul) com atendimento individualizado. Próximo ao Metrô Praça da Árvore.",
+              "description": "Clínica de acupuntura e fitoterapia em São Paulo (Vila da Saúde, Zona Sul) com atendimento individualizado. Próximo ao Metrô Praça da Árvore. Dra. Valda Fernandes - 20 anos de experiência.",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "R. Maquerobi, 156",
@@ -118,8 +119,8 @@ const breadcrumbSchema = {
               "founder": {
                 "@type": "Person",
                 "name": "Dra. Valda Fernandes",
-                "jobTitle": "Especialista em Acupuntura Clínica",
-                "description": "20 anos de experiência em Medicina Chinesa e Eletroacupuntura."
+                "jobTitle": "Especialista em Acupuntura Clínica e Fitoterapia Chinesa",
+                "description": "20 anos de experiência em Medicina Chinesa, Eletroacupuntura e Fitoterapia."
               },
               "aggregateRating": {
                 "@type": "AggregateRating",
@@ -141,7 +142,8 @@ const breadcrumbSchema = {
                 }
               ],
               "sameAs": [
-                "https://share.google/wuk8xDQ31yvDVkt3G"
+                "https://share.google/wuk8xDQ31yvDVkt3G",
+                "https://www.google.com/search?q=Acupuntura+E+Fitoterapia+-+Valda+Fernandes"
               ]
             },
             {
@@ -231,6 +233,11 @@ const breadcrumbSchema = {
         </script>
 	</head>
 	<body class="bg-white text-gray-800 font-sans antialiased">
+		<!-- Skip Link for Accessibility -->
+		<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:font-bold focus:shadow-lg">
+			Pular para o conteúdo principal
+		</a>
+		
 		<slot />
 
 		<!-- Floating WhatsApp Button -->

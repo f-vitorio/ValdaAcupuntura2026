@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    /* Focus visible for keyboard navigation */
+    :focus-visible {
+        outline: 3px solid #2F5C48;
+        outline-offset: 2px;
+    }
+
+    /* Ensure sufficient contrast for gray text on light backgrounds */
+    .text-gray-600 {
+        color: #4b5563;
+    }
+    
+    .text-gray-700 {
+        color: #374151;
+    }
+
+    .bg-gray-100 {
+        background-color: #f3f4f6;
+    }
+
+    .bg-gray-200 {
+        background-color: #e5e7eb;
+    }
+}
+
 @layer components {
 
     /* Ensure smooth scrolling */
@@ -29,5 +54,34 @@
 
     details summary::-webkit-details-marker {
         display: none;
+    }
+
+    /* Card contrast improvements - ensure text on light backgrounds meets WCAG AA */
+    .bg-bg-light {
+        background-color: #f9fafb;
+    }
+
+    .bg-bg-light p,
+    .bg-bg-light span,
+    .bg-bg-light div {
+        color: #374151;
+    }
+
+    /* Focus visible for interactive elements */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    [role="button"]:focus-visible {
+        outline: 3px solid #2F5C48;
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+
+    /* Improve touch target sizes */
+    @media (pointer: coarse) {
+        a, button, summary, [role="button"] {
+            min-height: 44px;
+            min-width: 44px;
+        }
     }
 }

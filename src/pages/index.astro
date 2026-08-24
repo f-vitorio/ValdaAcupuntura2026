@@ -11,16 +11,9 @@ const heroImgOptimized = await getImage({
   format: 'avif',
   width: 800,
 });
----
 
-<Layout
-  title="Clínica de Acupuntura em São Paulo | Vila da Saúde, Zona Sul"
-  description="Clínica de Acupuntura em São Paulo, na Zona Sul. Atendimento individual com Dra. Valda Fernandes. Conheça os tratamentos, valores e agende sua avaliação."
-  heroPreloadUrl={heroImgOptimized.src}
-  canonicalUrl="https://valdaacupuntura.com.br/">
-
-<!-- Schema.org Avançado (FAQ + AggregateRating — Business schema está no Layout) -->
-<script type="application/ld+json" set:html={JSON.stringify({
+// FAQ Schema data
+const faqSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -97,13 +90,71 @@ const heroImgOptimized = await getImage({
             "@type": "Answer",
             "text": "Os protocolos de acupuntura podem ser direcionados como suporte para quadros como ansiedade, estresse, insônia, dores nas costas (ciática e lombar) e enxaqueca, sempre definidos após a avaliação."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "A acupuntura dói?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. As agulhas são ultrafinas (0,20 a 0,25mm) e a sensação é leve — a maioria dos pacientes relaxa profundamente e muitos chegam a dormir durante a sessão. A técnica é praticamente indolor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A clínica aceita convênio ou plano de saúde?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não aceitamos convênio diretamente. Fornecemos nota fiscal detalhada para que você solicite reembolso junto ao seu plano de saúde, conforme as regras de cada operadora."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Em quantas sessões vou sentir resultado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Muitos pacientes relatam alívio nas primeiras 1 a 3 sessões. O protocolo completo varia de 4 a 10 sessões dependendo do quadro, gravidade e resposta individual — definido na avaliação inicial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A acupuntura é segura? Como é a esterilização?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Usamos exclusivamente agulhas descartáveis, estéreis e de uso único, seguindo rigorosamente as normas da ANVISA. O ambiente é preparado com protocolos de biossegurança para garantir sua tranquilidade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a diferença entre acupuntura e eletroacupuntura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A eletroacupuntura aplica uma corrente elétrica de baixa intensidade nas agulhas, potencializando o efeito analgésico e anti-inflamatório. É indicada para dores crônicas, ciática, lombalgia e casos mais resistentes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funciona o pagamento? Aceitam cartão/PIX?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Aceitamos PIX, cartão de débito e crédito (à vista ou parcelado). Os pacotes de 4 e 10 sessões podem ser parcelados conforme combinado na avaliação."
+          }
         }
       ]
     }
   ]
-})} />
+};
+---
 
-<main>
+<Layout
+  title="Clínica de Acupuntura em São Paulo | Vila da Saúde, Zona Sul"
+  description="Clínica de Acupuntura em São Paulo, na Zona Sul. Atendimento individual com Dra. Valda Fernandes. Conheça os tratamentos, valores e agende sua avaliação."
+  heroPreloadUrl={heroImgOptimized.src}
+  canonicalUrl="https://valdaacupuntura.com.br/">
+
+<!-- Schema.org Avançado (FAQ + AggregateRating — Business schema está no Layout) -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<main id="main-content">
   <Header />
   
   <!-- 1. HERO -->
@@ -114,7 +165,7 @@ const heroImgOptimized = await getImage({
     <!-- Background Image -->
     <img 
       src={heroImgOptimized.src}
-      alt="Clínica de Acupuntura em São Paulo" 
+      alt="Sala de atendimento da Clínica Valda Acupuntura na Vila da Saúde, São Paulo" 
       class="absolute inset-0 w-full h-full object-cover object-center z-0"
       fetchpriority="high"
       loading="eager"
@@ -157,8 +208,10 @@ const heroImgOptimized = await getImage({
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-        <a href="https://wa.me/5511983134656?text=Olá,%20busco%20uma%20clínica%20de%20acupuntura.%20Gostaria%20de%20agendar%20uma%20avaliação." 
-           class="group relative bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3 w-full sm:w-auto justify-center overflow-hidden">
+        <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20busco%20uma%20cl%C3%ADnica%20de%20acupuntura.%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.&utm_source=site&utm_medium=hero_cta&utm_campaign=whatsapp_agendamento" 
+           class="group relative bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3 w-full sm:w-auto justify-center overflow-hidden" 
+           target="_blank" rel="noopener"
+           aria-label="Agendar avaliação com Dra. Valda pelo WhatsApp">
           <span class="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500 origin-center"></span>
           <svg class="w-6 h-6 relative z-10" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.297z" /></svg>
           <span class="relative z-10">Falar com a Dra. Valda agora</span>
@@ -179,33 +232,33 @@ const heroImgOptimized = await getImage({
   <section class="py-10 md:py-14 bg-white border-b border-gray-100">
     <div class="container mx-auto px-4 max-w-6xl">
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        <a href="#acupuntura" class="bg-bg-light p-4 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all text-center group">
-          <div class="text-3xl mb-2">🩺</div>
+        <a href="#acupuntura" class="bg-bg-light p-4 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all text-center group" aria-label="Saiba mais sobre acupuntura">
+          <div class="text-3xl mb-2" aria-hidden="true">🩺</div>
           <div class="font-bold text-gray-800 text-sm group-hover:text-primary">Acupuntura</div>
           <div class="text-xs text-gray-500">O que é e como funciona</div>
         </a>
-        <a href="#sessao" class="bg-bg-light p-4 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all text-center group">
-          <div class="text-3xl mb-2">👤</div>
+        <a href="#sessao" class="bg-bg-light p-4 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all text-center group" aria-label="Saiba mais sobre sessões individuais">
+          <div class="text-3xl mb-2" aria-hidden="true">👤</div>
           <div class="font-bold text-gray-800 text-sm group-hover:text-primary">Sessões individuais</div>
           <div class="text-xs text-gray-500">Atendimento 1 a 1</div>
         </a>
-        <a href="#tratamentos" class="bg-bg-light p-4 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all text-center group">
-          <div class="text-3xl mb-2">🎯</div>
+        <a href="#tratamentos" class="bg-bg-light p-4 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all text-center group" aria-label="Conheça os tratamentos de acupuntura">
+          <div class="text-3xl mb-2" aria-hidden="true">🎯</div>
           <div class="font-bold text-gray-800 text-sm group-hover:text-primary">Tratamentos</div>
           <div class="text-xs text-gray-500">Protocolo após avaliação</div>
         </a>
-        <a href="#precos" class="bg-bg-light p-4 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all text-center group">
-          <div class="text-3xl mb-2">💰</div>
+        <a href="#precos" class="bg-bg-light p-4 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all text-center group" aria-label="Ver valores e preços da acupuntura">
+          <div class="text-3xl mb-2" aria-hidden="true">💰</div>
           <div class="font-bold text-gray-800 text-sm group-hover:text-primary">Valores e preços</div>
           <div class="text-xs text-gray-500">Quanto custa a sessão</div>
         </a>
-        <a href="#localizacao" class="bg-bg-light p-4 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all text-center group">
-          <div class="text-3xl mb-2">📍</div>
+        <a href="#localizacao" class="bg-bg-light p-4 rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all text-center group" aria-label="Ver localização da clínica">
+          <div class="text-3xl mb-2" aria-hidden="true">📍</div>
           <div class="font-bold text-gray-800 text-sm group-hover:text-primary">Onde ficamos</div>
           <div class="text-xs text-gray-500">Vila da Saúde, Zona Sul</div>
         </a>
-        <a href="https://wa.me/5511983134656?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20na%20clínica%20de%20acupuntura." class="bg-secondary p-4 rounded-2xl hover:bg-green-600 hover:shadow-md transition-all text-center group" target="_blank" rel="noopener">
-          <div class="text-3xl mb-2">💬</div>
+        <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20cl%C3%ADnica%20de%20acupuntura.&utm_source=site&utm_medium=quick_decision&utm_campaign=whatsapp_agendamento" class="bg-secondary p-4 rounded-2xl hover:bg-green-600 hover:shadow-md transition-all text-center group" target="_blank" rel="noopener" aria-label="Agendar avaliação pelo WhatsApp">
+          <div class="text-3xl mb-2" aria-hidden="true">💬</div>
           <div class="font-bold text-white text-sm">Agendar pelo WhatsApp</div>
           <div class="text-xs text-white/80">Resposta rápida</div>
         </a>
@@ -352,7 +405,7 @@ const heroImgOptimized = await getImage({
 
       <div class="text-center mt-12">
         <p class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">Quer entender qual tratamento de acupuntura se encaixa no seu caso? Fale direto com a Dra. Valda pelo WhatsApp.</p>
-        <a href="https://wa.me/5511983134656?text=Olá,%20quero%20entender%20qual%20tratamento%20de%20acupuntura%20se%20encaixa%20no%20meu%20caso." class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+        <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20entender%20qual%20tratamento%20de%20acupuntura%20se%20encaixa%20no%20meu%20caso.&utm_source=site&utm_medium=tratamentos_cta&utm_campaign=whatsapp_agendamento" class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all" target="_blank" rel="noopener" aria-label="Falar com Dra. Valda sobre tratamentos pelo WhatsApp">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.297z" /></svg>
           Falar com a Dra. Valda agora
         </a>
@@ -419,7 +472,7 @@ const heroImgOptimized = await getImage({
           </li>
         </ul>
 
-        <a href="https://wa.me/5511983134656?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20com%20a%20Dra.%20Valda." class="inline-flex justify-center items-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-primary transition-all shadow-xl text-lg w-full md:w-auto">
+        <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20a%20Dra.%20Valda.&utm_source=site&utm_medium=dra_valda_cta&utm_campaign=whatsapp_agendamento" class="inline-flex justify-center items-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-primary transition-all shadow-xl text-lg w-full md:w-auto" target="_blank" rel="noopener" aria-label="Agendar avaliação com Dra. Valda pelo WhatsApp">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.297z" /></svg>
           Começar meu tratamento agora
         </a>
@@ -537,7 +590,7 @@ const heroImgOptimized = await getImage({
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.545 11.02a.434.434 0 0 1 .434-.435h7.948a.434.434 0 0 1 .435.435v2.308a.434.434 0 0 1-.435.434H12.98a.434.434 0 0 1-.435-.434V11.02z"/><path d="M22.485 12.18c0-1.036-.098-1.84-.288-2.618H12.09v4.962h5.834c-.25 1.343-1.006 2.48-2.14 3.242v2.69h3.466c2.026-1.868 3.235-4.618 3.235-7.276z" fill="#4285F4"/><path d="M12.09 22.727c2.894 0 5.328-.96 7.103-2.59l-3.466-2.69c-.96.643-2.19 1.023-3.637 1.023-2.798 0-5.166-1.89-6.012-4.432H2.52v2.792c1.77 3.513 5.41 5.897 9.57 5.897z" fill="#34A853"/><path d="M6.078 14.038a6.42 6.42 0 0 1 0-4.076V7.17H2.52a10.662 10.662 0 0 0 0 9.66l3.558-2.792z" fill="#FBBC05"/><path d="M12.09 5.716c1.574 0 2.987.54 4.097 1.603L19.92 3.59c-2.312-2.155-5.328-3.48-8.948-3.48C6.812.11 3.102 3.1 1.332 6.613L4.89 9.405c.846-2.542 3.214-4.432 6.012-4.432z" fill="#EA4335"/></svg>
           Ver avaliações no Google
         </a>
-        <a href="https://wa.me/5511983134656?text=Olá,%20vi%20as%20avaliações%20da%20clínica%20e%20gostaria%20de%20agendar%20minha%20avaliação." class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-3 rounded-full font-bold shadow-sm hover:bg-green-600 transition-all">
+        <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20vi%20as%20avalia%C3%A7%C3%B5es%20da%20cl%C3%ADnica%20e%20gostaria%20de%20agendar%20minha%20avalia%C3%A7%C3%A3o.&utm_source=site&utm_medium=avaliacoes_cta&utm_campaign=whatsapp_agendamento" class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-3 rounded-full font-bold shadow-sm hover:bg-green-600 transition-all" target="_blank" rel="noopener" aria-label="Agendar avaliação após ver avaliações">
           Agendar pelo WhatsApp
         </a>
       </div>
@@ -565,7 +618,7 @@ const heroImgOptimized = await getImage({
             Ver rota no Google Maps <span class="text-xl">&rarr;</span>
           </a>
           <div class="mt-8">
-            <a href="https://wa.me/5511983134656?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20na%20clínica%20de%20acupuntura%20da%20Vila%20da%20Saúde." class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-green-600 transition-all">
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20cl%C3%ADnica%20de%20acupuntura%20da%20Vila%20da%20Sa%C3%BAde.&utm_source=site&utm_medium=localizacao_cta&utm_campaign=whatsapp_agendamento" class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-green-600 transition-all" target="_blank" rel="noopener" aria-label="Agendar avaliação na clínica Vila da Saúde pelo WhatsApp">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.297z" /></svg>
               Agendar minha avaliação
             </a>
@@ -677,6 +730,66 @@ const heroImgOptimized = await getImage({
             <p>Os protocolos de acupuntura podem ser direcionados como suporte para quadros como ansiedade, estresse, insônia, dores nas costas (ciática e lombar) e enxaqueca, sempre definidos após a avaliação.</p>
           </div>
         </details>
+
+        <details class="group bg-bg-light rounded-lg shadow-sm open:shadow-md transition-shadow">
+          <summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
+            <span>A acupuntura dói?</span>
+            <span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
+            <p>Não. As agulhas são ultrafinas (0,20 a 0,25mm) e a sensação é leve — a maioria dos pacientes relaxa profundamente e muitos chegam a dormir durante a sessão. A técnica é praticamente indolor.</p>
+          </div>
+        </details>
+
+        <details class="group bg-bg-light rounded-lg shadow-sm open:shadow-md transition-shadow">
+          <summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
+            <span>A clínica aceita convênio ou plano de saúde?</span>
+            <span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
+            <p>Não aceitamos convênio diretamente. Fornecemos nota fiscal detalhada para que você solicite reembolso junto ao seu plano de saúde, conforme as regras de cada operadora.</p>
+          </div>
+        </details>
+
+        <details class="group bg-bg-light rounded-lg shadow-sm open:shadow-md transition-shadow">
+          <summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
+            <span>Em quantas sessões vou sentir resultado?</span>
+            <span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
+            <p>Muitos pacientes relatam alívio nas primeiras 1 a 3 sessões. O protocolo completo varia de 4 a 10 sessões dependendo do quadro, gravidade e resposta individual — definido na avaliação inicial.</p>
+          </div>
+        </details>
+
+        <details class="group bg-bg-light rounded-lg shadow-sm open:shadow-md transition-shadow">
+          <summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
+            <span>A acupuntura é segura? Como é a esterilização?</span>
+            <span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
+            <p>Sim. Usamos exclusivamente agulhas descartáveis, estéreis e de uso único, seguindo rigorosamente as normas da ANVISA. O ambiente é preparado com protocolos de biossegurança para garantir sua tranquilidade.</p>
+          </div>
+        </details>
+
+        <details class="group bg-bg-light rounded-lg shadow-sm open:shadow-md transition-shadow">
+          <summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
+            <span>Qual a diferença entre acupuntura e eletroacupuntura?</span>
+            <span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
+            <p>A eletroacupuntura aplica uma corrente elétrica de baixa intensidade nas agulhas, potencializando o efeito analgésico e anti-inflamatório. É indicada para dores crônicas, ciática, lombalgia e casos mais resistentes.</p>
+          </div>
+        </details>
+
+        <details class="group bg-bg-light rounded-lg shadow-sm open:shadow-md transition-shadow">
+          <summary class="flex justify-between items-center p-5 font-bold text-primary cursor-pointer list-none select-none">
+            <span>Como funciona o pagamento? Aceitam cartão/PIX?</span>
+            <span class="text-2xl font-light transform group-open:rotate-45 transition-transform text-secondary">+</span>
+          </summary>
+          <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 mt-2 pt-4 group-open:animate-fade-in">
+            <p>Sim. Aceitamos PIX, cartão de débito e crédito (à vista ou parcelado). Os pacotes de 4 e 10 sessões podem ser parcelados conforme combinado na avaliação.</p>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -686,7 +799,7 @@ const heroImgOptimized = await getImage({
     <div class="container mx-auto px-4 max-w-3xl">
       <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Agende sua sessão de acupuntura</h2>
       <p class="text-xl text-white/90 mb-8">Dê o primeiro passo: agende sua avaliação na clínica de acupuntura na Vila da Saúde, Zona Sul de São Paulo. Atendimento individual com a Dra. Valda Fernandes.</p>
-      <a href="https://wa.me/5511983134656?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação." class="inline-flex justify-center items-center gap-3 bg-secondary text-white px-10 py-5 rounded-full font-bold hover:bg-white hover:text-primary transition-all shadow-xl text-xl w-full sm:w-auto">
+      <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20minha%20avalia%C3%A7%C3%A3o.&utm_source=site&utm_medium=final_cta&utm_campaign=whatsapp_agendamento" class="inline-flex justify-center items-center gap-3 bg-secondary text-white px-10 py-5 rounded-full font-bold hover:bg-white hover:text-primary transition-all shadow-xl text-xl w-full sm:w-auto" target="_blank" rel="noopener" aria-label="Agendar avaliação final pelo WhatsApp">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.47-.297z" /></svg>
         Agendar pelo WhatsApp
       </a>
