@@ -1,0 +1,219 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { Image, getImage } from 'astro:assets';
+import heroImgSource from '../../assets/hero-premium.webp';
+import valdaImg from '../../assets/valda-real.webp';
+
+const heroImgOptimized = await getImage({
+  src: heroImgSource, 
+  format: 'avif',
+  width: 800,
+});
+---
+
+<Layout
+  title="Acupuntura para Fibromialgia em São Paulo | Alívio da Dor | Valda Acupuntura"
+  description="Acupuntura para fibromialgia em São Paulo. Tratamento para redução da sensibilidade dolorosa e melhora da qualidade de vida. Clínica na Vila da Saúde, Zona Sul."
+  canonicalUrl="https://valdaacupuntura.com.br/tratamentos/acupuntura-fibromialgia/"
+  heroPreloadUrl={heroImgOptimized.src}>
+
+  <main>
+  <Header />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Acupuntura ajuda na fibromialgia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. A acupuntura pode ajudar no manejo da fibromialgia, promovendo redução da sensibilidade dolorosa, melhora do sono e diminuição da fadiga. É uma abordagem complementar eficaz."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quantas sessões são necessárias?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A fibromialgia é uma condição crônica que demanda acompanhamento de longo prazo. Geralmente, iniciamos com pacotes de 10 sessões, com manutenção periódica conforme a evolução."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "A acupuntura é segura para fibromialgia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. A acupuntura é segura e pode ser combinada com outros tratamentos. As agulhas são descartáveis e estéreis, e o protocolo é adaptado para pacientes com sensibilidade aumentada."
+        }
+      }
+    ]
+  })} />
+
+    <section class="relative py-20 md:py-32 text-center overflow-hidden">
+      <img src={heroImgOptimized.src} alt="Acupuntura para fibromialgia em São Paulo" class="absolute inset-0 w-full h-full object-cover object-center z-0" fetchpriority="high" loading="eager" decoding="async" width={1920} height={1080} />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#e8f5e9]/95 to-white/90 z-0"></div>
+      
+      <div class="container mx-auto px-4 max-w-4xl relative z-10">
+        <span class="inline-flex items-center gap-2 bg-[#e6fffa] text-[#047857] px-5 py-2.5 rounded-full font-semibold text-sm mb-6 border border-[#b7eb8f] shadow-sm animate-fade-in mx-auto">
+          Dra. Valda Fernandes • 20 Anos de Experiência
+        </span>
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-tight mb-6 font-bold">
+          Acupuntura para Fibromialgia
+        </h1>
+        <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+          Sofrendo com dor generalizada, fadiga e sensibilidade aumentada? A <strong class="text-primary">acupuntura para fibromialgia</strong> pode ajudar a reduzir a dor e melhorar sua qualidade de vida. Atendimento na Vila da Saúde, Zona Sul de São Paulo.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20busco%20tratamento%20para%20fibromialgia.%20Gostaria%20de%20agendar%20avalia%C3%A7%C3%A3o.&utm_source=site&utm_medium=fibro_hero&utm_campaign=whatsapp_agendamento" class="bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3 w-full sm:w-auto justify-center" target="_blank" rel="noopener">
+            💬 Agendar com a Dra. Valda
+          </a>
+          <a href="tel:+5511983134656" class="bg-white text-primary border-2 border-primary px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3 w-full sm:w-auto justify-center">
+            📞 Ligar Agora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl text-center">
+        <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">O desafio de viver com fibromialgia</h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+          A fibromialgia provoca dor crônica generalizada, fadiga persistente, distúrbios do sono e sensibilidade aumentada. O tratamento convencional muitas vezes envolve múltiplos medicamentos com efeitos colaterais. A frustração de não encontrar alívio adequado impacta diretamente na qualidade de vida e na saúde mental.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 bg-bg-light">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Como a acupuntura ajuda na fibromialgia</h2>
+          <p class="text-lg text-gray-600 leading-relaxed mb-6">
+            A acupuntura atua na modulação da dor, promovendo a liberação de endorfinas e regulando os neurotransmissores envolvidos na sensibilidade dolorosa. A técnica também ajuda a melhorar a qualidade do sono e reduzir a fadiga, aspectos fundamentais no manejo da fibromialgia.
+          </p>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            Estudos clínicos publicados em revistas como <em>Pain Medicine</em> e <em>Journal of Acupuncture and Meridian Studies</em> demonstram que a acupuntura pode reduzir significativamente a intensidade da dor e melhorar a funcionalidade de pacientes com fibromialgia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Redução da Dor</h3>
+            <p class="text-gray-600">Diminuição da sensibilidade dolorosa global, promovendo maior conforto e mobilidade no dia a dia.</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Melhora do Sono</h3>
+            <p class="text-gray-600">Regulação dos padrões de sono, contribuindo para noites mais reparadoras e menos interrupções.</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Redução da Fadiga</h3>
+            <p class="text-gray-600">Estímulo ao equilíbrio energético, diminuindo o cansaço persistente que acompanha a condição.</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Acompanhamento Contínuo</h3>
+            <p class="text-gray-600">Protocolos de longo prazo com ajustes periódicos conforme a evolução de cada paciente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-primary text-white">
+      <div class="container mx-auto px-4 max-w-6xl flex flex-col md:flex-row items-center gap-12">
+        <div class="flex-1 text-left">
+          <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Dra. Valda Fernandes</h2>
+          <p class="text-lg mb-4 text-white/90 font-medium">Especialista em Dor Crônica</p>
+          <p class="text-lg mb-4 text-white/90">
+            Com 20 anos de experiência, a Dra. Valda atendeu milhares de pacientes com fibromialgia e outras condições de dor crônica. Formada pela UNIP com pós-graduação em Medicina Tradicional Chinesa, ela utiliza protocolos de Eletroacupuntura para potencializar o alívio da dor.
+          </p>
+          <div class="mb-8 p-6 bg-white/5 rounded-xl border border-white/10">
+            <p class="text-lg text-white/90 italic">
+              "Vivo com fibromialgia há 8 anos. A acupuntura da Dra. Valda foi o único tratamento que realmente me trouxe alívio duradouro. Minha qualidade de vida melhorou muito." – Renata P.
+            </p>
+          </div>
+          <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
+            <h3 class="font-bold text-xl mb-2 text-green-300">Localização Privilegiada</h3>
+            <p>Vila da Saúde, Zona Sul de São Paulo (SP)</p>
+            <p>Próximo ao Metrô Praça da Árvore</p>
+          </div>
+        </div>
+        <div class="flex-1 max-w-md mx-auto">
+          <Image src={valdaImg} alt="Dra. Valda Fernandes" width={500} height={500} class="rounded-2xl shadow-xl border-4 border-white/10" />
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-5xl text-center">
+        <h2 class="font-serif text-3xl text-primary font-bold mb-10">Valores dos Tratamentos</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-8 bg-gray-50 rounded-2xl border border-gray-200">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Primeira Consulta</h3>
+            <div class="text-3xl font-bold text-primary my-4">R$ 250</div>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%20minha%20primeira%20consulta%20para%20fibromialgia.&utm_source=site&utm_medium=fibro_precos&utm_campaign=whatsapp_agendamento" class="block w-full bg-white text-primary border-2 border-primary px-4 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener">💬 Agendar</a>
+          </div>
+          <div class="p-8 bg-primary rounded-2xl border border-primary text-white transform md:-translate-y-4 shadow-xl relative">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-secondary text-white px-4 py-1 rounded-full text-sm font-bold">Recomendado</div>
+            <h3 class="font-bold text-xl mb-2 mt-2">Pacote 4 Sessões</h3>
+            <div class="text-3xl font-bold my-4">R$ 700</div>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%204%20sess%C3%B5es%20para%20fibromialgia.&utm_source=site&utm_medium=fibro_precos_4&utm_campaign=whatsapp_agendamento" class="block w-full bg-secondary text-white px-4 py-3 rounded-full font-bold hover:bg-white hover:text-secondary transition-colors" target="_blank" rel="noopener">✅ Garantir Pacote Agora</a>
+          </div>
+          <div class="p-8 bg-gray-50 rounded-2xl border border-gray-200">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Pacote 10 Sessões</h3>
+            <div class="text-3xl font-bold text-primary my-4">R$ 1500</div>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%2010%20sess%C3%B5es%20para%20fibromialgia.&utm_source=site&utm_medium=fibro_precos_10&utm_campaign=whatsapp_agendamento" class="block w-full bg-white text-primary border-2 border-primary px-4 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener">✅ Tratamento Completo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-bg-light">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="font-serif text-3xl text-primary font-bold mb-8 text-center">Perguntas Frequentes</h2>
+        <div class="space-y-4">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Acupuntura ajuda na fibromialgia?</h3>
+            <p class="text-gray-600">Sim. A acupuntura pode ajudar no manejo da fibromialgia, promovendo redução da sensibilidade dolorosa, melhora do sono e diminuição da fadiga. É uma abordagem complementar eficaz.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Quantas sessões são necessárias?</h3>
+            <p class="text-gray-600">A fibromialgia é uma condição crônica que demanda acompanhamento de longo prazo. Geralmente, iniciamos com pacotes de 10 sessões, com manutenção periódica conforme a evolução.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">A acupuntura é segura para fibromialgia?</h3>
+            <p class="text-gray-600">Sim. A acupuntura é segura e pode ser combinada com outros tratamentos. As agulhas são descartáveis e estéreis, e o protocolo é adaptado para pacientes com sensibilidade aumentada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white text-center">
+      <div class="container mx-auto px-4">
+        <h2 class="font-serif text-4xl text-primary font-bold mb-6">Reduza a dor e recupere sua qualidade de vida</h2>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
+          <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20minha%20avalia%C3%A7%C3%A3o%20para%20fibromialgia.&utm_source=site&utm_medium=fibro_final&utm_campaign=whatsapp_agendamento" class="bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-3 animate-pulse-slow" target="_blank" rel="noopener">
+            💬 Agendar com a Dra. Valda
+          </a>
+          <a href="tel:+5511983134656" class="bg-white text-primary border-2 border-primary px-10 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-3">
+            📞 Ligar Agora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12 text-center text-sm border-t border-gray-700">
+      <div class="container mx-auto px-4">
+        <p class="font-bold text-lg mb-2 font-serif tracking-wide">Clínica Valda Acupuntura</p>
+        <p class="opacity-80 mb-4 text-gray-300">R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP</p>
+        <p class="mb-6"><a href="tel:+5511983134656" class="hover:text-secondary transition-colors font-bold text-lg">(11) 98313-4656</a></p>
+        <p class="opacity-50 text-xs">&copy; 2026 Valda Acupuntura. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </main>
+</Layout>

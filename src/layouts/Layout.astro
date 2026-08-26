@@ -6,9 +6,11 @@ interface Props {
 	description: string;
     heroPreloadUrl?: string;
 	canonicalUrl?: string;
+	ogImage?: string;
 }
 
-const { title, description, heroPreloadUrl, canonicalUrl } = Astro.props;
+const { title, description, heroPreloadUrl, canonicalUrl, ogImage } = Astro.props;
+const ogImageUrl = ogImage || 'https://valdaacupuntura.com.br/og-default.jpg';
 const currentCanonical = canonicalUrl || 'https://valdaacupuntura.com.br/';
 
 // Generate BreadcrumbList based on URL
@@ -55,6 +57,21 @@ const breadcrumbSchema = {
         <meta name="geo.region" content="BR-SP" />
         <meta name="geo.placename" content="São Paulo" />
 		<title>{title}</title>
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={currentCanonical} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:site_name" content="Valda Acupuntura" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImageUrl} />
 
         <!-- Preconnect & Fonts Async Loading -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -142,8 +159,7 @@ const breadcrumbSchema = {
                 }
               ],
               "sameAs": [
-                "https://share.google/wuk8xDQ31yvDVkt3G",
-                "https://www.google.com/search?q=Acupuntura+E+Fitoterapia+-+Valda+Fernandes"
+                "https://share.google/wuk8xDQ31yvDVkt3G"
               ]
             },
             {

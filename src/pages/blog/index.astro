@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { Image, getImage } from 'astro:assets';
+import heroImgSource from '../../assets/hero-premium.webp';
+
+const heroImgOptimized = await getImage({
+  src: heroImgSource, 
+  format: 'avif',
+  width: 800,
+});
+
+const pageTitle = "Blog | Acupuntura, Saúde e Bem-Estar | Valda Acupuntura";
+const pageDescription = "Artigos sobre acupuntura, saúde e bem-estar. Dicas, informações e curiosidades sobre tratamentos naturais na Vila da Saúde, São Paulo.";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl="https://valdaacupuntura.com.br/blog/"
+  heroPreloadUrl={heroImgOptimized.src}>
+
+  <main>
+  <Header />
+
+    <section class="relative py-20 md:py-32 text-center overflow-hidden">
+      <img src={heroImgOptimized.src} alt="Blog Valda Acupuntura" class="absolute inset-0 w-full h-full object-cover object-center z-0" fetchpriority="high" loading="eager" decoding="async" width={1920} height={1080} />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#e8f5e9]/95 to-white/90 z-0"></div>
+      
+      <div class="container mx-auto px-4 max-w-4xl relative z-10">
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-tight mb-6 font-bold">
+          Blog Valda Acupuntura
+        </h1>
+        <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+          Artigos sobre acupuntura, saúde e bem-estar. Informações úteis para você tomar a melhor decisão sobre seu tratamento.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Post 1 -->
+          <article class="bg-bg-light rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+            <div class="p-6">
+              <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full font-semibold text-xs mb-3">Dúvidas Comuns</span>
+              <h2 class="font-serif text-xl font-bold text-gray-800 mb-3">
+                <a href="/blog/acupuntura-doi/" class="hover:text-primary transition-colors">
+                  Acupuntura Dói? Tudo Sobre a Sensação nas Sessões
+                </a>
+              </h2>
+              <p class="text-gray-600 text-sm mb-4">Descubra como são as agulhas, a sensação durante a sessão e por que a técnica é praticamente indolor.</p>
+              <a href="/blog/acupuntura-doi/" class="text-primary font-bold hover:text-secondary flex items-center gap-2 text-sm">
+                Ler artigo <span>&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="bg-bg-light rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+            <div class="p-6">
+              <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full font-semibold text-xs mb-3">Guia Prático</span>
+              <h2 class="font-serif text-xl font-bold text-gray-800 mb-3">
+                <a href="/blog/como-funciona-sessao-acupuntura/" class="hover:text-primary transition-colors">
+                  Como Funciona uma Sessão de Acupuntura? Passo a Passo
+                </a>
+              </h2>
+              <p class="text-gray-600 text-sm mb-4">Saiba cada etapa do processo — da primeira avaliação ao acompanhamento — para se sentir preparado.</p>
+              <a href="/blog/como-funciona-sessao-acupuntura/" class="text-primary font-bold hover:text-secondary flex items-center gap-2 text-sm">
+                Ler artigo <span>&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="bg-bg-light rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+            <div class="p-6">
+              <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full font-semibold text-xs mb-3">Preços</span>
+              <h2 class="font-serif text-xl font-bold text-gray-800 mb-3">
+                <a href="/blog/quanto-custa-acupuntura-sao-paulo/" class="hover:text-primary transition-colors">
+                  Quanto Custa uma Sessão de Acupuntura em São Paulo 2026?
+                </a>
+              </h2>
+              <p class="text-gray-600 text-sm mb-4">Valores da avaliação, pacotes de 4 e 10 sessões. Preços transparentes na Vila da Saúde.</p>
+              <a href="/blog/quanto-custa-acupuntura-sao-paulo/" class="text-primary font-bold hover:text-secondary flex items-center gap-2 text-sm">
+                Ler artigo <span>&rarr;</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-bg-light">
+      <div class="container mx-auto px-4 max-w-4xl text-center">
+        <h2 class="font-serif text-3xl text-primary font-bold mb-6">Tem alguma dúvida?</h2>
+        <p class="text-lg text-gray-600 mb-8">Fale diretamente com a Dra. Valda pelo WhatsApp e tire todas as suas dúvidas.</p>
+        <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20tenho%20d%C3%BAvidas%20sobre%20acupuntura.&utm_source=site&utm_medium=blog_cta&utm_campaign=whatsapp_agendamento" class="inline-flex items-center justify-center gap-3 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all" target="_blank" rel="noopener">
+          💬 Falar com a Dra. Valda
+        </a>
+      </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12 text-center text-sm border-t border-gray-700">
+      <div class="container mx-auto px-4">
+        <p class="font-bold text-lg mb-2 font-serif tracking-wide">Clínica Valda Acupuntura</p>
+        <p class="opacity-80 mb-4 text-gray-300">R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP</p>
+        <p class="mb-6"><a href="tel:+5511983134656" class="hover:text-secondary transition-colors font-bold text-lg">(11) 98313-4656</a></p>
+        <p class="opacity-50 text-xs">&copy; 2026 Valda Acupuntura. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </main>
+</Layout>
