@@ -122,15 +122,19 @@ const breadcrumbSchema = {
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": "-23.6265",
-                "longitude": "-46.6327"
+                "latitude": "-23.62650",
+                "longitude": "-46.63270"
+              },
+              "areaServed": {
+                "@type": "City",
+                "name": "São Paulo"
               },
               "openingHoursSpecification": [
                 {
                   "@type": "OpeningHoursSpecification",
                   "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                  "opens": "08:00",
-                  "closes": "20:00"
+                  "opens": "08:00:00",
+                  "closes": "20:00:00"
                 }
               ],
               "founder": {
@@ -139,105 +143,112 @@ const breadcrumbSchema = {
                 "jobTitle": "Especialista em Acupuntura Clínica e Fitoterapia Chinesa",
                 "description": "20 anos de experiência em Medicina Chinesa, Eletroacupuntura e Fitoterapia."
               },
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "reviewCount": "132"
-              },
-              "review": [
-                {
-                  "@type": "Review",
-                  "author": { "@type": "Person", "name": "Giselle Florencio" },
-                  "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-                  "reviewBody": "Atendimento impecável, muito atenciosa, cuidadosa e extremamente profissional. Passa segurança desde a primeira consulta e explica tudo com muita clareza. Recomendo demais!"
-                },
-                {
-                  "@type": "Review",
-                  "author": { "@type": "Person", "name": "Tayssa Silva" },
-                  "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-                  "reviewBody": "Clínica excelente, atendimento impecável do começo ao fim. Profissional de mão cheia, muito cuidadosa e detalhista. Super recomendo!"
-                }
-              ],
               "sameAs": [
                 "https://share.google/wuk8xDQ31yvDVkt3G"
               ]
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Ansiedade",
+              "name": "Acupuntura para Ansiedade",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-ansiedade/",
               "description": "Tratamento natural para ansiedade e estresse, regulando neurotransmissores do bem-estar."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Insônia",
+              "name": "Acupuntura para Insônia",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-insonia/",
               "description": "Reequilíbrio do ritmo circadiano para sono restaurador e qualidade de vida."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Dor Ciática",
+              "name": "Acupuntura para Dor Ciática",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-dor-ciatica/",
               "description": "Alívio imediato e tratamento da inflamação do nervo ciático com eletroacupuntura."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Enxaqueca",
+              "name": "Acupuntura para Enxaqueca",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-enxaqueca/",
               "description": "Redução da frequência e intensidade de crises de enxaqueca e dor de cabeça."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Dor Lombar",
+              "name": "Acupuntura para Dor Lombar",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-dor-ciatica/",
               "description": "Tratamento para hérnias de disco, tensões musculares e dores lombares crônicas."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para TPM",
+              "name": "Acupuntura para TPM",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-tpm/",
               "description": "Regulação do ciclo hormonal feminino, tratando cólicas, irritabilidade e inchaço."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Estresse",
+              "name": "Acupuntura para Estresse",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-estresse/",
               "description": "Controle do estresse e equilíbrio do sistema nervoso simpático."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Problemas Digestivos",
+              "name": "Acupuntura para Problemas Digestivos",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-problemas-digestivos/",
               "description": "Tratamento de gastrites nervosas e má digestão através da conexão cérebro-intestino."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Dores Crônicas",
+              "name": "Acupuntura para Dores Crônicas",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-fibromialgia/",
               "description": "Protocolos de longo prazo para controle de dores crônicas e melhora da qualidade de vida."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Fibromialgia",
+              "name": "Acupuntura para Fibromialgia",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-fibromialgia/",
               "description": "Manejo da fibromialgia com redução da sensibilidade dolorosa global."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Tendinite",
+              "name": "Acupuntura para Tendinite",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-tendinite/",
               "description": "Tratamento de inflamações de tendões (LER/DORT) com recuperação acelerada."
             },
             {
               "@type": "Service",
-              "serviceType": "Acupuntura para Bruxismo",
+              "name": "Acupuntura para Bruxismo",
+              "serviceType": "Acupuntura",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/acupuntura-bruxismo/",
               "description": "Relaxamento da musculatura masseter e alívio de dores faciais por bruxismo."
             },
             {
               "@type": "Service",
-              "serviceType": "Fitoterapia Chinesa",
+              "name": "Fitoterapia Chinesa",
+              "serviceType": "Fitoterapia",
               "provider": { "@id": "https://valdaacupuntura.com.br/#organization" },
+              "url": "https://valdaacupuntura.com.br/tratamentos/fitoterapia/",
               "description": "Tratamento natural com plantas medicinais chinesas para ansiedade, insônia, dores e problemas digestivos."
             }
           ]
