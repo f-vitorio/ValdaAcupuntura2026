@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+const pageTitle = "Acupuntura para Estresse Funciona? Saiba mais";
+const pageDescription = "Acupuntura para estresse em SP: como funciona, benefícios e por que funciona. Tratamento natural na Vila da Saúde. Agende avaliação.";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl="https://valdaacupuntura.com.br/blog/acupuntura-estresse-como-funciona/">
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Acupuntura para Estresse Funciona? Saiba mais",
+    "description": pageDescription,
+    "author": { "@type": "Person", "name": "Dra. Valda Fernandes" },
+    "publisher": { "@type": "Organization", "name": "Valda Acupuntura" },
+    "datePublished": "2026-09-16",
+    "dateModified": "2026-09-16",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://valdaacupuntura.com.br/blog/acupuntura-estresse-como-funciona/" }
+  })} />
+
+  <main>
+  <Header />
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Blog</span>
+        <h1 class="font-serif text-4xl md:text-5xl text-primary leading-tight mb-6 font-bold">
+          Acupuntura para Estresse Funciona? Saiba mais
+        </h1>
+        <p class="text-lg text-gray-500 mb-8">Publicado por Dra. Valda Fernandes • 16 setembro 2026</p>
+
+        <article class="prose prose-lg max-w-none text-gray-700">
+          <p class="text-xl leading-relaxed mb-6">
+            Sim, a acupuntura para estresse funciona. A técnica regula o sistema nervoso, reduz o cortisol e promove relaxamento profundo. Se você vive em São Paulo e sente os efeitos do estresse no dia a dia, a acupuntura pode ser a solução natural que você precisa.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">Por que o estresse é tão prejudicial?</h2>
+          <p class="mb-6">
+            O estresse crônico eleva os níveis de cortisol, o hormônio do estresse, causando insônia, dores de cabeça, tensão muscular, problemas digestivos e até doenças cardiovasculares. Em São Paulo, o ritmo acelerado da cidade aumenta significativamente os níveis de estresse da população.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">Como a acupuntura atua no estresse?</h2>
+          <p class="mb-6">
+            A acupuntura regula o sistema nervoso autônomo, reduzindo a atividade do sistema nervoso simpático (resposta de luta ou fuga) e aumentando a atividade do parassimpático (resposta de relaxamento). Isso resulta em redução do cortisol e aumento de endorfinas e serotonina.
+          </p>
+          <p class="mb-6">
+            Um estudo publicado no <strong>Journal of Endocrinological Investigation</strong> demonstrou que uma única sessão de acupuntura reduziu os níveis de cortisol em 36% dos participantes, com efeito duradouro de até 24 horas.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">Benefícios comprovados</h2>
+          <ul class="list-disc list-inside mb-6 space-y-2">
+            <li><strong>Redução do cortisol:</strong> regulção hormonal do estresse</li>
+            <li><strong>Melhora do sono:</strong> sono mais reparador</li>
+            <li><strong> Clareza mental:</strong> foco e concentração melhorados</li>
+            <li><strong>Equilíbrio emocional:</strong> menor reatividade a estressores</li>
+            <li><strong>Disposição física:</strong> mais energia e vitalidade</li>
+          </ul>
+
+          <div class="bg-bg-light p-8 rounded-2xl mt-10 mb-8 text-center">
+            <h3 class="font-bold text-xl text-gray-800 mb-4">Agende sua avaliação para estresse</h3>
+            <p class="text-gray-600 mb-6">Tratamento natural e eficaz para estresse e ansiedade.</p>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20avalia%C3%A7%C3%A3o%20para%20tratamento%20de%20estresse.&utm_source=blog&utm_medium=estresse&utm_campaign=whatsapp" class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-bold hover:bg-green-600 transition-colors" target="_blank" rel="noopener">
+              💬 Agendar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mb-8">
+            <a href="/tratamentos/acupuntura-estresse/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Ver página: Estresse</a>
+            <a href="/tratamentos/acupuntura-ansiedade/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Ansiedade</a>
+            <a href="/tratamentos/acupuntura-insonia/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Insônia</a>
+          </div>
+
+          <a href="/blog/" class="inline-block text-primary font-bold hover:text-secondary transition-colors mt-8">← Voltar para o Blog</a>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>

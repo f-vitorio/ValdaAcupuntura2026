@@ -1,0 +1,274 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { Image, getImage } from 'astro:assets';
+import heroImgSource from '../../assets/hero-premium.webp';
+import valdaImg from '../../assets/valda-real.webp';
+
+const heroImgOptimized = await getImage({
+  src: heroImgSource, 
+  format: 'avif',
+  width: 800,
+});
+---
+
+<Layout
+  title="Auriculoterapia em SP | Valda Acupuntura"
+  description="Auriculoterapia em São Paulo. Tratamento natural por pontos na orelha para dor, estresse e insônia. Clínica Vila da Saúde. Agende avaliação."
+  canonicalUrl="https://valdaacupuntura.com.br/tratamentos/auriculoterapia/"
+  heroPreloadUrl={heroImgOptimized.src}>
+
+  <main>
+  <Header />
+
+  <!-- FAQ JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "O que é auriculoterapia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Auriculoterapia é uma técnica da Medicina Tradicional Chinesa que estimula pontos específicos da orelha para tratar diversas condições, como dor, estresse e insônia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Auriculoterapia dói?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não. As agulhas são extremamente finas e a aplicação é praticamente indolor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quantas sessões são necessárias?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Geralmente recomendamos pacotes de 4 a 10 sessões, dependendo do quadro e resposta individual."
+        }
+      }
+    ]
+  })} />
+  <!-- MedicalWebPage + Physician Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Auriculoterapia | Valda Acupuntura",
+    "description": "Tratamento de auriculoterapia com acupuntura em São Paulo. Dra. Valda Fernandes, 20 anos de experiência.",
+    "about": { "@type": "Thing", "name": "Auriculoterapia" },
+    "author": {
+      "@type": "Physician",
+      "name": "Dra. Valda Fernandes",
+      "jobTitle": "Acupunturista",
+      "medicalSpecialty": "Acupuntura",
+      "address": { "@type": "PostalAddress", "streetAddress": "R. Maquerobi, 156", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
+      "telephone": "+5511983134656"
+    }
+  })} />
+
+    <!-- HERO -->
+    <section class="relative py-20 md:py-32 text-center overflow-hidden">
+      <img src={heroImgOptimized.src} alt="Auriculoterapia São Paulo" class="absolute inset-0 w-full h-full object-cover object-center z-0" fetchpriority="high" loading="eager" decoding="async" width={1920} height={1080} />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#e8f5e9]/95 to-white/90 z-0"></div>
+      
+      <div class="container mx-auto px-4 max-w-4xl relative z-10">
+        <span class="inline-flex items-center gap-2 bg-[#e6fffa] text-[#047857] px-5 py-2.5 rounded-full font-semibold text-sm mb-6 border border-[#b7eb8f] shadow-sm animate-fade-in mx-auto">
+          Dra. Valda Fernandes • 20 Anos de Experiência
+        </span>
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-tight mb-6 font-bold">
+          Auriculoterapia em São Paulo
+        </h1>
+        <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+          Buscando uma forma natural de aliviar dor, estresse e insônia? Conheça a <strong class="text-primary">auriculoterapia em São Paulo</strong>, que estimula pontos da orelha para equilibrar o corpo e a mente. Atendimento humanizado na Vila da Saúde, Zona Sul.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20busco%20tratamento%20de%20auriculoterapia.%20Gostaria%20de%20agendar%20avalia%C3%A7%C3%A3o.&utm_source=site&utm_medium=auriculoterapia_hero&utm_campaign=whatsapp_agendamento" class="bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3 w-full sm:w-auto justify-center" target="_blank" rel="noopener" aria-label="Agendar avaliação de auriculoterapia pelo WhatsApp">
+            💬 Agendar com a Dra. Valda
+          </a>
+          <a href="tel:+5511983134656" class="bg-white text-primary border-2 border-primary px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3 w-full sm:w-auto justify-center" aria-label="Ligar para a clínica">
+            📞 Ligar Agora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOR DO PACIENTE -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl text-center">
+        <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">O preço oculto da dor crônica e do estresse constante</h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+          Dor persistente, estresse acumulado e noites mal dormidas sugam sua energia e prejudicam sua qualidade de vida. O uso contínuo de medicamentos muitas vezes traz efeitos colaterais indesejados e não trata a raiz do problema. A frustração de não encontrar alívio real tem um impacto direto na sua rotina, humor e disposição.
+        </p>
+      </div>
+    </section>
+
+    <!-- SOLUÇÃO (AURICULOTERAPIA) -->
+    <section class="py-16 bg-bg-light">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">O que é auriculoterapia e como funciona</h2>
+          <p class="text-lg text-gray-600 leading-relaxed mb-6">
+            A auriculoterapia é uma técnica da Medicina Tradicional Chinesa que estimula pontos específicos da orelha para tratar diversas condições. A orelha é vista como um microsistema que reflete todo o corpo, e a estimulação desses pontos promove equilíbrio e alívio de forma natural.
+          </p>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            Estudos clínicos demonstram que a auriculoterapia atua no sistema nervoso, estimulando a liberação de endorfinas e regulando o equilíbrio do corpo. A OMS (Organização Mundial da Saúde) reconhece a auriculoterapia como abordagem eficaz para diversas condições, incluindo dor, estresse e distúrbios do sono.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Alívio da Dor</h3>
+            <p class="text-gray-600">Estimulação dos pontos da orelha para reduzir dores crônicas e agudas de forma natural e eficaz.</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Redução do Estresse</h3>
+            <p class="text-gray-600">Equilíbrio do sistema nervoso, promovendo relaxamento profundo e reduzindo os efeitos do estresse diário.</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Melhora do Sono</h3>
+            <p class="text-gray-600">Regulação do ciclo de sono para noites mais tranquilas e despertar com disposição e energia.</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl">
+            <h3 class="font-bold text-xl text-primary mb-3">Tratamento Natural</h3>
+            <p class="text-gray-600">Abordagem sem efeitos colaterais que pode complementar outros tratamentos, promovendo bem-estar整体.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROVA SOCIAL & AUTORIDADE -->
+    <section class="py-16 bg-primary text-white">
+      <div class="container mx-auto px-4 max-w-6xl flex flex-col md:flex-row items-center gap-12">
+        <div class="flex-1 text-left">
+          <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Dra. Valda Fernandes</h2>
+          <p class="text-lg mb-4 text-white/90 font-medium">
+            Atendimento Personalizado e Humanizado
+          </p>
+          <p class="text-lg mb-4 text-white/90">
+            Com 20 anos de experiência clínica, a Dra. Valda é especialista em Eletroacupuntura e Auriculoterapia. Formada pela UNIP com pós-graduação em Medicina Tradicional Chinesa, ela atendeu milhares de pacientes, sempre com foco em protocolos individualizados e baseados em evidências.
+          </p>
+          <p class="text-lg mb-4 text-white/90">
+            O atendimento é 100% individual, sem pressa, em um ambiente acolhedor na Vila da Saúde. Cada sessão é cuidadosamente planejada para atender às suas necessidades específicas, com ajustes contínuos conforme sua evolução.
+          </p>
+          <div class="mb-8 p-6 bg-white/5 rounded-xl border border-white/10">
+            <p class="text-lg text-white/90 italic">
+              "A auriculoterapia me ajudou a reduzir as dores nas costas e melhorar muito meu sono. A Dra. Valda é extremamente atenciosa e o tratamento é personalizado." – Mariana S.
+            </p>
+          </div>
+          <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
+            <h3 class="font-bold text-xl mb-2 text-green-300">Localização Privilegiada</h3>
+            <p>Vila da Saúde</p>
+            <p>Zona Sul de São Paulo (SP)</p>
+            <p>Próximo ao Metrô Praça da Árvore</p>
+          </div>
+        </div>
+        <div class="flex-1 max-w-md mx-auto">
+          <Image src={valdaImg} alt="Dra. Valda Fernandes" width={500} height={500} class="rounded-2xl shadow-xl border-4 border-white/10" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PREÇOS -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-5xl text-center">
+        <h2 class="font-serif text-3xl text-primary font-bold mb-10">Valores dos Tratamentos</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-8 bg-gray-50 rounded-2xl border border-gray-200">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Primeira Consulta</h3>
+            <div class="text-3xl font-bold text-primary my-4">R$ 250</div>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%20minha%20primeira%20consulta%20para%20auriculoterapia.&utm_source=site&utm_medium=auriculoterapia_precos_avaliacao&utm_campaign=whatsapp_agendamento" class="block w-full bg-white text-primary border-2 border-primary px-4 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener" aria-label="Agendar primeira consulta para auriculoterapia">💬 Agendar</a>
+          </div>
+          <div class="p-8 bg-primary rounded-2xl border border-primary text-white transform md:-translate-y-4 shadow-xl relative">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-secondary text-white px-4 py-1 rounded-full text-sm font-bold">Recomendado</div>
+            <h3 class="font-bold text-xl mb-2 mt-2">Pacote 4 Sessões</h3>
+            <div class="text-3xl font-bold my-4">R$ 700</div>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%204%20sess%C3%B5es%20de%20auriculoterapia.&utm_source=site&utm_medium=auriculoterapia_precos_4sessoes&utm_campaign=whatsapp_agendamento" class="block w-full bg-secondary text-white px-4 py-3 rounded-full font-bold hover:bg-white hover:text-secondary transition-colors" target="_blank" rel="noopener" aria-label="Garantir pacote de 4 sessões de auriculoterapia">✅ Garantir Pacote Agora</a>
+          </div>
+          <div class="p-8 bg-gray-50 rounded-2xl border border-gray-200">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Pacote 10 Sessões</h3>
+            <div class="text-3xl font-bold text-primary my-4">R$ 1500</div>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%2010%20sess%C3%B5es%20de%20auriculoterapia.&utm_source=site&utm_medium=auriculoterapia_precos_10sessoes&utm_campaign=whatsapp_agendamento" class="block w-full bg-white text-primary border-2 border-primary px-4 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener" aria-label="Agendar tratamento completo de 10 sessões de auriculoterapia">✅ Tratamento Completo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-bg-light">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="font-serif text-3xl text-primary font-bold mb-8 text-center">Perguntas Frequentes</h2>
+        <div class="space-y-4">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">O que é auriculoterapia?</h3>
+            <p class="text-gray-600">Auriculoterapia é uma técnica da Medicina Tradicional Chinesa que estimula pontos específicos da orelha para tratar diversas condições, como dor, estresse e insônia.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Auriculoterapia dói?</h3>
+            <p class="text-gray-600">Não. As agulhas são extremamente finas e a aplicação é praticamente indolor.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Quantas sessões são necessárias?</h3>
+            <p class="text-gray-600">Geralmente recomendamos pacotes de 4 a 10 sessões, dependendo do quadro e resposta individual.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tratamentos Relacionados -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="font-serif text-3xl text-primary font-bold mb-8 text-center">Tratamentos Relacionados</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="/tratamentos/acupuntura-ansiedade/" class="block p-6 bg-bg-light rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all group">
+            <div class="text-3xl mb-3">🧠</div>
+            <h3 class="font-bold text-lg text-gray-800 group-hover:text-primary mb-2">Acupuntura para Ansiedade</h3>
+            <p class="text-gray-500 text-sm">Tratamento natural para acalmar a mente e reduzir a ansiedade</p>
+          </a>
+          <a href="/tratamentos/acupuntura-estresse/" class="block p-6 bg-bg-light rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all group">
+            <div class="text-3xl mb-3">😰</div>
+            <h3 class="font-bold text-lg text-gray-800 group-hover:text-primary mb-2">Acupuntura para Estresse</h3>
+            <p class="text-gray-500 text-sm">Tratamento natural para equilibrar o estresse e recuperar o bem-estar</p>
+          </a>
+          <a href="/tratamentos/acupuntura-insonia/" class="block p-6 bg-bg-light rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all group">
+            <div class="text-3xl mb-3">🌙</div>
+            <h3 class="font-bold text-lg text-gray-800 group-hover:text-primary mb-2">Acupuntura para Insônia</h3>
+            <p class="text-gray-500 text-sm">Alívio natural para insônia e distúrbios do sono</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-20 bg-white text-center">
+      <div class="container mx-auto px-4">
+        <h2 class="font-serif text-4xl text-primary font-bold mb-6">Dê o primeiro passo para uma vida com menos dor e mais equilíbrio</h2>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
+          <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20minha%20avalia%C3%A7%C3%A3o%20de%20auriculoterapia.&utm_source=site&utm_medium=auriculoterapia_final_cta&utm_campaign=whatsapp_agendamento" class="bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-3 animate-pulse-slow" target="_blank" rel="noopener" aria-label="Agendar avaliação final de auriculoterapia pelo WhatsApp">
+            💬 Agendar com a Dra. Valda
+          </a>
+          <a href="tel:+5511983134656" class="bg-white text-primary border-2 border-primary px-10 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-3" aria-label="Ligar para a clínica">
+            📞 Ligar Agora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12 text-center text-sm border-t border-gray-700">
+      <div class="container mx-auto px-4">
+        <p class="font-bold text-lg mb-2 font-serif tracking-wide">Clínica Valda Acupuntura</p>
+        <p class="opacity-80 mb-4 text-gray-300">R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP</p>
+        <p class="mb-6"><a href="tel:+5511983134656" class="hover:text-secondary transition-colors font-bold text-lg">(11) 98313-4656</a></p>
+        <p class="opacity-50 text-xs">&copy; 2026 Valda Acupuntura. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </main>
+</Layout>

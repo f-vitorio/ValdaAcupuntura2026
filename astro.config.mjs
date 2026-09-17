@@ -14,7 +14,7 @@ export default defineConfig({
         react(), // Adicionado para suportar componentes e ícones
         partytown({
             config: {
-                forward: ["dataLayer.push"],
+                forward: ["dataLayer.push", "gtag"],
             },
         }),
         sitemap({

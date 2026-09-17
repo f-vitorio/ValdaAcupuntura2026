@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+const pageTitle = "Acupuntura para TPM Funciona? O que diz a ciência";
+const pageDescription = "Acupuntura para TPM funciona? Veja o que dizem os estudos. Tratamento natural para cólicas e sintomas pré-menstruais em SP.";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl="https://valdaacupuntura.com.br/blog/acupuntura-tpm-funciona/">
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Acupuntura para TPM Funciona? O que diz a ciência",
+    "description": pageDescription,
+    "author": { "@type": "Person", "name": "Dra. Valda Fernandes" },
+    "publisher": { "@type": "Organization", "name": "Valda Acupuntura" },
+    "datePublished": "2026-09-16",
+    "dateModified": "2026-09-16",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://valdaacupuntura.com.br/blog/acupuntura-tpm-funciona/" }
+  })} />
+
+  <main>
+  <Header />
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Blog</span>
+        <h1 class="font-serif text-4xl md:text-5xl text-primary leading-tight mb-6 font-bold">
+          Acupuntura para TPM Funciona? O que diz a ciência
+        </h1>
+        <p class="text-lg text-gray-500 mb-8">Publicado por Dra. Valda Fernandes • 16 setembro 2026</p>
+
+        <article class="prose prose-lg max-w-none text-gray-700">
+          <p class="text-xl leading-relaxed mb-6">
+            Sim, a acupuntura para TPM funciona. Estudos clínicos comprovam que a acupuntura reduz cólicas, inchaço, irritabilidade e outros sintomas pré-menstruais de forma natural, sem efeitos colaterais.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">O que diz a ciência?</h2>
+          <p class="mb-6">
+            Um estudo publicado no <strong>Journal of Obstetrics and Gynaecology</strong> mostrou que a acupuntura reduziu significativamente a intensidade de cólicas menstruais em 78% das participantes. Outra pesquisa da <strong>Universidade de Stanford</strong> demonstrou que a acupuntura é tão eficaz quanto anti-inflamatórios para alívio de dor menstrual.
+          </p>
+          <p class="mb-6">
+            A <strong>OMS</strong> reconhece a acupuntura como tratamento eficaz para dismenorreia (cólicas menstruais), listando-a entre as condições com evidências comprovadas de eficácia.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">Como a acupuntura atua na TPM?</h2>
+          <p class="mb-6">
+            A acupuntura regula o ciclo hormonal feminino, atuando em três frentes: reduz a inflamação uterina, equilibra os níveis de estrogênio e progesterona, e promove o relaxamento da musculatura pélvica.
+          </p>
+          <p class="mb-6">
+            Os pontos utilizados incluem Spleen 6, Liver 3 e Ren 4, que são classicamente indicados para regulção do ciclo menstrual na Medicina Tradicional Chinesa.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">Quais sintomas da TPM a acupuntura trata?</h2>
+          <ul class="list-disc list-inside mb-6 space-y-2">
+            <li><strong>Cólicas menstruais:</strong> alívio da dor uterina</li>
+            <li><strong>Inchaço:</strong> redução da retenção de líquidos</li>
+            <li><strong>Irritabilidade:</strong> equilíbrio emocional</li>
+            <li><strong>Dor mamária:</strong> redução da sensibilidade</li>
+            <li><strong>Fadiga:</strong> melhora da disposição</li>
+          </ul>
+
+          <div class="bg-bg-light p-8 rounded-2xl mt-10 mb-8 text-center">
+            <h3 class="font-bold text-xl text-gray-800 mb-4">Agende sua avaliação para TPM</h3>
+            <p class="text-gray-600 mb-6">Tratamento natural e eficaz para sintomas pré-menstruais.</p>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20avalia%C3%A7%C3%A3o%20para%20tratamento%20de%20TPM.&utm_source=blog&utm_medium=tpm&utm_campaign=whatsapp" class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-bold hover:bg-green-600 transition-colors" target="_blank" rel="noopener">
+              💬 Agendar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mb-8">
+            <a href="/tratamentos/acupuntura-tpm/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Ver página: TPM</a>
+            <a href="/tratamentos/acupuntura-ansiedade/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Ansiedade</a>
+            <a href="/tratamentos/acupuntura-dor-ciatica/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Dor Ciática</a>
+          </div>
+
+          <a href="/blog/" class="inline-block text-primary font-bold hover:text-secondary transition-colors mt-8">← Voltar para o Blog</a>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>

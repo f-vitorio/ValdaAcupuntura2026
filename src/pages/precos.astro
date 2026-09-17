@@ -55,8 +55,8 @@ const faqItems = [
 ---
 
 <Layout
-	title="Preços Acupuntura em SP | Avaliação R$ 250 | Pacotes a partir de R$ 150/sessão"
-	description="Quanto custa acupuntura em SP? Avaliação R$ 250. Pacotes de 4 sessões (R$ 700) e 10 sessões (R$ 1.500). Valores transparentes. Agende agora."
+	title="Preços Acupuntura em SP | A partir de R$ 150"
+	description="Quanto custa acupuntura em SP? Avaliação R$ 250. Pacotes de 4 e 10 sessões. Valores transparentes. Agende agora."
 	canonicalUrl="https://valdaacupuntura.com.br/precos/"
 	heroPreloadUrl={heroImgOptimized.src}>
 
@@ -478,47 +478,4 @@ const faqItems = [
 			</div>
 		</footer>
 	</main>
-
-	<!-- Rastreamento de cliques no WhatsApp -->
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			// Rastrear cliques nos CTAs principais
-			document.querySelectorAll('.wa-cta').forEach(function(cta) {
-				cta.addEventListener('click', function() {
-					var position = this.getAttribute('data-cta-position') || 'unknown';
-					if (typeof gtag === 'function') {
-						gtag('event', 'whatsapp_click', {
-							page_location: window.location.href,
-							cta_position: position
-						});
-					}
-				});
-			});
-
-			// Rastrear clique no botão flutuante do WhatsApp
-			var floatingBtn = document.querySelector('a[href*="wa.me"][class*="fixed"]');
-			if (floatingBtn) {
-				floatingBtn.addEventListener('click', function() {
-					if (typeof gtag === 'function') {
-						gtag('event', 'whatsapp_float_click', {
-							page_location: window.location.href
-						});
-					}
-				});
-			}
-
-			// Rastrear clique nos botões de ligação
-			document.querySelectorAll('.phone-cta').forEach(function(phoneBtn) {
-				phoneBtn.addEventListener('click', function() {
-					var position = this.getAttribute('data-cta-position') || 'phone-unknown';
-					if (typeof gtag === 'function') {
-						gtag('event', 'phone_click', {
-							page_location: window.location.href,
-							cta_position: position
-						});
-					}
-				});
-			});
-		});
-	</script>
 </Layout>

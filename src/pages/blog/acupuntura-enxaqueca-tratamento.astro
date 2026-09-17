@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+const pageTitle = "Acupuntura para Enxaqueca: Funciona?";
+const pageDescription = "Acupuntura para enxaqueca em SP: como funciona, benefícios e o que diz a ciência. Tratamento natural na Vila da Saúde. Agende.";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl="https://valdaacupuntura.com.br/blog/acupuntura-enxaqueca-tratamento/">
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Acupuntura para Enxaqueca: Funciona?",
+    "description": pageDescription,
+    "author": { "@type": "Person", "name": "Dra. Valda Fernandes" },
+    "publisher": { "@type": "Organization", "name": "Valda Acupuntura" },
+    "datePublished": "2026-09-16",
+    "dateModified": "2026-09-16",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://valdaacupuntura.com.br/blog/acupuntura-enxaqueca-tratamento/" }
+  })} />
+
+  <main>
+  <Header />
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Blog</span>
+        <h1 class="font-serif text-4xl md:text-5xl text-primary leading-tight mb-6 font-bold">
+          Acupuntura para Enxaqueca: Funciona?
+        </h1>
+        <p class="text-lg text-gray-500 mb-8">Publicado por Dra. Valda Fernandes • 16 setembro 2026</p>
+
+        <article class="prose prose-lg max-w-none text-gray-700">
+          <p class="text-xl leading-relaxed mb-6">
+            Sim, a acupuntura para enxaqueca funciona. Diversos estudos clínicos comprovam que a acupuntura reduz a frequência e intensidade das crises de enxaqueca, sendo uma alternativa eficaz e segura aos medicamentos convencionais.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">O que diz a ciência?</h2>
+          <p class="mb-6">
+            Um grande estudo publicado no <strong>Journal of the American Medical Association (JAMA)</strong> mostrou que a acupuntura reduziu a frequência de enxaquecas em 50% ou mais em 59% dos participantes, comparado a 38% com acupuntura falsa. A eficácia foi comparável a medicamentos preventivos.
+          </p>
+          <p class="mb-6">
+            A <strong>OMS</strong> reconhece a acupuntura como tratamento eficaz para enxaqueca e cefaleia tensional, listando-a entre as condições com evidências comprovadas.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">Como a acupuntura ajuda na enxaqueca?</h2>
+          <p class="mb-6">
+            A acupuntura atua em três mecanismos: reduz a vasodilatação craniana que causa a dor, regula os neurotransmissores envolvidos na enxaqueca (como a serotonina), e promove relaxamento muscular que contribui para as crises.
+          </p>
+          <p class="mb-6">
+            Os pontos clássicos para enxaqueca incluem Gallbladder 20, Taiyang e Yin Tang, que são especificamente indicados para dor de cabeça na Medicina Tradicional Chinesa.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">Benefícios comprovados</h2>
+          <ul class="list-disc list-inside mb-6 space-y-2">
+            <li><strong>Redução da frequência:</strong> menos crises por mês</li>
+            <li><strong>Menor intensidade:</strong> crises mais leves</li>
+            <li><strong>Menos náuseas:</strong> redução de sintomas associados</li>
+            <li><strong>Menor uso de medicamentos:</strong> dependência reduzida</li>
+            <li><strong>Melhora da qualidade de vida:</strong> mais disposição e foco</li>
+          </ul>
+
+          <div class="bg-bg-light p-8 rounded-2xl mt-10 mb-8 text-center">
+            <h3 class="font-bold text-xl text-gray-800 mb-4">Agende sua avaliação para enxaqueca</h3>
+            <p class="text-gray-600 mb-6">Tratamento natural e eficaz para dores de cabeça.</p>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20avalia%C3%A7%C3%A3o%20para%20tratamento%20de%20enxaqueca.&utm_source=blog&utm_medium=enxaqueca&utm_campaign=whatsapp" class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-bold hover:bg-green-600 transition-colors" target="_blank" rel="noopener">
+              💬 Agendar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mb-8">
+            <a href="/tratamentos/acupuntura-enxaqueca/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Ver página: Enxaqueca</a>
+            <a href="/tratamentos/acupuntura-estresse/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Estresse</a>
+            <a href="/tratamentos/acupuntura-ansiedade/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Ansiedade</a>
+          </div>
+
+          <a href="/blog/" class="inline-block text-primary font-bold hover:text-secondary transition-colors mt-8">← Voltar para o Blog</a>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>

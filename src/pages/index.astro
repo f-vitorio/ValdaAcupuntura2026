@@ -17,6 +17,41 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "LocalBusiness",
+      "@id": "https://valdaacupuntura.com.br/#localbusiness",
+      "name": "Valda Acupuntura",
+      "image": "https://valdaacupuntura.com.br/og-default.jpg",
+      "url": "https://valdaacupuntura.com.br/",
+      "telephone": "+5511983134656",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Maquerobi, 156",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "04008-001",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.6105,
+        "longitude": -46.6134
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "19:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "14:00" }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "132"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "São Paulo" },
+        { "@type": "Neighborhood", "name": "Vila da Saúde" }
+      ]
+    },
+    {
       "@type": "FAQPage",
       "mainEntity": [
         {
@@ -146,8 +181,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Acupuntura em SP | 4,8★ no Google • 132+ Avaliações | Dra. Valda"
-  description="Clínica de acupuntura em São Paulo com 4,8★ no Google (132+ avaliações). Atendimento individual, 20 anos de experiência. Avaliação R$ 250. Agende pelo WhatsApp."
+  title="Acupuntura em SP | 4,8★ Google • 132+ Avaliações"
+  description="Clínica de acupuntura em SP com 4,8★ no Google (132+ avaliações). Atendimento individual, 20 anos de experiência. Agende pelo WhatsApp."
   heroPreloadUrl={heroImgOptimized.src}
   canonicalUrl="https://valdaacupuntura.com.br/">
 
@@ -470,6 +505,30 @@ const faqSchema = {
           </div>
           <p class="text-gray-600 mb-6 text-lg leading-relaxed">Tratamento natural com plantas medicinais chinesas para ansiedade, insônia, dores e digestão.</p>
           <a href="/tratamentos/fitoterapia" class="text-primary font-bold hover:text-secondary flex items-center gap-2 text-lg underline decoration-2 underline-offset-4 transition-colors">
+            Conheça o tratamento <span class="text-xl">&rarr;</span>
+          </a>
+        </div>
+
+        <!-- Tratamento 11 -->
+        <div class="bg-bg-light p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl shadow-inner">👂</div>
+            <h3 class="font-serif text-2xl font-bold text-gray-800">Auriculoterapia</h3>
+          </div>
+          <p class="text-gray-600 mb-6 text-lg leading-relaxed">Estimulação de pontos da orelha para tratar dor, estresse, insônia e outros quadros de forma natural.</p>
+          <a href="/tratamentos/auriculoterapia" class="text-primary font-bold hover:text-secondary flex items-center gap-2 text-lg underline decoration-2 underline-offset-4 transition-colors">
+            Conheça o tratamento <span class="text-xl">&rarr;</span>
+          </a>
+        </div>
+
+        <!-- Tratamento 12 -->
+        <div class="bg-bg-light p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl shadow-inner">⭕</div>
+            <h3 class="font-serif text-2xl font-bold text-gray-800">Ventosaterapia</h3>
+          </div>
+          <p class="text-gray-600 mb-6 text-lg leading-relaxed">Tratamento com ventosas para dores musculares, má circulação e relaxamento profundo.</p>
+          <a href="/tratamentos/ventosaterapia" class="text-primary font-bold hover:text-secondary flex items-center gap-2 text-lg underline decoration-2 underline-offset-4 transition-colors">
             Conheça o tratamento <span class="text-xl">&rarr;</span>
           </a>
         </div>

@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+
+const pageTitle = "Acupuntura para Digestão: Como Funciona";
+const pageDescription = "Acupuntura para problemas digestivos em SP: como funciona, benefícios e o que esperar. Gastrite, refluxo e má digestão. Vila da Saúde.";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl="https://valdaacupuntura.com.br/blog/acupuntura-digestao-tratamento/">
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Acupuntura para Digestão: Como Funciona",
+    "description": pageDescription,
+    "author": { "@type": "Person", "name": "Dra. Valda Fernandes" },
+    "publisher": { "@type": "Organization", "name": "Valda Acupuntura" },
+    "datePublished": "2026-09-16",
+    "dateModified": "2026-09-16",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://valdaacupuntura.com.br/blog/acupuntura-digestao-tratamento/" }
+  })} />
+
+  <main>
+  <Header />
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Blog</span>
+        <h1 class="font-serif text-4xl md:text-5xl text-primary leading-tight mb-6 font-bold">
+          Acupuntura para Digestão: Como Funciona
+        </h1>
+        <p class="text-lg text-gray-500 mb-8">Publicado por Dra. Valda Fernandes • 16 setembro 2026</p>
+
+        <article class="prose prose-lg max-w-none text-gray-700">
+          <p class="text-xl leading-relaxed mb-6">
+            Problemas digestivos como gastrite, refluxo e síndrome do intestino irritável são extremamente comuns e muitas vezes têm origem no estresse. A acupuntura trata a conexão cérebro-intestino, promovendo alívio real e duradouro.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">Por que a acupuntura ajuda na digestão?</h2>
+          <p class="mb-6">
+            O sistema digestivo é altamente influenciado pelo sistema nervoso. O estresse crônico altera o peristaltismo intestinal, reduz a produção de suco gástrico e aumenta a sensibilidade visceral. A acupuntura regula a motilidade gastrintestinal e reduz a resposta de estresse.
+          </p>
+          <p class="mb-6">
+            Um estudo publicado no <strong>World Journal of Gastroenterology</strong> demonstrou que a acupuntura é eficaz no manejo da síndrome do intestino irritável, com melhora significativa dos sintomas em 73% dos participantes.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">Condições que a acupuntura trata</h2>
+          <ul class="list-disc list-inside mb-6 space-y-2">
+            <li><strong>Gastrite:</strong> redução da inflamação gástrica</li>
+            <li><strong>Refluxo gastroesofágico:</strong> regulção do esfíncter</li>
+            <li><strong>Síndrome do intestino irritável:</strong> regulção da motilidade</li>
+            <li><strong>Constipação intestinal:</strong> estímulo do peristaltismo</li>
+            <li><strong>Náuseas e vômitos:</strong> alívio de sintomas</li>
+          </ul>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">Como funciona uma sessão?</h2>
+          <p class="mb-6">
+            Os pontos utilizados incluem Stomach 36, Ren 12 e Spleen 6, que são classicamente indicados para problemas digestivos na Medicina Tradicional Chinesa. As sessões duram entre 30 e 40 minutos, e a maioria dos pacientes relata melhora já nas primeiras sessões.
+          </p>
+
+          <div class="bg-bg-light p-8 rounded-2xl mt-10 mb-8 text-center">
+            <h3 class="font-bold text-xl text-gray-800 mb-4">Agende sua avaliação para problemas digestivos</h3>
+            <p class="text-gray-600 mb-6">Tratamento natural para gastrite, refluxo e má digestão.</p>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20avalia%C3%A7%C3%A3o%20para%20tratamento%20digestivo.&utm_source=blog&utm_medium=digestao&utm_campaign=whatsapp" class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-bold hover:bg-green-600 transition-colors" target="_blank" rel="noopener">
+              💬 Agendar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mb-8">
+            <a href="/tratamentos/acupuntura-problemas-digestivos/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Ver página: Digestão</a>
+            <a href="/tratamentos/acupuntura-estresse/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Estresse</a>
+            <a href="/tratamentos/acupuntura-ansiedade/" class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary hover:text-white transition-colors">Ansiedade</a>
+          </div>
+
+          <a href="/blog/" class="inline-block text-primary font-bold hover:text-secondary transition-colors mt-8">← Voltar para o Blog</a>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>

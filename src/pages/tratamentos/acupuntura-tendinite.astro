@@ -51,6 +51,22 @@ const heroImgOptimized = await getImage({
       }
     ]
   })} />
+  <!-- MedicalWebPage + Physician Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Acupuntura para Tendinite | Valda Acupuntura",
+    "description": "Tratamento de acupuntura para tendinite com acupuntura em São Paulo. Dra. Valda Fernandes, 20 anos de experiência.",
+    "about": { "@type": "Thing", "name": "Acupuntura para Tendinite" },
+    "author": {
+      "@type": "Physician",
+      "name": "Dra. Valda Fernandes",
+      "jobTitle": "Acupunturista",
+      "medicalSpecialty": "Acupuntura",
+      "address": { "@type": "PostalAddress", "streetAddress": "R. Maquerobi, 156", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
+      "telephone": "+5511983134656"
+    }
+  })} />
 
     <section class="relative py-20 md:py-32 text-center overflow-hidden">
       <img src={heroImgOptimized.src} alt="Acupuntura para tendinite em São Paulo" class="absolute inset-0 w-full h-full object-cover object-center z-0" fetchpriority="high" loading="eager" decoding="async" width={1920} height={1080} />
@@ -189,6 +205,30 @@ const heroImgOptimized = await getImage({
             <h3 class="font-bold text-xl text-gray-800 mb-2">Quantas sessões são necessárias?</h3>
             <p class="text-gray-600">O protocolo varia conforme a gravidade e o tempo da lesão. Geralmente, os pacotes de 4 a 10 sessões trazem melhora significativa, com ajustes conforme a evolução.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tratamentos Relacionados -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="font-serif text-3xl text-primary font-bold mb-8 text-center">Tratamentos Relacionados</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="/tratamentos/acupuntura-dor-ciatica/" class="block p-6 bg-bg-light rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all group">
+            <div class="text-3xl mb-3">⚡</div>
+            <h3 class="font-bold text-lg text-gray-800 group-hover:text-primary mb-2">Acupuntura para Dor Ciática</h3>
+            <p class="text-gray-500 text-sm">Tratamento para dor ciática e dores na coluna</p>
+          </a>
+          <a href="/tratamentos/acupuntura-fibromialgia/" class="block p-6 bg-bg-light rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all group">
+            <div class="text-3xl mb-3">🧠</div>
+            <h3 class="font-bold text-lg text-gray-800 group-hover:text-primary mb-2">Acupuntura para Fibromialgia</h3>
+            <p class="text-gray-500 text-sm">Tratamento para dor crônica e sensibilidade aumentada</p>
+          </a>
+          <a href="/tratamentos/acupuntura-problemas-digestivos/" class="block p-6 bg-bg-light rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all group">
+            <div class="text-3xl mb-3">🍽️</div>
+            <h3 class="font-bold text-lg text-gray-800 group-hover:text-primary mb-2">Acupuntura para Problemas Digestivos</h3>
+            <p class="text-gray-500 text-sm">Inflamação e inflamação sistêmica afetam a digestão</p>
+          </a>
         </div>
       </div>
     </section>
