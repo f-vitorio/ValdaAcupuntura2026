@@ -1,0 +1,18 @@
+---
+// Redirect 301: URL antiga → página atual de enxaqueca
+// Astro static não suporta redirects server-side, mas podemos usar meta refresh + canonical
+const redirectUrl = '/tratamentos/acupuntura-enxaqueca/';
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0;url={redirectUrl}">
+  <link rel="canonical" href={`https://valdaacupuntura.com.br${redirectUrl}`}>
+  <title>Redirecionando...</title>
+</head>
+<body>
+  <p>Redirecionando para <a href={redirectUrl}>Acupuntura para Enxaqueca</a>...</p>
+</body>
+</html>

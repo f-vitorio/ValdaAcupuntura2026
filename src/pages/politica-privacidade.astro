@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+
+const pageTitle = "Política de Privacidade | Valda Acupuntura";
+const pageDescription = "Política de Privacidade da Clínica Valda Acupuntura. Saiba como tratamos seus dados pessoais em conformidade com a LGPD.";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl="https://valdaacupuntura.com.br/politica-privacidade/">
+
+  <main>
+  <Header />
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Legal</span>
+        <h1 class="font-serif text-4xl md:text-5xl text-primary leading-tight mb-6 font-bold">
+          Política de Privacidade
+        </h1>
+        <p class="text-lg text-gray-500 mb-8">Última atualização: 17 de setembro de 2026</p>
+
+        <article class="prose prose-lg max-w-none text-gray-700">
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">1. Dados Coletados</h2>
+          <p class="mb-6">
+            A Clínica Valda Acupuntura, localizada na R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP, coleta apenas os dados necessários para o atendimento:
+          </p>
+          <ul class="list-disc pl-6 mb-6 space-y-2">
+            <li>Nome completo</li>
+            <li>Telefone de contato</li>
+            <li>E-mail (quando fornecido)</li>
+            <li>Informações de saúde relevantes para o tratamento</li>
+          </ul>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">2. Uso dos Dados</h2>
+          <p class="mb-6">
+            Seus dados são utilizados exclusivamente para:
+          </p>
+          <ul class="list-disc pl-6 mb-6 space-y-2">
+            <li>Agendamento e acompanhamento de tratamentos</li>
+            <li>Comunicação sobre consultas e lembretes</li>
+            <li>Cumprimento de obrigações legais e regulatórias</li>
+          </ul>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">3. Compartilhamento de Dados</h2>
+          <p class="mb-6">
+            Não compartilhamos seus dados pessoais com terceiros, exceto quando exigido por lei ou com sua autorização expressa.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">4. Segurança</h2>
+          <p class="mb-6">
+            Adotamos medidas de segurança técnicas e administrativas para proteger seus dados contra acesso não autorizado, perda ou alteração.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">5. Seus Direitos (LGPD)</h2>
+          <p class="mb-6">
+            Conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a:
+          </p>
+          <ul class="list-disc pl-6 mb-6 space-y-2">
+            <li>Acessar seus dados pessoais</li>
+            <li>Solicitar correção de dados incompletos ou desatualizados</li>
+            <li>Solicitar a exclusão de seus dados</li>
+            <li>Revogar o consentimento a qualquer momento</li>
+          </ul>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">6. Cookies e Rastreamento</h2>
+          <p class="mb-6">
+            Nosso site pode utilizar cookies para melhorar a experiência do usuário e para fins de análise de tráfego. Você pode configurar seu navegador para recusar cookies.
+          </p>
+
+          <h2 class="font-serif text-2xl text-primary font-bold mt-10 mb-4">7. Contato</h2>
+          <p class="mb-6">
+            Para exercer seus direitos ou esclarecer dúvidas sobre esta política, entre em contato:
+          </p>
+          <ul class="list-disc pl-6 mb-6 space-y-2">
+            <li>Telefone: <a href="tel:+5511983134656" class="text-primary font-bold hover:text-secondary">(11) 98313-4656</a></li>
+            <li>Endereço: R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12 text-center text-sm border-t border-gray-700">
+      <div class="container mx-auto px-4">
+        <p class="font-bold text-lg mb-2 font-serif tracking-wide">Clínica Valda Acupuntura</p>
+        <p class="opacity-80 mb-4 text-gray-300">R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP</p>
+        <p class="mb-6"><a href="tel:+5511983134656" class="hover:text-secondary transition-colors font-bold text-lg">(11) 98313-4656</a></p>
+        <p class="opacity-50 text-xs">&copy; 2026 Valda Acupuntura. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </main>
+</Layout>
