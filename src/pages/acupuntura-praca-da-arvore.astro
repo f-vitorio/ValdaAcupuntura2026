@@ -1,0 +1,298 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import { getImage } from 'astro:assets';
+import heroImgSource from '../assets/hero-premium.webp';
+
+const heroImgOptimized = await getImage({
+    src: heroImgSource,
+    format: 'avif',
+    width: 800,
+});
+
+const pageTitle = "Acupuntura na Praça da Árvore, São Paulo | Clínica Valda";
+const pageDescription = "Clínica de acupuntura na Praça da Árvore, São Paulo. A poucos minutos a pé do metrô (Linha 1-Azul). Avaliação R$250 e nota 4,8★ no Google. Agende com a Dra. Valda.";
+
+const waLink = (medium: string) =>
+    `https://wa.me/5511983134656?text=${encodeURIComponent('Olá! Vim pela página da Praça da Árvore e quero agendar uma avaliação.')}&utm_source=site&utm_medium=${medium}&utm_campaign=whatsapp_agendamento`;
+
+const mapsLink = "https://www.google.com/maps/search/?api=1&query=R.+Maquerobi,+156+-+Vila+da+Saúde,+São+Paulo+SP";
+
+const faqs = [
+    {
+        q: "A clínica fica perto do Metrô Praça da Árvore?",
+        a: "Sim. Nossa clínica fica na R. Maquerobi, 156, na Vila da Saúde, a poucos minutos a pé da Estação Praça da Árvore, na Linha 1-Azul. Quem mora ou trabalha na região chega de metrô, ônibus ou a pé, sem depender de carro."
+    },
+    {
+        q: "Quanto custa a avaliação?",
+        a: "A avaliação custa R$250 e inclui anamnese completa e a definição do protocolo de tratamento. Há também pacotes de sessões a partir de R$700, com valor por sessão reduzido. Todos os valores estão na página de preços."
+    },
+    {
+        q: "Preciso de avaliação antes de começar as sessões?",
+        a: "Sim. A primeira consulta é uma avaliação individual, na qual a Dra. Valda analisa seu histórico de saúde e define o protocolo adequado para o seu caso. As sessões seguintes seguem esse plano."
+    },
+    {
+        q: "Quais bairros vocês atendem?",
+        a: "Atendemos quem mora ou trabalha em Praça da Árvore, Vila da Saúde, Jardim da Saúde, Saúde, Vila Clementino e região da zona sul de São Paulo."
+    },
+    {
+        q: "Como chegar de carro?",
+        a: "Estamos na R. Maquerobi, 156, na Vila da Saúde. Use o link do Google Maps nesta página para traçar a rota. De metrô, a estação mais próxima é Praça da Árvore (Linha 1-Azul), a poucos minutos a pé."
+    },
+    {
+        q: "Que tipo de problemas vocês tratam?",
+        a: "Tratamos dores crônicas (ciática, lombar, tendinite), ansiedade e estresse, insônia, enxaqueca, bruxismo, TPM, problemas digestivos e outras condições, com acupuntura, eletroacupuntura e fitoterapia chinesa."
+    },
+    {
+        q: "Qual é o horário de funcionamento?",
+        a: "De segunda a sexta-feira, das 08:00 às 20:00. O agendamento pode ser feito pelo WhatsApp ou telefone."
+    }
+];
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    canonicalUrl="https://valdaacupuntura.com.br/acupuntura-praca-da-arvore/"
+    heroPreloadUrl={heroImgOptimized.src}
+>
+
+<!-- Schema.org (FAQPage — Business schema está no Layout) -->
+<script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+        }
+    }))
+})} />
+
+<main>
+<Header />
+    <!-- ===================== HERO — Local + CTA primário ===================== -->
+    <section class="relative py-20 md:py-32 text-center overflow-hidden">
+        <img
+            src={heroImgOptimized.src}
+            alt="Clínica de acupuntura na Praça da Árvore, São Paulo"
+            class="absolute inset-0 w-full h-full object-cover object-center z-0"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+            width={1920}
+            height={1080}
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#e8f5e9]/95 to-white/90 z-0"></div>
+
+        <div class="container mx-auto px-4 max-w-4xl relative z-10">
+            <p class="text-primary font-semibold tracking-wide uppercase text-sm mb-4">Vila da Saúde · Zona Sul de São Paulo</p>
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-tight mb-6 font-bold">
+                Acupuntura na Praça da Árvore
+            </h1>
+            <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+                A <strong>Clínica Valda Acupuntura</strong> fica a poucos minutos a pé do <strong>Metrô Praça da Árvore</strong> (Linha 1-Azul). Atendimento individual com a <strong>Dra. Valda Fernandes</strong>, especialista com 20 anos de experiência em Medicina Chinesa.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href={waLink('praca_arvore_hero')} class="bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-3" target="_blank" rel="noopener" aria-label="Agendar avaliação na Praça da Árvore pelo WhatsApp">
+                    💬 Agendar avaliação
+                </a>
+                <a href={mapsLink} class="text-primary font-bold underline decoration-primary/30 underline-offset-4 hover:decoration-primary transition-all" target="_blank" rel="noopener">
+                    📍 Ver rota no Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== LOCALIZAÇÃO — Como chegar ===================== -->
+    <section class="py-16 md:py-24 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">A poucos minutos do Metrô Praça da Árvore</h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Nossa clínica fica na <strong>R. Maquerobi, 156</strong> — na Vila da Saúde, na divisa com a Praça da Árvore. É o atendimento de acupuntura mais próximo de quem mora ou trabalha na região, sem pegar trânsito.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🚇</div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">De metrô</h3>
+                    <p class="text-gray-600">Estação Praça da Árvore, Linha 1-Azul. Da estação, são poucos minutos a pé até a clínica.</p>
+                </div>
+                <div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl mx-auto mb-4">📍</div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">De carro ou aplicativo</h3>
+                    <p class="text-gray-600">R. Maquerobi, 156 — Vila da Saúde. Rode a rota pelo Google Maps antes de sair.</p>
+                </div>
+                <div class="bg-bg-light p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+                    <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🏘️</div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">Bairros atendidos</h3>
+                    <p class="text-gray-600">Praça da Árvore, Vila da Saúde, Jardim da Saúde, Saúde, Vila Clementino e região.</p>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <p class="text-gray-600 mb-4">🕐 Segunda a sexta, das 08:00 às 20:00</p>
+                <a href={mapsLink} class="inline-flex items-center gap-2 text-primary font-bold underline decoration-primary/30 underline-offset-4 hover:decoration-primary transition-all" target="_blank" rel="noopener">
+                    Abrir endereço no Google Maps →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PROVA — Por que tratar aqui ===================== -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Por que a população da região escolhe a Clínica Valda</h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Mais do que perto: um atendimento sério, individualizado e bem avaliado por quem já passou por aqui.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl mx-auto mb-4">⭐</div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">4,8★ no Google</h3>
+                    <p class="text-gray-600">Nota de avaliação dos pacientes no Google — confiança verificável, não promessa.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🎓</div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">20 anos de experiência</h3>
+                    <p class="text-gray-600">Dra. Valda Fernandes, formada em UNIP com pós-graduação em Medicina Tradicional Chinesa.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl mx-auto mb-4">⚡</div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">Eletroacupuntura</h3>
+                    <p class="text-gray-600">Técnica que amplia as possibilidades de tratamento para dores crônicas e musculoesqueléticas.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🌿</div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">Fitoterapia chinesa</h3>
+                    <p class="text-gray-600">Combinação de acupuntura com plantas medicinais quando o caso exige um plano mais completo.</p>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="/sobre-dra-valda/" class="text-primary font-bold underline decoration-primary/30 underline-offset-4 hover:decoration-primary transition-all">
+                    Conheça a história da Dra. Valda →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVIÇOS — O que tratamos (links internos) ===================== -->
+    <section class="py-16 md:py-24 bg-bg-light">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">O que tratamos na clínica</h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Da dor crônica ao estresse do dia a dia — veja os protocolos mais procurados por quem mora na Praça da Árvore e região.
+                </p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="/tratamentos/acupuntura-ansiedade/" class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all block">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Acupuntura para ansiedade</h3>
+                    <p class="text-gray-600 text-sm">Para quem convive com ansiedade e estresse no dia a dia.</p>
+                </a>
+                <a href="/tratamentos/acupuntura-dor-ciatica/" class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all block">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Dor ciática e lombar</h3>
+                    <p class="text-gray-600 text-sm">Alívio e tratamento de dores nas costas, ciática e hérnias.</p>
+                </a>
+                <a href="/tratamentos/acupuntura-insonia/" class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all block">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Insônia e sono ruim</h3>
+                    <p class="text-gray-600 text-sm">Para recuperar o sono naturalmente, sem depender de remédio.</p>
+                </a>
+                <a href="/tratamentos/acupuntura-enxaqueca/" class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all block">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Enxaqueca e dor de cabeça</h3>
+                    <p class="text-gray-600 text-sm">Redução da frequência e intensidade das crises.</p>
+                </a>
+                <a href="/tratamentos/acupuntura-estresse/" class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all block">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Estresse crônico</h3>
+                    <p class="text-gray-600 text-sm">Para quem chega em casa exausto e não consegue desligar.</p>
+                </a>
+                <a href="/tratamentos/acupuntura-tendinite/" class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all block">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Tendinite e dores articulares</h3>
+                    <p class="text-gray-600 text-sm">Ombro, joelho, cotovelo — dor que não vai embora sozinha.</p>
+                </a>
+            </div>
+            <div class="text-center mt-10">
+                <a href="/acupuntura-sao-paulo-tratamentos/" class="text-primary font-bold underline decoration-primary/30 underline-offset-4 hover:decoration-primary transition-all">
+                    Ver todos os tratamentos →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== OFERTA — Preço transparente ===================== -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Quanto custa</h2>
+            <div class="bg-bg-light rounded-2xl border border-gray-100 shadow-sm p-8 md:p-10">
+                <div class="grid sm:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <p class="text-4xl font-bold text-primary mb-2">R$ 250</p>
+                        <p class="font-semibold text-gray-800">Avaliação inicial</p>
+                        <p class="text-gray-600 text-sm mt-2">Anamnese completa e definição do protocolo com a Dra. Valda.</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold text-primary mb-2">R$ 700+</p>
+                        <p class="font-semibold text-gray-800">Pacotes de sessões</p>
+                        <p class="text-gray-600 text-sm mt-2">Valor por sessão reduzido para quem segue o tratamento.</p>
+                    </div>
+                </div>
+                <a href="/precos/" class="text-primary font-bold underline decoration-primary/30 underline-offset-4 hover:decoration-primary transition-all">
+                    Ver a tabela completa de preços →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FAQ — Perguntas locais ===================== -->
+    <section class="py-16 md:py-24 bg-bg-light">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-10 text-center">Perguntas frequentes (Praça da Árvore e região)</h2>
+            <div class="space-y-4">
+                {faqs.map(faq => (
+                    <details class="bg-white rounded-2xl border border-gray-100 shadow-sm group">
+                        <summary class="font-bold text-gray-800 p-6 cursor-pointer list-none flex items-center justify-between gap-4">
+                            {faq.q}
+                            <span class="text-primary text-xl shrink-0 group-open:rotate-45 transition-transform">+</span>
+                        </summary>
+                        <p class="px-6 pb-6 text-gray-600 leading-relaxed">{faq.a}</p>
+                    </details>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="py-20 bg-primary text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6">Pronto para começar?</h2>
+            <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">Agende sua avaliação na Praça da Árvore e receba um plano de tratamento feito para o seu caso.</p>
+            <a href={waLink('praca_arvore_final_cta')} class="bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:scale-105 transition-all transform inline-flex items-center gap-3" target="_blank" rel="noopener" aria-label="Agendar avaliação final pelo WhatsApp">
+                💬 Agendar com a Dra. Valda
+            </a>
+            <p class="mt-6 text-white/80">ou ligue: <a href="tel:+5511983134656" class="font-bold underline underline-offset-4 hover:text-white transition-colors">(11) 98313-4656</a></p>
+        </div>
+    </section>
+</main>
+
+<!-- Footer (Consistente com Home) -->
+<footer class="bg-gray-800 text-white py-12 text-center text-sm border-t border-gray-700">
+    <div class="container mx-auto px-4">
+        <p class="font-bold text-lg mb-2 font-serif tracking-wide">Clínica Valda Acupuntura</p>
+        <p class="opacity-80 mb-4 text-gray-300">R. Maquerobi, 156 - Vila da Saúde, São Paulo - SP</p>
+        <p class="mb-6"><a href="tel:+5511983134656" class="hover:text-secondary transition-colors font-bold text-lg">(11) 98313-4656</a></p>
+        <p class="opacity-50 text-xs">&copy; 2026 Valda Acupuntura. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href={waLink('praca_arvore_floating')}
+   class="fixed bottom-6 right-6 z-50 bg-secondary text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center w-14 h-14"
+   target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-8 h-8 brightness-0 invert" width="32" height="32" loading="lazy" />
+</a>
+
+</Layout>
