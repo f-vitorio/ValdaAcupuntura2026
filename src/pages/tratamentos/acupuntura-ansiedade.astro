@@ -10,54 +10,68 @@ const heroImgOptimized = await getImage({
   format: 'avif',
   width: 800,
 });
+
+const faqItems = [
+  {
+    q: "A acupuntura dói?",
+    a: "Não. As agulhas utilizadas são extremamente finas (0,20 a 0,25 mm), descartáveis e de uso único. A maioria dos pacientes sente apenas um leve formigamento no início da aplicação e relaxa durante a sessão."
+  },
+  {
+    q: "Acupuntura funciona para ansiedade?",
+    a: "A acupuntura pode fazer parte de uma abordagem complementar para ansiedade, atuando no sistema nervoso e no manejo de sintomas como tensão e sono irregular. A resposta varia de pessoa para pessoa, e um atendimento personalizado permite avaliar melhor a sua situação."
+  },
+  {
+    q: "Quantas sessões são necessárias?",
+    a: "O protocolo é definido após a avaliação inicial. De forma geral, trabalhamos com pacotes de 4 ou 10 sessões, ajustados conforme a sua resposta ao longo do tratamento."
+  },
+  {
+    q: "A acupuntura substitui o remédio ou a terapia que eu já faço?",
+    a: "Não. A acupuntura é uma abordagem complementar e não substitui acompanhamento médico ou psicológico. Nunca interrompa medicamentos por conta própria: qualquer ajuste deve ser feito com o seu profissional de saúde."
+  },
+  {
+    q: "Como funciona a sessão para ansiedade?",
+    a: "A sessão começa pela avaliação: a acupunturista ouve seu relato, entende seu histórico e define os pontos de acordo com o seu quadro. Depois, as agulhas são aplicadas e você permanece em repouso ambiente tranquilo durante o tempo da sessão."
+  },
+  {
+    q: "Qual a diferença entre acupuntura comum e eletroacupuntura?",
+    a: "A eletroacupuntura aplica uma corrente elétrica de baixa intensidade nas agulhas. Em quadros de ansiedade com tensão muscular associada, ela pode ser indicada pela acupunturista para potencializar o efeito de relaxamento — sempre após avaliação do seu caso."
+  },
+  {
+    q: "Quanto custa a avaliação para ansiedade?",
+    a: "A avaliação inicial custa R$ 250. Para a continuidade, há pacotes de 4 sessões por R$ 700 e de 10 sessões por R$ 1.500. O valor é transparente e não há taxa escondida."
+  },
+  {
+    q: "Preciso passar por avaliação antes de agendar uma sessão?",
+    a: "Sim. A avaliação inicial é obrigatória e é nela que entendemos suas necessidades e definimos o protocolo mais adequado para o seu caso. É o primeiro passo de qualquer tratamento na clínica."
+  }
+];
 ---
 
 <Layout
-  title="Acupuntura para Ansiedade em SP | Dra. Valda"
-  description="Acupuntura para ansiedade em SP. Reduza estresse e melhore o sono sem efeitos colaterais. Agende avaliação pelo WhatsApp."
+  title="Acupuntura para Ansiedade em São Paulo – Dra. Valda"
+  description="Acupuntura para ansiedade na Vila da Saúde, SP. Abordagem complementar individual com 20 anos de experiência. Avaliação R$ 250. Agende pelo WhatsApp."
   canonicalUrl="https://valdaacupuntura.com.br/tratamentos/acupuntura-ansiedade/"
   heroPreloadUrl={heroImgOptimized.src}>
 
   <main>
   <Header />
 
-  <!-- FAQ JSON-LD Schema -->
+  <!-- FAQ JSON-LD Schema (espelha a FAQ visível abaixo) -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Acupuntura dói?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Não. As agulhas são extremamente finas. O máximo que você pode sentir é um leve formigamento, proporcionando um relaxamento imediato para a mente acelerada."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Funciona para ansiedade?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A acupuntura pode fazer parte de uma abordagem complementar para ansiedade, atuando no sistema nervoso. A resposta varia de pessoa para pessoa, e um atendimento personalizado permite avaliar melhor a sua situação."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Quantas sessões são necessárias?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Para sentir o alívio real da ansiedade, geralmente recomendamos os pacotes de 4 ou 10 sessões, variando de acordo com a resposta do corpo."
-        }
-      }
-    ]
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": { "@type": "Answer", "text": item.a }
+    }))
   })} />
   <!-- MedicalWebPage + Physician Schema -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
     "name": "Acupuntura para Ansiedade | Valda Acupuntura",
-    "description": "Tratamento de acupuntura para ansiedade com acupuntura em São Paulo. Dra. Valda Fernandes, 20 anos de experiência.",
+    "description": "Abordagem complementar de acupuntura para ansiedade em São Paulo. Dra. Valda Fernandes, 20 anos de experiência, Vila da Saúde.",
     "about": { "@type": "Thing", "name": "Acupuntura para Ansiedade" },
     "author": {
       "@type": "Physician",
@@ -69,20 +83,20 @@ const heroImgOptimized = await getImage({
     }
   })} />
 
-    <!-- HERO -->
+    <!-- ===================== HERO — O que é / para quem / próximo passo ===================== -->
     <section class="relative py-20 md:py-32 text-center overflow-hidden">
-      <img src={heroImgOptimized.src} alt="Acupuntura para ansiedade São Paulo" class="absolute inset-0 w-full h-full object-cover object-center z-0" fetchpriority="high" loading="eager" decoding="async" width={1920} height={1080} />
+      <img src={heroImgOptimized.src} alt="Sala de atendimento da clínica de acupuntura para ansiedade na Vila da Saúde, São Paulo" class="absolute inset-0 w-full h-full object-cover object-center z-0" fetchpriority="high" loading="eager" decoding="async" width={1920} height={1080} />
       <div class="absolute inset-0 bg-gradient-to-b from-[#e8f5e9]/95 to-white/90 z-0"></div>
       
       <div class="container mx-auto px-4 max-w-4xl relative z-10">
         <span class="inline-flex items-center gap-2 bg-[#e6fffa] text-[#047857] px-5 py-2.5 rounded-full font-semibold text-sm mb-6 border border-[#b7eb8f] shadow-sm animate-fade-in mx-auto">
-          Dra. Valda Fernandes • 20 Anos de Experiência
+          4,8★ no Google • 20 anos de experiência
         </span>
         <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-tight mb-6 font-bold">
           Acupuntura para Ansiedade em São Paulo
         </h1>
         <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Sofrendo com estresse, mente acelerada e insônia leve? Buscando a melhor clínica de <strong class="text-primary">acupuntura para ansiedade são paulo</strong>? Descubra o tratamento natural que acalma sua mente sem efeitos colaterais. Atendimento humanizado na Vila da Saúde, Zona Sul.
+          Mente acelerada, tensão no corpo e noites mal dormidas? A acupuntura pode fazer parte de uma <strong class="text-primary">abordagem complementar</strong> para o manejo da ansiedade, com atendimento 100% individual na Vila da Saúde, Zona Sul de São Paulo.
         </p>
         
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
@@ -93,166 +107,226 @@ const heroImgOptimized = await getImage({
             📞 Ligar Agora
           </a>
         </div>
+        <p class="mt-6 text-sm text-gray-500">📍 R. Maquerobi, 156 – Vila da Saúde • perto do Metrô Praça da Árvore</p>
       </div>
     </section>
 
-    <!-- DOR DO PACIENTE -->
+    <!-- ===================== PROBLEMA — Reconhecer a dor do visitante ===================== -->
     <section class="py-16 md:py-24 bg-white">
       <div class="container mx-auto px-4 max-w-4xl text-center">
-        <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">O preço oculto da mente acelerada</h2>
-        <p class="text-lg text-gray-600 leading-relaxed mb-8">
-          A ansiedade constante suga sua energia, prejudica seu sono e afeta seus relacionamentos. O uso contínuo de medicamentos muitas vezes traz letargia, gastos absurdos com remédios e não trata a raiz do problema. A frustração de não conseguir desligar a mente tem um impacto direto e destrutivo na sua qualidade de vida e rotina.
+        <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-6">Quando a mente não desliga</h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+          A preocupação constante suga energia, prejudica o sono e acompanha você o dia inteiro. Tensão no peito, no pescoço e nos ombros, respiração curta, dificuldade para relaxar mesmo depois do trabalho: a ansiedade se manifesta tanto na mente quanto no corpo.
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          Quem chega até aqui normalmente já tentou de tudo — chá, respiração, remédio prescrito, terapia. A acupuntura entra como uma <strong class="text-primary">complementação</strong> ao cuidado que você já tem: uma prática que trabalha o corpo para acalmar a mente, sem substituir o seu acompanhamento médico ou psicológico.
         </p>
       </div>
     </section>
 
-    <!-- SOLUÇÃO (ACUPUNTURA) -->
+    <!-- ===================== MECANISMO — Por que funciona ===================== -->
     <section class="py-16 bg-bg-light">
       <div class="container mx-auto px-4 max-w-6xl">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">A verdadeira eficácia da acupuntura para ansiedade em São Paulo</h2>
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Como a acupuntura atua na ansiedade</h2>
           <p class="text-lg text-gray-600 leading-relaxed mb-6">
-            Nossa abordagem atua exatamente na causa do problema. Utilizamos técnicas avançadas da medicina chinesa, incluindo a eletroacupuntura, para regular os neurotransmissores do bem-estar e promover um alívio real e duradouro das crises de ansiedade.
+            A Medicina Tradicional Chinesa entende a ansiedade como um desequilíbrio entre corpo e mente. Na prática clínica, a estimulação de pontos específicos atua sobre o sistema nervoso, ajudando a reduzir a excitabilidade e a promover relaxamento.
           </p>
           <p class="text-lg text-gray-600 leading-relaxed">
-            Estudos clínicos publicados no <em>Journal of Acupuncture and Meridian Studies</em> demonstram que a acupuntura estimula a liberação de endorfinas e serotonina, auxiliando na regulação do eixo hipotálamo-hipófise-adrenal (HPA), que é diretamente envolvido na resposta ao estresse. Pesquisas da OMS (Organização Mundial da Saúde) também reconhecem a acupuntura como abordagem eficaz para transtornos de ansiedade.
+            Estudos publicados no <em>Journal of Acupuncture and Meridian Studies</em> descrevem a liberação de endorfinas e a regulação do eixo hipotálamo-hipófise-adrenal (HPA), envolvido na resposta ao estresse. A OMS reconhece a acupuntura como abordagem complementar em quadros relacionados a transtornos de ansiedade — sempre como parte de um cuidado acompanhado por profissionais de saúde.
           </p>
         </div>
-      </div>
-    </section>
 
-    <!-- BENEFÍCIOS -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4 max-w-5xl">
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="p-6 bg-gray-50 rounded-xl">
-            <h3 class="font-bold text-xl text-primary mb-3">Alívio Real</h3>
-            <p class="text-gray-600">Redução significativa do estresse diário, controlando a respiração e os batimentos cardíacos acelerados.</p>
+        <div class="grid md:grid-cols-3 gap-8 text-left">
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <div class="text-4xl mb-4">🧠</div>
+            <h3 class="font-serif text-xl font-bold text-gray-800 mb-3">Regulação do sistema nervoso</h3>
+            <p class="text-gray-600">A estimulação dos pontos auxilia na transição do estado de alerta para o estado de repouso — o que você sente como "a mente finalmente desacelerar".</p>
           </div>
-          <div class="p-6 bg-gray-50 rounded-xl">
-            <h3 class="font-bold text-xl text-primary mb-3">Abordagem Complementar</h3>
-            <p class="text-gray-600">Um tratamento natural altamente eficaz que pode complementar outras terapias, sem efeitos colaterais indesejados.</p>
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <div class="text-4xl mb-4">💆</div>
+            <h3 class="font-serif text-xl font-bold text-gray-800 mb-3">Alívio da tensão no corpo</h3>
+            <p class="text-gray-600">Ombros travados, mandíbula apertada, peito tenso: a sessão trabalha as manifestações físicas que acompanham a ansiedade.</p>
           </div>
-          <div class="p-6 bg-gray-50 rounded-xl">
-            <h3 class="font-bold text-xl text-primary mb-3">Qualidade de Vida</h3>
-            <p class="text-gray-600">Recupere o foco, a disposição e consiga melhorar sua rotina, lidando melhor com os desafios diários.</p>
-          </div>
-          <div class="p-6 bg-gray-50 rounded-xl">
-            <h3 class="font-bold text-xl text-primary mb-3">Fim da Insônia Leve</h3>
-            <p class="text-gray-600">Ao acalmar a mente, você poderá dormir melhor, reduzindo consideravelmente a insônia leve.</p>
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <div class="text-4xl mb-4">🌙</div>
+            <h3 class="font-serif text-xl font-bold text-gray-800 mb-3">Sono mais regulado</h3>
+            <p class="text-gray-600">Muitos pacientes relatam adormecer com mais facilidade ao longo do protocolo — o sono é um dos primeiros sinais acompanhados na evolução.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROVA SOCIAL & AUTORIDADE -->
+    <!-- ===================== PARA QUEM — Sinais mais procurados ===================== -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">Para quem é a acupuntura para ansiedade</h2>
+          <p class="text-lg text-gray-600">Sinais que levam muitos pacientes a procurarem a clínica:</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="flex items-start gap-4 bg-bg-light p-6 rounded-2xl border border-gray-100">
+            <span class="text-primary text-2xl mt-1">✓</span>
+            <p class="text-gray-700 leading-relaxed">Preocupação constante e pensamentos que não param, mesmo fora do horário de trabalho</p>
+          </div>
+          <div class="flex items-start gap-4 bg-bg-light p-6 rounded-2xl border border-gray-100">
+            <span class="text-primary text-2xl mt-1">✓</span>
+            <p class="text-gray-700 leading-relaxed">Tensão física: ombros, pescoço e mandíbula sempre contraídos</p>
+          </div>
+          <div class="flex items-start gap-4 bg-bg-light p-6 rounded-2xl border border-gray-100">
+            <span class="text-primary text-2xl mt-1">✓</span>
+            <p class="text-gray-700 leading-relaxed">Sono leve e interrompido, com dificuldade para desacelerar à noite</p>
+          </div>
+          <div class="flex items-start gap-4 bg-bg-light p-6 rounded-2xl border border-gray-100">
+            <span class="text-primary text-2xl mt-1">✓</span>
+            <p class="text-gray-700 leading-relaxed">Desejo de somar uma abordagem natural ao acompanhamento que já faço</p>
+          </div>
+        </div>
+        <p class="text-sm text-gray-500 text-center mt-8 max-w-2xl mx-auto">A acupuntura não substitui diagnóstico nem tratamento médico ou psicológico. Em caso de crise ou agravamento, procure o seu profissional de saúde.</p>
+      </div>
+    </section>
+
+    <!-- ===================== PROCESSO — Como é o atendimento ===================== -->
+    <section class="py-16 bg-bg-light">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <div class="text-center mb-14">
+          <span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full font-semibold text-sm mb-4">Como funciona</span>
+          <h2 class="font-serif text-3xl md:text-4xl text-primary font-bold mb-4">O protocolo para ansiedade, passo a passo</h2>
+          <p class="text-lg text-gray-600">Cada etapa é definida com você, sem pressa e sem fórmula pronta.</p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-8 text-center">
+          <div class="relative">
+            <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 shadow-lg">1</div>
+            <h3 class="font-bold text-lg text-gray-800 mb-2">Avaliação inicial</h3>
+            <p class="text-gray-600 text-sm">Ouvimos seu histórico, seu momento de vida e o que você já tentou até agora.</p>
+          </div>
+          <div class="relative">
+            <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 shadow-lg">2</div>
+            <h3 class="font-bold text-lg text-gray-800 mb-2">Definição dos pontos</h3>
+            <p class="text-gray-600 text-sm">Os pontos de acupuntura são escolhidos de acordo com o seu quadro específico.</p>
+          </div>
+          <div class="relative">
+            <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 shadow-lg">3</div>
+            <h3 class="font-bold text-lg text-gray-800 mb-2">Sessão individual</h3>
+            <p class="text-gray-600 text-sm">Atendimento 1 a 1 em ambiente tranquilo, com agulhas descartáveis de uso único.</p>
+          </div>
+          <div class="relative">
+            <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 shadow-lg">4</div>
+            <h3 class="font-bold text-lg text-gray-800 mb-2">Acompanhamento</h3>
+            <p class="text-gray-600 text-sm">O protocolo é ajustado a cada nova sessão conforme a sua evolução.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROVA — Autoridade ===================== -->
     <section class="py-16 bg-primary text-white">
       <div class="container mx-auto px-4 max-w-6xl flex flex-col md:flex-row items-center gap-12">
         <div class="flex-1 text-left">
           <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Dra. Valda Fernandes</h2>
           <p class="text-lg mb-4 text-white/90 font-medium">
-            Atendimento Personalizado e Humanizado
+            Atendimento personalizado e humanizado na Vila da Saúde
           </p>
           <p class="text-lg mb-4 text-white/90">
-            Com 20 anos de experiência clínica, a Dra. Valda é especialista em Eletroacupuntura. Formada pela UNIP com pós-graduação em Medicina Tradicional Chinesa, ela atendeu milhares de pacientes com quadros de ansiedade, sempre com foco em protocolos individualizados e baseados em evidências.
+            Com <strong>20 anos de experiência clínica</strong>, a Dra. Valda é especialista em Eletroacupuntura, formada pela UNIP com pós-graduação em Medicina Tradicional Chinesa. O cuidado é conduzido com protocolos individualizados e baseados em evidências.
           </p>
-          <p class="text-lg mb-4 text-white/90">
-            O atendimento é 100% individual, sem pressa, em um ambiente acolhedor na Vila da Saúde. Cada sessão é cuidadosamente planejada para atender às suas necessidades específicas, com ajustes contínuos conforme sua evolução.
+          <p class="text-lg mb-6 text-white/90">
+            O atendimento é 100% individual, sem pressa, em um ambiente acolhedor na Vila da Saúde. Cada sessão é planejada para as suas necessidades, com ajustes contínuos conforme sua evolução.
           </p>
           <div class="mb-8 p-6 bg-white/5 rounded-xl border border-white/10">
-            <p class="text-lg text-white/90 italic">
-              "Fui diagnosticada com ansiedade severa. A acupuntura foi o tratamento natural que me devolveu a paz. A Dra. Valda é uma profissional incrível com um atendimento totalmente personalizado." – Ana C.
+            <p class="text-lg text-white/90">
+              <strong class="text-yellow-300">★★★★★ 4,8 no Google</strong> — nota construída com centenas de avaliações de pacientes reais da clínica.
             </p>
+            <a href="https://share.google/wuk8xDQ31yvDVkt3G" target="_blank" rel="noopener noreferrer" class="text-sm underline text-white/80 hover:text-white mt-2 inline-block">Ver avaliações no Google →</a>
           </div>
           <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
             <h3 class="font-bold text-xl mb-2 text-green-300">Localização Privilegiada</h3>
-            <p>Vila da Saúde</p>
-            <p>Zona Sul de São Paulo (SP)</p>
-            <p>Próximo ao Metrô Praça da Árvore</p>
+            <p>Vila da Saúde — Zona Sul de São Paulo</p>
+            <p>Próximo ao Metrô Praça da Árvore (Linha 1 - Azul)</p>
           </div>
         </div>
         <div class="flex-1 max-w-md mx-auto">
-          <Image src={valdaImg} alt="Dra. Valda Fernandes" width={500} height={500} class="rounded-2xl shadow-xl border-4 border-white/10" />
+          <Image src={valdaImg} alt="Dra. Valda Fernandes, acupunturista responsável pelo atendimento para ansiedade" width={500} height={500} class="rounded-2xl shadow-xl border-4 border-white/10" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
-    <!-- PREÇOS -->
+    <!-- ===================== OFERTA — Preços transparentes ===================== -->
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4 max-w-5xl text-center">
-        <h2 class="font-serif text-3xl text-primary font-bold mb-10">Valores dos Tratamentos</h2>
+        <h2 class="font-serif text-3xl text-primary font-bold mb-4">Valores do tratamento para ansiedade</h2>
+        <p class="text-gray-600 mb-10 max-w-2xl mx-auto">Preço fechado, sem surpresa. O protocolo é definido após a avaliação inicial.</p>
         <div class="grid md:grid-cols-3 gap-8">
           <div class="p-8 bg-gray-50 rounded-2xl border border-gray-200">
-            <h3 class="font-bold text-xl text-gray-800 mb-2">Primeira Consulta</h3>
+            <h3 class="font-bold text-xl text-gray-800 mb-2">Avaliação Inicial</h3>
             <div class="text-3xl font-bold text-primary my-4">R$ 250</div>
-            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%20minha%20primeira%20consulta%20para%20ansiedade.&utm_source=site&utm_medium=ansiedade_precos_avaliacao&utm_campaign=whatsapp_agendamento" class="block w-full bg-white text-primary border-2 border-primary px-4 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener" aria-label="Agendar primeira consulta para ansiedade">💬 Agendar</a>
+            <p class="text-sm text-gray-500 mb-4">Primeiro passo obrigatório do protocolo</p>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20para%20ansiedade.&utm_source=site&utm_medium=ansiedade_precos_avaliacao&utm_campaign=whatsapp_agendamento" class="block w-full bg-white text-primary border-2 border-primary px-4 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener" aria-label="Agendar avaliação inicial para ansiedade">💬 Agendar</a>
           </div>
           <div class="p-8 bg-primary rounded-2xl border border-primary text-white transform md:-translate-y-4 shadow-xl relative">
             <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-secondary text-white px-4 py-1 rounded-full text-sm font-bold">Recomendado</div>
             <h3 class="font-bold text-xl mb-2 mt-2">Pacote 4 Sessões</h3>
             <div class="text-3xl font-bold my-4">R$ 700</div>
-            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%204%20sess%C3%B5es%20para%20ansiedade.&utm_source=site&utm_medium=ansiedade_precos_4sessoes&utm_campaign=whatsapp_agendamento" class="block w-full bg-secondary text-white px-4 py-3 rounded-full font-bold hover:bg-white hover:text-secondary transition-colors" target="_blank" rel="noopener" aria-label="Garantir pacote de 4 sessões para ansiedade">✅ Garantir Pacote Agora</a>
+            <p class="text-sm text-white/80 mb-4">R$ 175 por sessão</p>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%204%20sess%C3%B5es%20para%20ansiedade.&utm_source=site&utm_medium=ansiedade_precos_4sessoes&utm_campaign=whatsapp_agendamento" class="block w-full bg-secondary text-white px-4 py-3 rounded-full font-bold hover:bg-white hover:text-secondary transition-colors" target="_blank" rel="noopener" aria-label="Reservar pacote de 4 sessões para ansiedade">✅ Reservar Pacote</a>
           </div>
           <div class="p-8 bg-gray-50 rounded-2xl border border-gray-200">
             <h3 class="font-bold text-xl text-gray-800 mb-2">Pacote 10 Sessões</h3>
-            <div class="text-3xl font-bold text-primary my-4">R$ 1500</div>
-            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%2010%20sess%C3%B5es%20para%20ansiedade.&utm_source=site&utm_medium=ansiedade_precos_10sessoes&utm_campaign=whatsapp_agendamento" class="block w-full bg-white text-primary border-2 border-primary px-4 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener" aria-label="Agendar tratamento completo de 10 sessões para ansiedade">✅ Tratamento Completo</a>
+            <div class="text-3xl font-bold text-primary my-4">R$ 1.500</div>
+            <p class="text-sm text-gray-500 mb-4">R$ 150 por sessão</p>
+            <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20quero%20agendar%2010%20sess%C3%B5es%20para%20ansiedade.&utm_source=site&utm_medium=ansiedade_precos_10sessoes&utm_campaign=whatsapp_agendamento" class="block w-full bg-white text-primary border-2 border-primary px-4 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors" target="_blank" rel="noopener" aria-label="Agendar protocolo completo de 10 sessões para ansiedade">✅ Protocolo Completo</a>
           </div>
         </div>
+        <p class="text-sm text-gray-500 mt-6">Aceitamos PIX, débito e crédito. Nota fiscal fornecida para reembolso junto ao seu plano de saúde, conforme as regras de cada operadora.</p>
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- ===================== FAQ — Objeções reais ===================== -->
     <section class="py-16 bg-bg-light">
       <div class="container mx-auto px-4 max-w-4xl">
-        <h2 class="font-serif text-3xl text-primary font-bold mb-8 text-center">Perguntas Frequentes</h2>
+        <h2 class="font-serif text-3xl text-primary font-bold mb-8 text-center">Perguntas frequentes sobre acupuntura para ansiedade</h2>
         <div class="space-y-4">
-          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <h3 class="font-bold text-xl text-gray-800 mb-2">Acupuntura dói?</h3>
-            <p class="text-gray-600">Não. As agulhas são extremamente finas. O máximo que você pode sentir é um leve formigamento, proporcionando um relaxamento imediato para a mente acelerada.</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <h3 class="font-bold text-xl text-gray-800 mb-2">Funciona para ansiedade?</h3>
-            <p class="text-gray-600">A acupuntura pode fazer parte de uma abordagem complementar para ansiedade, atuando no sistema nervoso. A resposta varia de pessoa para pessoa, e um atendimento personalizado permite avaliar melhor a sua situação.</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <h3 class="font-bold text-xl text-gray-800 mb-2">Quantas sessões são necessárias?</h3>
-            <p class="text-gray-600">Para sentir o alívio real da ansiedade, geralmente recomendamos os pacotes de 4 ou 10 sessões, variando de acordo com a resposta do corpo.</p>
-          </div>
+          {faqItems.map(item => (
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <h3 class="font-bold text-xl text-gray-800 mb-2">{item.q}</h3>
+              <p class="text-gray-600">{item.a}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- Tratamentos Relacionados -->
+    <!-- ===================== CONTEÚDO RELACIONADO — Links internos ===================== -->
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4 max-w-4xl">
-        <h2 class="font-serif text-3xl text-primary font-bold mb-8 text-center">Tratamentos Relacionados</h2>
+        <h2 class="font-serif text-3xl text-primary font-bold mb-8 text-center">Tratamentos e conteúdo relacionados</h2>
         <div class="grid md:grid-cols-3 gap-6">
           <a href="/tratamentos/acupuntura-estresse/" class="block p-6 bg-bg-light rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all group">
             <div class="text-3xl mb-3">🧠</div>
             <h3 class="font-bold text-lg text-gray-800 group-hover:text-primary mb-2">Acupuntura para Estresse</h3>
-            <p class="text-gray-500 text-sm">Tratamento natural para equilibrar o estresse e recuperar o bem-estar</p>
+            <p class="text-gray-500 text-sm">Complemento natural para o estresse do dia a dia</p>
           </a>
           <a href="/tratamentos/acupuntura-insonia/" class="block p-6 bg-bg-light rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all group">
             <div class="text-3xl mb-3">🌙</div>
             <h3 class="font-bold text-lg text-gray-800 group-hover:text-primary mb-2">Acupuntura para Insônia</h3>
-            <p class="text-gray-500 text-sm">Alívio natural para insônia e distúrbios do sono</p>
+            <p class="text-gray-500 text-sm">Para quem a ansiedade roubou o sono</p>
           </a>
-          <a href="/tratamentos/acupuntura-bruxismo/" class="block p-6 bg-bg-light rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all group">
-            <div class="text-3xl mb-3">🦷</div>
-            <h3 class="font-bold text-lg text-gray-800 group-hover:text-primary mb-2">Acupuntura para Bruxismo</h3>
-            <p class="text-gray-500 text-sm">Tratamento para bruxismo frequentemente ligado à ansiedade</p>
+          <a href="/blog/acupuntura-ansiedade-funciona/" class="block p-6 bg-bg-light rounded-2xl border border-gray-100 hover:border-primary hover:shadow-md transition-all group">
+            <div class="text-3xl mb-3">📖</div>
+            <h3 class="font-bold text-lg text-gray-800 group-hover:text-primary mb-2">Acupuntura funciona para ansiedade?</h3>
+            <p class="text-gray-500 text-sm">Artigo completo com o que dizem os estudos</p>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- CTA FINAL -->
+    <!-- ===================== CTA FINAL ===================== -->
     <section class="py-20 bg-white text-center">
       <div class="container mx-auto px-4">
-        <h2 class="font-serif text-4xl text-primary font-bold mb-6">Dê o primeiro passo para uma mente tranquila e sem estresse</h2>
+        <h2 class="font-serif text-4xl text-primary font-bold mb-6">Dê o primeiro passo para uma mente mais tranquila</h2>
+        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Comece pela avaliação inicial: entendemos o seu caso e definimos o protocolo junto com você.</p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
-          <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20minha%20avalia%C3%A7%C3%A3o%20para%20ansiedade.&utm_source=site&utm_medium=ansiedade_final_cta&utm_campaign=whatsapp_agendamento" class="bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-3 animate-pulse-slow" target="_blank" rel="noopener" aria-label="Agendar avaliação final para ansiedade pelo WhatsApp">
+          <a href="https://wa.me/5511983134656?text=Ol%C3%A1,%20gostaria%20de%20agendar%20minha%20avalia%C3%A7%C3%A3o%20para%20ansiedade.&utm_source=site&utm_medium=ansiedade_final_cta&utm_campaign=whatsapp_agendamento" class="bg-secondary text-white px-10 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-3 animate-pulse-slow" target="_blank" rel="noopener" aria-label="Agendar avaliação para ansiedade pelo WhatsApp">
             💬 Agendar com a Dra. Valda
           </a>
           <a href="tel:+5511983134656" class="bg-white text-primary border-2 border-primary px-10 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-3" aria-label="Ligar para a clínica">
