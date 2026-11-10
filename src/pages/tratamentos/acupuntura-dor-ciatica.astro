@@ -10,11 +10,17 @@ const heroImgOptimized = await getImage({
   format: 'avif',
   width: 800,
 });
+
+// SEO metadata para página de dor ciática
+const pageTitle = 'Acupuntura para Dor Ciática e Lombar em São Paulo | Tratamento Dra. Valda';
+const pageDescription = 'Acupuntura para dor ciática e lombar em São Paulo. Tratamento para hérnias de disco, tensões musculares e dores lombares crônicas. Dra. Valda Fernandes - 20 anos de experiência. Agende avaliação R$ 250.';
+const pageKeywords = 'acupuntura dor ciática, tratamento acupuntura dor ciática, dor ciática com acupuntura São Paulo, ciática acupuntura';
+
 ---
 
 <Layout
-  title="Acupuntura para Dor Ciática em SP | Eletroacupuntura | Dra. Valda"
-  description="Alívio da dor ciática com acupuntura em SP. Eletroacupuntura e 20 anos de experiência. Avaliação R$ 250. Agende agora."
+  title={pageTitle}
+  description={pageDescription}
   canonicalUrl="https://valdaacupuntura.com.br/tratamentos/acupuntura-dor-ciatica/"
   heroPreloadUrl={heroImgOptimized.src}>
 

@@ -10,11 +10,17 @@ const heroImgOptimized = await getImage({
   format: 'avif',
   width: 800,
 });
+
+// SEO metadata para página de enxaqueca
+const pageTitle = 'Acupuntura para Enxaqueca em São Paulo | Tratamento Dra. Valda';
+const pageDescription = 'Acupuntura para enxaqueca em São Paulo. Tratamento natural que reduz a frequência e intensidade de crises. Dra. Valda Fernandes - 20 anos de experiência. Agende avaliação R$ 250.';
+const pageKeywords = 'acupuntura enxaqueca, tratamento acupuntura enxaqueca, enxaqueca com acupuntura São Paulo, cabeceira enxaqueca';
+
 ---
 
 <Layout
-  title="Acupuntura para Enxaqueca em SP | Valda Acupuntura"
-  description="Sofrendo com crises fortes? Acupuntura para enxaqueca em SP, Vila da Saúde (Zona Sul). Alívio rápido e natural. Agende!"
+  title={pageTitle}
+  description={pageDescription}
   canonicalUrl="https://valdaacupuntura.com.br/tratamentos/acupuntura-enxaqueca/"
   heroPreloadUrl={heroImgOptimized.src}>
 

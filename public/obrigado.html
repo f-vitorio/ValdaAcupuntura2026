@@ -41,32 +41,50 @@
             }
         }
     </script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-green-50 h-screen flex items-center justify-center text-center px-4">
+<body class="bg-green-50 min-h-screen flex items-center justify-center text-center py-8">
 
-    <div class="bg-white p-10 rounded-3xl shadow-xl max-w-lg border border-green-100">
-        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 text-green-600">
-            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-        </div>
-
-        <h1 class="text-3xl font-serif font-bold text-gray-900 mb-4">Obrigado!</h1>
-        <p class="text-gray-600 mb-8 text-lg">
-            Sua solicitação foi recebida com sucesso. <br>
-            Entraremos em contato em breve para confirmar seu agendamento.
-        </p>
-
-        <a href="index.html"
-            class="inline-block px-8 py-3 rounded-xl bg-green-600 hover:bg-green-700 text-white font-medium transition duration-300 shadow-md">
-            Voltar para o Início
+<div class="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full border border-green-100">
+    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 text-green-600">
+        <svg class="w-8 h-8 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+    </div>
+    
+    <h1 class="text-2xl font-serif font-bold text-gray-900 mb-4">Obrigado!</h1>
+    <p class="text-gray-600 mb-8 text-lg">
+        Sua solicitação foi recebida com sucesso. Entraremos em contato em breve para confirmar seu agendamento.
+    </p>
+    
+    <div class="space-y-4">
+        <a href="/"
+            class="inline-block px-6 py-3 rounded-xl bg-secondary text-white font-medium text-lg transition duration-300 shadow-md">
+            Ver nossos tratamentos
+        </a>
+        <a href="/precos/"
+            class="inline-block px-6 py-3 rounded-xl bg-green-600 text-white font-medium text-lg transition duration-300 shadow-md"
+            style="background: #22c55e;">
+            Ver valores e pacotes
+        </a>
+        <a href="/#localizacao"
+            class="inline-block px-6 py-3 rounded-xl bg-white text-gray-700 font-medium text-lg border-2 border-gray-200 transition duration-300 shadow-md"
+            style="border-color: #cbd5e1;">
+            Ver localização
+        </a>
+        <a href="https://wa.me/5511983134656"
+            class="inline-block px-6 py-3 rounded-xl bg-white text-green-600 font-medium text-lg border-2 border-green-400 transition duration-300 shadow-md"
+            target="_blank"
+            rel="noopener">
+            Conversar no WhatsApp
         </a>
     </div>
+    
+    <p class="mt-6 text-sm text-gray-500">
+        📍 R. Maquerobi, 156 – Vila da Saúde • Zona Sul • próximo do Metrô Praça da Árvore
+    </p>
+</div>
 
 </body>
-
 </html>

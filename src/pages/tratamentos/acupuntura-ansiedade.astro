@@ -11,6 +11,11 @@ const heroImgOptimized = await getImage({
   width: 800,
 });
 
+// SEO metadata para página de ansiedade
+const pageTitle = 'Acupuntura para Ansiedade em São Paulo | Tratamento Dra. Valda';
+const pageDescription = 'Acupuntura para ansiedade em São Paulo. Tratamento com Dra. Valda Fernandes. Protocolos individualizados para alívio de ansiedade e estresse. Agende avaliação R$ 250.';
+const pageKeywords = 'acupuntura ansiedade, tratamento acupuntura ansiedade, acupuntura estresse, ansiedade com acupuntura São Paulo';
+
 const faqItems = [
   {
     q: "A acupuntura dói?",
@@ -48,8 +53,8 @@ const faqItems = [
 ---
 
 <Layout
-  title="Acupuntura para Ansiedade em São Paulo – Dra. Valda"
-  description="Acupuntura para ansiedade na Vila da Saúde, SP. Abordagem complementar individual com 20 anos de experiência. Avaliação R$ 250. Agende pelo WhatsApp."
+  title={pageTitle}
+  description={pageDescription}
   canonicalUrl="https://valdaacupuntura.com.br/tratamentos/acupuntura-ansiedade/"
   heroPreloadUrl={heroImgOptimized.src}>
 

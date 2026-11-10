@@ -12,7 +12,38 @@ const heroImgOptimized = await getImage({
   width: 800,
 });
 
-// FAQ Schema data
+// SEO Metadata por palavra-chave
+const seoMetadata = {
+  'clinica-de-acupuntura': {
+    title: 'Clínica de Acupuntura em São Paulo | Vila da Saúde - Dra. Valda',
+    description: 'Clínica de acupuntura em São Paulo - Vila da Saúde, Zona Sul. 20 anos de experiência, atendimento individual com 4,8★ no Google. Agende sua avaliação R$ 250.'
+  },
+  'acupuntura-perto-de-mim': {
+    title: 'Acupuntura Perto de Mim em SP - Clínica Valda - Metrô Praça da Árvore',
+    description: 'Acupuntura perto de mim em São Paulo. Clínica Valda na Vila da Saúde, Zona Sul, a poucos minutos do Metrô Praça da Árvore (Linha 1 - Azul). Atendimento individual com 20 anos de experiência.'
+  },
+  'acupuntura-preco': {
+    title: 'Valores Acupuntura em São Paulo | Avaliação R$ 250 - Pacotes',
+    description: 'Valores acupuntura em SP: avaliação R$ 250. Pacotes de 4 sessões R$ 700 e 10 sessões R$ 1.500. Transparência total. Agende pela clínica Valda na Vila da Saúde.'
+  },
+  'acupunturista': {
+    title: 'Acupunturista Dra. Valda em São Paulo | 20 Anos de Experiência',
+    description: 'Acupunturista Dra. Valda Fernandes. Formada pela UNIP e pós-graduação em Medicina Tradicional Chinesa. Tratamentos individualizados para dor, ansiedade, insônia e enxaqueca. Agende avaliação.'
+  },
+  'default': {
+    title: 'Clínica Valda Acupuntura - 20 Anos de Experiência em São Paulo',
+    description: 'Clínica Valda Acupuntura em São Paulo - Vila da Saúde. 4,8★ no Google. Atendimento individual com Dra. Valda Fernandes. Agende sua avaliação R$ 250.'
+  }
+};
+
+// Obter metadata baseada na página corrente
+const currentPath = window.location.pathname;
+const currentTitle = Object.keys(seoMetadata).includes(currentPath.replace('/', '')) 
+  ? seoMetadata[currentPath.replace('/', '')].title 
+  : seoMetadata.default.title;
+const currentDesc = Object.keys(seoMetadata).includes(currentPath.replace('/', '')) 
+  ? seoMetadata[currentPath.replace('/', '')].description 
+  : seoMetadata.default.description;
 const faqSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -181,8 +212,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Clínica de Acupuntura em São Paulo – Vila da Saúde | 4,8★"
-  description="Clínica de acupuntura na Vila da Saúde, Zona Sul de SP. 20 anos de experiência, atendimento individual e 4,8★ no Google. Agende pelo WhatsApp."
+  title={currentTitle}
+  description={currentDesc}
   heroPreloadUrl={heroImgOptimized.src}
   canonicalUrl="https://valdaacupuntura.com.br/">
 
@@ -262,6 +293,33 @@ const faqSchema = {
       </p>
     </div>
   </section>
+
+  <!-- 3. CONTATO IMEDIATO -->
+  <section class="py-4 bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl text-primary font-bold">📞</span>
+        <a href="tel:+5511983134656" class="font-bold text-gray-900 text-lg hover:text-primary transition-colors">
+          (11) 98313-4656
+        </a>
+      </div>
+      <div class="flex items-center gap-3 text-sm text-gray-600">
+        <span>De Seg a Sex: 8h às 19h</span>
+        <span>Sáb: 8h às 14h</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preços Rápidos -->
+  <div class="mt-6 text-center">
+    <p class="text-lg font-medium text-gray-600 mb-2">Confira nossos valores</p>
+    <div class="inline-flex gap-4">
+      <span class="bg-green-100 text-green-800 px-3 py-1 rounded text-sm">Avaliação R$ 250</span>
+      <span class="bg-green-100 text-green-800 px-3 py-1 rounded text-sm">4 sessões R$ 700</span>
+      <span class="bg-green-100 text-green-800 px-3 py-1 rounded text-sm">10 sessões R$ 1.500</span>
+    </div>
+    <a href="/precos/" class="mt-4 inline-block bg-secondary text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-white hover:text-primary transition-all">Ver todos os planos</a>
+  </div>
 
   <!-- 2. DECISÃO RÁPIDA (Intenção Comercial) -->
   <section class="py-10 md:py-14 bg-white border-b border-gray-100">

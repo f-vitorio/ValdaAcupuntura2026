@@ -10,11 +10,17 @@ const heroImgOptimized = await getImage({
   format: 'avif',
   width: 800,
 });
+
+// SEO metadata para página de auriculoterapia
+const pageTitle = 'Auriculoterapia em São Paulo | Tratamento Dra. Valda';
+const pageDescription = 'Auriculoterapia em São Paulo. Estimulação de pontos da orelha para tratar dor, estresse, insônia e outros quadros de forma natural. Dra. Valda Fernandes - 20 anos de experiência. Agende avaliação R$ 250.';
+const pageKeywords = 'auriculoterapia, tratamento auriculoterapia, auriculoterapia para dor, auriculoterapia estresse São Paulo';
+
 ---
 
 <Layout
-  title="Auriculoterapia em SP | Valda Acupuntura"
-  description="Auriculoterapia em São Paulo. Tratamento natural por pontos na orelha para dor, estresse e insônia. Clínica Vila da Saúde. Agende avaliação."
+  title={pageTitle}
+  description={pageDescription}
   canonicalUrl="https://valdaacupuntura.com.br/tratamentos/auriculoterapia/"
   heroPreloadUrl={heroImgOptimized.src}>
 
